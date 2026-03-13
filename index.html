@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josef Pavlovic | Fotograf z Karlovarského kraje</title>
+    <meta name="description" content="Profesionální fotograf Josef Pavlovic - svatební fotografie, portréty, interiéry hotelů, boudoir. Karlovarský kraj, Mariánské Lázně.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W7RS78XGM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9W7RS78XGM');
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Josef Pavlovic</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#sluzby">Služby</a></li>
+                <li><a href="#svatby">Svatby</a></li>
+                <li><a href="#portrety">Portréty</a></li>
+                <li><a href="#interiery">Interiéry</a></li>
+                <li><a href="#marianske-lazne">Mariánské Lázně</a></li>
+                <li><a href="#boudoir">Boudoir</a></li>
+                <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Fotograf z Karlovarského kraje</p>
+            <h1 class="hero-title">Hledáte fotografa<br><em>právě pro vás?</em></h1>
+            <p class="hero-desc">Specializuji se na svatby, portréty, eventy a fotografii hotelů a interiérů.</p>
+            <div class="hero-buttons">
+                <a href="#sluzby" class="btn btn-primary">Prohlédnout služby</a>
+                <a href="#kontakt" class="btn btn-outline">Napište mi</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- Services Overview -->
+    <section class="services" id="sluzby">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Služby</span>
+                <h2 class="section-title">Co pro vás mohu udělat</h2>
+                <p class="section-desc">Každý projekt je pro mě jedinečný. Ať už plánujete svatbu, potřebujete profesionální portrét nebo fotografie vašeho hotelu.</p>
+            </div>
+            <div class="services-grid">
+                <a href="#svatby" class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <h3>Svatební fotografie</h3>
+                    <p>Zachytím váš velký den od příprav až po večerní oslavu. Přirozené momenty plné emocí.</p>
+                    <span class="service-link">Zjistit více &rarr;</span>
+                </a>
+                <a href="#portrety" class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <h3>Portréty</h3>
+                    <p>Portrétní focení na míru. Nabízím i TFP spolupráce pro zajímavé koncepty.</p>
+                    <span class="service-link">Zjistit více &rarr;</span>
+                </a>
+                <a href="#interiery" class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    </div>
+                    <h3>Hotely a interiéry</h3>
+                    <p>Profesionální fotografie interiérů, exteriérů, hotelů a penzionů dle vašich potřeb.</p>
+                    <span class="service-link">Zjistit více &rarr;</span>
+                </a>
+                <a href="#marianske-lazne" class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"></path><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"></path><path d="M3.5 14H5v1.5C5 16.33 4.33 17 3.5 17S2 16.33 2 15.5 2.67 14 3.5 14z"></path><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"></path><path d="M15 9.5C15 8.67 15.67 8 16.5 8h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"></path></svg>
+                    </div>
+                    <h3>Mariánské Lázně</h3>
+                    <p>Krajinářská a cestovní fotografie z mého rodného města a okolí.</p>
+                    <span class="service-link">Zjistit více &rarr;</span>
+                </a>
+                <a href="#boudoir" class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <h3>Boudoir</h3>
+                    <p>Intimní a umělecké fotografie, které posouvají kreativní hranice.</p>
+                    <span class="service-link">Zjistit více &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Photography -->
+    <section class="section-dark" id="svatby">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-content">
+                    <span class="section-tag">Svatební fotografie</span>
+                    <h2 class="section-title">Svatební sezóna 2025</h2>
+                    <p>Zachytím váš velký den od příprav až po večerní oslavu. Přirozené momenty plné emocí, které si budete prohlížet celý život.</p>
+
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <h4>Celodenní focení</h4>
+                            <div class="price">7 000 Kč</div>
+                            <ul>
+                                <li>Přípravy nevěsty a ženicha</li>
+                                <li>Fotografování obřadu</li>
+                                <li>Skupinové fotografie</li>
+                                <li>Dokumentace hostiny</li>
+                                <li>Portréty novomanželů</li>
+                                <li>Zachycení spontánních momentů</li>
+                                <li>200–300 upravených fotografií</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card featured">
+                            <div class="pricing-badge">Nejoblíbenější</div>
+                            <h4>Celodenní focení Plus</h4>
+                            <div class="price">11 000 Kč</div>
+                            <ul>
+                                <li>Vše z balíčku Celodenní focení</li>
+                                <li>Předsvatební focení</li>
+                                <li>Druhý fotograf</li>
+                                <li>200–300 upravených fotografií</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Jak to probíhá?</h4>
+                        <p>Doporučuji rezervovat termín co nejdříve, svatební termíny se plní rychle. Není potřeba záloha, stačí potvrzení data.</p>
+                        <p>Přibližně měsíc před svatbou se osobně setkáme, probereme průběh dne, plánované momenty, překvapení a provedeme krátké předsvatební focení zaměřené na nácvik póz.</p>
+                        <p><strong>Dodání:</strong> Fotografie dodávám do 14 dnů od svatby v digitální podobě. Obdržíte odkaz ke sdílení s hosty a soubory v plném rozlišení vhodné pro tisk.</p>
+                        <p><strong>Platba:</strong> Fakturu zasílám až po schválení fotografií. Platíte až když jste spokojeni.</p>
+                        <p>Obřad samotný: cca 30–70 upravených fotografií.</p>
+                        <p>Všechny originální neupravené soubory jsou k dispozici na vyžádání.</p>
+                    </div>
+
+                    <a href="#kontakt" class="btn btn-primary">Poptat svatební focení</a>
+                </div>
+                <div class="split-gallery">
+                    <div class="gallery-placeholder">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <p>Svatební fotografie</p>
+                    </div>
+                    <div class="gallery-placeholder">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <p>Přípravy nevěsty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portraits -->
+    <section class="section-light" id="portrety">
+        <div class="container">
+            <div class="split-section reverse">
+                <div class="split-content">
+                    <span class="section-tag">Portréty</span>
+                    <h2 class="section-title">Fotografování portrétů</h2>
+                    <p>Kvalitní portrétní práce je mou vášní. Nabízím také focení formou <strong>TFP (Time for Prints)</strong> – zdarma pro zajímavé koncepty.</p>
+
+                    <div class="process-steps">
+                        <h4>Jak probíhá focení:</h4>
+                        <div class="step">
+                            <span class="step-number">01</span>
+                            <div>
+                                <strong>Domluva konceptu</strong>
+                                <p>Musíme se domluvit, co fotíme – styl, nálada, lokace.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">02</span>
+                            <div>
+                                <strong>Ladění nálady a osvětlení</strong>
+                                <p>Společně naladíme scénu pro dosažení požadovaného efektu.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">03</span>
+                            <div>
+                                <strong>Stanovení data</strong>
+                                <p>Domluvíme termín, který vyhovuje oběma stranám.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">04</span>
+                            <div>
+                                <strong>Samotné focení</strong>
+                                <p>Focení trvá obvykle několik hodin.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">05</span>
+                            <div>
+                                <strong>Postprocess</strong>
+                                <p>Úprava fotografií – několik dní až týdnů, maximálně 4 týdny.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#kontakt" class="btn btn-primary">Poptat portrétní focení</a>
+                </div>
+                <div class="split-gallery">
+                    <div class="gallery-placeholder tall">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <p>Portrétní fotografie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotels & Interiors -->
+    <section class="section-dark" id="interiery">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-content">
+                    <span class="section-tag">Interiérové fotografie</span>
+                    <h2 class="section-title">Focení hotelů, penzionů a interiérů</h2>
+                    <p>Potřebujete fotografie interiérů, exteriérů? Fotografování interiérů, hotelů, penzionů dle vašich potřeb. Vytvořím profesionální snímky, které pomohou vaší prezentaci.</p>
+                    <p>Každý prostor má svůj příběh. Pomohu vám ho zachytit tak, aby zaujal vaše klienty na první pohled.</p>
+
+                    <div class="features-list">
+                        <div class="feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Fotografie interiérů a exteriérů</span>
+                        </div>
+                        <div class="feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Hotelové a penzionní prostory</span>
+                        </div>
+                        <div class="feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Kalkulace na míru po poptávce</span>
+                        </div>
+                    </div>
+
+                    <a href="#kontakt" class="btn btn-primary">Poptat focení interiérů</a>
+                </div>
+                <div class="split-gallery">
+                    <div class="gallery-placeholder wide">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <p>Interiérová fotografie</p>
+                    </div>
+                    <div class="gallery-placeholder wide">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <p>Hotelová fotografie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marianske Lazne -->
+    <section class="section-light" id="marianske-lazne">
+        <div class="container">
+            <div class="split-section reverse">
+                <div class="split-content">
+                    <span class="section-tag">Mariánské Lázně</span>
+                    <h2 class="section-title">Fotografie z mého rodného města</h2>
+                    <p>Focení v Mariánských Lázních je zážitek, který si rád dopřávám. Město nabízí nespočet fotogenických míst a parků, které mě neustále inspirují.</p>
+                    <p>Krajinářská a cestovní fotografie z okolí – kolonády, parky, panoramata v různých ročních obdobích.</p>
+                    <a href="#kontakt" class="btn btn-primary">Domluvit focení</a>
+                </div>
+                <div class="split-gallery">
+                    <div class="gallery-placeholder landscape">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </div>
+                        <p>Mariánské Lázně</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boudoir -->
+    <section class="section-accent" id="boudoir">
+        <div class="container">
+            <div class="centered-content">
+                <span class="section-tag">Boudoir</span>
+                <h2 class="section-title">Umělecké a intimní fotografie</h2>
+                <p>Každý rok se snažím najít si čas na focení, které mě přiměje hledat limity. Boudoir je jednou z mých tvůrčích vášní.</p>
+                <p>Nabízím <strong>TFP (Time for Prints) focení</strong> – spolupráce zdarma pro ty, kteří mají zajímavý portrétní koncept. Pokud vás to zaujalo, neváhejte mě kontaktovat.</p>
+
+                <div class="process-steps compact">
+                    <h4>Průběh spolupráce:</h4>
+                    <div class="step-inline-grid">
+                        <div class="step-inline">
+                            <span class="step-number">01</span>
+                            <p>Domluva konceptu</p>
+                        </div>
+                        <div class="step-inline">
+                            <span class="step-number">02</span>
+                            <p>Ladění nálady a světla</p>
+                        </div>
+                        <div class="step-inline">
+                            <span class="step-number">03</span>
+                            <p>Stanovení termínu</p>
+                        </div>
+                        <div class="step-inline">
+                            <span class="step-number">04</span>
+                            <p>Samotné focení</p>
+                        </div>
+                        <div class="step-inline">
+                            <span class="step-number">05</span>
+                            <p>Postprocess (max 4 týdny)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#kontakt" class="btn btn-primary">Poptat boudoir focení</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section-contact" id="kontakt">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Kontakt</span>
+                    <h2 class="section-title">Chcete se mnou fotit?<br>Napište kdy a kde!</h2>
+                    <p>Neváhejte mě kontaktovat s jakýmkoliv dotazem. Odpovím vám do 48 hodin.</p>
+
+                    <div class="contact-methods">
+                        <a href="tel:+420607517967" class="contact-method">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div>
+                                <strong>Telefon</strong>
+                                <span>+420 607 517 967</span>
+                            </div>
+                        </a>
+                        <a href="mailto:mail@josefpavlovic.cz" class="contact-method">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div>
+                                <strong>E-mail</strong>
+                                <span>mail@josefpavlovic.cz</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Jméno</label>
+                            <input type="text" id="name" name="name" required placeholder="Vaše jméno">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="vas@email.cz">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Služba</label>
+                            <select id="service" name="service">
+                                <option value="">Vyberte službu...</option>
+                                <option value="svatba">Svatební fotografie</option>
+                                <option value="portret">Portrétní focení</option>
+                                <option value="interier">Interiéry / Hotely</option>
+                                <option value="boudoir">Boudoir</option>
+                                <option value="jine">Jiné</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Zpráva</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Popište, co byste si představovali..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Odeslat poptávku</button>
+                        <p class="form-note">Odpovím vám do 48 hodin.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Josef Pavlovic</span>
+                    <p>Fotograf z Karlovarského kraje<br>Mariánské Lázně</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#svatby">Svatby</a>
+                    <a href="#portrety">Portréty</a>
+                    <a href="#interiery">Interiéry</a>
+                    <a href="#marianske-lazne">Krajina</a>
+                    <a href="#boudoir">Boudoir</a>
+                    <a href="#kontakt">Kontakt</a>
+                </div>
+                <div class="footer-contact">
+                    <a href="tel:+420607517967">+420 607 517 967</a>
+                    <a href="mailto:mail@josefpavlovic.cz">mail@josefpavlovic.cz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Josef Pavlovic. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
