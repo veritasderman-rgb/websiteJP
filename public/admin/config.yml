@@ -1,0 +1,59 @@
+backend:
+  name: github
+  repo: veritasderman-rgb/websiteJP
+  branch: main
+
+media_folder: "public/images/portfolio"
+public_folder: "/images/portfolio"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio Projects"
+    folder: "src/content/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - architecture
+          - street
+          - landscape
+          - portrait
+          - documentary
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "cover", widget: "image" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        field: { label: "Image", name: "image", widget: "image" }
+        required: false
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General"
+        name: "site"
+        file: "src/content/settings/site.json"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Hero Text", name: "heroText", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "Copyright Name", name: "copyright", widget: "string" }

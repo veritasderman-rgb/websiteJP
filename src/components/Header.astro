@@ -1,0 +1,116 @@
+---
+interface Props {
+  siteTitle: string;
+}
+
+const { siteTitle } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">{siteTitle}</a>
+    <nav class="nav">
+      <a href="/" class:list={[{ active: currentPath === '/' }]}>Portfolio</a>
+      <a href="/about" class:list={[{ active: currentPath === '/about' }]}>About</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-white);
+    letter-spacing: 0.02em;
+  }
+
+  .logo:hover {
+    color: var(--color-accent);
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .nav a {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    color: var(--color-white);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--color-white);
+    margin: 6px 0;
+    transition: 0.2s;
+  }
+
+  @media (max-width: 640px) {
+    .nav { display: none; }
+    .menu-toggle { display: block; }
+
+    .nav.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      background: var(--color-bg);
+      padding: var(--space-lg);
+      border-bottom: 1px solid var(--color-border);
+      gap: var(--space-md);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  toggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+</script>

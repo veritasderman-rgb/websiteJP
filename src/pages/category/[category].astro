@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('portfolio');
+  const categories = [...new Set(projects.map((p) => p.data.category))];
+  return categories.map((category) => ({
+    params: { category },
+    props: {
+      category,
+      projects: projects
+        .filter((p) => p.data.category === category)
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+    },
+  }));
+}
+
+const { category, projects } = Astro.props;
+const allProjects = await getCollection('portfolio');
+const categories = [...new Set(allProjects.map((p) => p.data.category))];
+---
+
+<Base title={category}>
+  <section class="container">
+    <div class="project-header">
+      <h1 style="text-transform: capitalize;">{category}</h1>
+    </div>
+
+    <div class="category-filter">
+      <a href="/">All</a>
+      {categories.map((cat) => (
+        <a href={`/category/${cat}`} class:list={[{ active: cat === category }]}>{cat}</a>
+      ))}
+    </div>
+
+    <div class="portfolio-grid">
+      {projects.map((project) => (
+        <PortfolioCard
+          title={project.data.title}
+          description={project.data.description}
+          category={project.data.category}
+          cover={project.data.cover}
+          slug={project.id}
+        />
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,296 @@
+/* ============================================
+   DARK EDITORIAL THEME
+   Photography Portfolio
+   ============================================ */
+
+:root {
+  /* Colors */
+  --color-bg: #0a0a0a;
+  --color-bg-elevated: #141414;
+  --color-bg-card: #1a1a1a;
+  --color-border: #2a2a2a;
+  --color-text: #e8e8e8;
+  --color-text-muted: #888888;
+  --color-accent: #c8a86e;
+  --color-accent-hover: #d4b97e;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Main content */
+main {
+  flex: 1;
+  padding-top: var(--header-height);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.hero h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* ============================================
+   PORTFOLIO GRID
+   ============================================ */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-lg);
+  padding: var(--space-xl) 0;
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   CATEGORY FILTER
+   ============================================ */
+.category-filter {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.category-filter a {
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+}
+
+.category-filter a:hover,
+.category-filter a.active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ============================================
+   PROJECT DETAIL
+   ============================================ */
+.project-header {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+}
+
+.project-header h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.project-meta {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.project-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-lg);
+}
+
+.project-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.project-gallery img:hover {
+  opacity: 0.85;
+}
+
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+.about-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.about-content h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.about-content p,
+.about-content li {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.about-content ul {
+  list-style: none;
+}
+
+.about-content strong {
+  color: var(--color-text);
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ============================================
+   PLACEHOLDER IMAGES
+   ============================================ */
+.placeholder-img {
+  background: var(--color-bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

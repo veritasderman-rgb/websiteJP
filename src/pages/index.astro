@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import { getCollection } from 'astro:content';
+
+const siteSettings = await import('../content/settings/site.json');
+const allProjects = await getCollection('portfolio');
+const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = [...new Set(projects.map((p) => p.data.category))];
+---
+
+<Base>
+  <section class="hero">
+    <div>
+      <h1>{siteSettings.title}</h1>
+      <p>{siteSettings.heroText}</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="category-filter">
+      <a href="/" class="active">All</a>
+      {categories.map((cat) => (
+        <a href={`/category/${cat}`}>{cat}</a>
+      ))}
+    </div>
+
+    <div class="portfolio-grid">
+      {projects.map((project) => (
+        <PortfolioCard
+          title={project.data.title}
+          description={project.data.description}
+          category={project.data.category}
+          cover={project.data.cover}
+          slug={project.id}
+        />
+      ))}
+    </div>
+  </section>
+</Base>

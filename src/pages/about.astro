@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+const pages = await getCollection('pages');
+const aboutPage = pages.find((p) => p.id === 'about');
+
+let Content;
+let title = 'About';
+let description = '';
+
+if (aboutPage) {
+  const rendered = await render(aboutPage);
+  Content = rendered.Content;
+  title = aboutPage.data.title;
+  description = aboutPage.data.description || '';
+}
+---
+
+<Base title={title} description={description}>
+  <div class="about-content">
+    {Content && <Content />}
+  </div>
+</Base>
