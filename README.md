@@ -57,10 +57,12 @@ Project description in Markdown.
 
 ## Deploy
 
-### Netlify
-Connect your GitHub repo to Netlify. Build settings are in `netlify.toml`.
+### Vercel (primary)
+1. Importuj repozitář na [vercel.com/new](https://vercel.com/new)
+2. Framework bude automaticky detekován jako Astro
+3. Klikni **Deploy** — hotovo
 
-### GitHub Pages
+### GitHub Pages (alternative)
 Enable GitHub Pages in repo settings. The workflow in `.github/workflows/deploy.yml` handles builds automatically.
 
 ## Customization
