@@ -1,14 +1,14 @@
 ---
-title: "Bohemian Landscapes"
-description: "Moody landscapes from the Czech countryside — forests, fields, and forgotten places."
-category: landscape
+title: "Portrét pro osobní brand"
+description: "Profesionální portrétní focení pro podnikatelku — moderní, sebevědomé a přirozené."
+category: portrety
 date: 2024-07-10
 cover: /images/portfolio/landscape-cover.jpg
 gallery:
   - /images/portfolio/landscape-01.jpg
   - /images/portfolio/landscape-02.jpg
   - /images/portfolio/landscape-03.jpg
-featured: false
+featured: true
 ---
 
-The Czech countryside in its raw, unfiltered form. Morning mist over Šumava forests, golden hour across Moravian fields, and the quiet solitude of places where time moves differently.
+Focení pro Kláru, která potřebovala profesionální fotky na web a sociální sítě. Kombinace ateliérových a exteriérových záběrů s důrazem na přirozenost a autenticitu.

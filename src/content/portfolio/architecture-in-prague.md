@@ -1,7 +1,7 @@
 ---
-title: "Architecture in Prague"
-description: "Geometric lines and brutalist forms found in Prague's lesser-known modernist buildings."
-category: architecture
+title: "Svatba v Průhonicích"
+description: "Romantická svatba v zámeckém parku Průhonice. Celodenní focení od příprav až po první tanec."
+category: svatby
 date: 2024-11-15
 cover: /images/portfolio/architecture-cover.jpg
 gallery:
@@ -11,4 +11,4 @@ gallery:
 featured: true
 ---
 
-A study of Prague's modernist and brutalist architecture — the concrete forms, geometric repetition, and raw textures that most visitors walk past without noticing.
+Krásná podzimní svatba Markéty a Tomáše v zámeckém parku Průhonice. Zlaté listí, přirozené emoce a spousta smíchu — přesně tak, jak má svatební den vypadat.

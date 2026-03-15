@@ -1,7 +1,7 @@
 ---
-title: "Street Stories"
-description: "Candid moments and fleeting encounters on the streets of European cities."
-category: street
+title: "Rodinné focení na Petříně"
+description: "Odpolední rodinné focení na Petříně — přirozené momenty rodiny s dvěma dětmi."
+category: rodina
 date: 2024-09-20
 cover: /images/portfolio/street-cover.jpg
 gallery:
@@ -11,4 +11,4 @@ gallery:
 featured: true
 ---
 
-Unscripted moments captured across Prague, Vienna, and Berlin. Each frame is a split-second narrative — strangers crossing paths, light carving through alleyways, the quiet rhythm of urban life.
+Rodina Novákových si přála neformální focení v přírodě. Petřín na podzim nabídl krásné kulisy — rozkvetlé zahrady, staré schody a spoustu prostoru pro dětské dovádění.

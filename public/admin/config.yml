@@ -2,13 +2,15 @@ backend:
   name: github
   repo: veritasderman-rgb/websiteJP
   branch: main
+  base_url: https://website-jp-gamma.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "public/images/portfolio"
 public_folder: "/images/portfolio"
 
 collections:
   - name: "portfolio"
-    label: "Portfolio Projects"
+    label: "Portfolio"
     folder: "src/content/portfolio"
     create: true
     slug: "{{slug}}"
@@ -19,11 +21,11 @@ collections:
         name: "category"
         widget: "select"
         options:
-          - architecture
-          - street
-          - landscape
-          - portrait
-          - documentary
+          - { label: "Svatby", value: "svatby" }
+          - { label: "Portréty", value: "portrety" }
+          - { label: "Rodinné focení", value: "rodina" }
+          - { label: "Párové focení", value: "pary" }
+          - { label: "Eventy", value: "eventy" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Cover Image", name: "cover", widget: "image" }
       - label: "Gallery"
@@ -35,7 +37,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "pages"
-    label: "Pages"
+    label: "Stránky"
     folder: "src/content/pages"
     create: false
     slug: "{{slug}}"
@@ -45,16 +47,16 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "settings"
-    label: "Site Settings"
+    label: "Nastavení webu"
     files:
-      - label: "General"
+      - label: "Obecné"
         name: "site"
         file: "src/content/settings/site.json"
         fields:
-          - { label: "Site Title", name: "title", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-          - { label: "Hero Text", name: "heroText", widget: "string" }
+          - { label: "Název webu", name: "title", widget: "string" }
+          - { label: "Podtitulek", name: "tagline", widget: "string" }
+          - { label: "Hero text", name: "heroText", widget: "string" }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Copyright Name", name: "copyright", widget: "string" }
+          - { label: "Telefon", name: "phone", widget: "string" }
+          - { label: "Copyright", name: "copyright", widget: "string" }
