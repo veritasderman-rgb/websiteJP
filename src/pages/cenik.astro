@@ -1,0 +1,306 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Ceník" description="Ceník fotografických služeb — svatby, portréty, rodinné focení a další.">
+  <section class="pricing-hero">
+    <h1>Ceník</h1>
+    <p>Vyberte si balíček, který vám vyhovuje, nebo mě kontaktujte pro individuální nabídku.</p>
+  </section>
+
+  <section class="container pricing-section">
+    <h2 class="section-title">Svatební fotografie</h2>
+    <p class="section-subtitle">Váš velký den si zaslouží ty nejlepší fotky</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-badge">Základ</div>
+        <h3>Mini svatba</h3>
+        <div class="pricing-price">12 000 Kč</div>
+        <ul class="pricing-features">
+          <li>Obřad + 1 hodina focení</li>
+          <li>Min. 100 upravených fotek</li>
+          <li>Online galerie ke stažení</li>
+          <li>Dodání do 3 týdnů</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta">Nezávazná poptávka</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Nejoblíbenější</div>
+        <h3>Celodenní svatba</h3>
+        <div class="pricing-price">25 000 Kč</div>
+        <ul class="pricing-features">
+          <li>Přípravy až po první tanec (8–10 h)</li>
+          <li>Min. 400 upravených fotek</li>
+          <li>Předsvatební schůzka</li>
+          <li>Online galerie ke stažení</li>
+          <li>10 vybraných fotek do 48 h</li>
+          <li>Dodání do 4 týdnů</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta">Nezávazná poptávka</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-badge">Premium</div>
+        <h3>Kompletní balíček</h3>
+        <div class="pricing-price">38 000 Kč</div>
+        <ul class="pricing-features">
+          <li>Celý svatební den bez limitu</li>
+          <li>Min. 600 upravených fotek</li>
+          <li>Předsvatební (engagement) focení</li>
+          <li>Druhý fotograf</li>
+          <li>Fotoalbum 30×30 cm (20 stran)</li>
+          <li>Online galerie ke stažení</li>
+          <li>Dodání do 4 týdnů</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta">Nezávazná poptávka</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pricing-section">
+    <h2 class="section-title">Další služby</h2>
+    <p class="section-subtitle">Nejenom svatby — fotím i portréty, rodiny a eventy</p>
+
+    <div class="pricing-grid services-grid">
+      <div class="pricing-card compact">
+        <h3>Portrétní focení</h3>
+        <div class="pricing-price">3 500 Kč</div>
+        <ul class="pricing-features">
+          <li>1 hodina focení v exteriéru/ateliéru</li>
+          <li>Min. 20 upravených fotek</li>
+          <li>Ideální pro LinkedIn, osobní brand</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta secondary">Domluvit termín</a>
+      </div>
+
+      <div class="pricing-card compact">
+        <h3>Rodinné focení</h3>
+        <div class="pricing-price">4 500 Kč</div>
+        <ul class="pricing-features">
+          <li>1–2 hodiny focení</li>
+          <li>Min. 30 upravených fotek</li>
+          <li>Vhodné i pro těhotenské focení</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta secondary">Domluvit termín</a>
+      </div>
+
+      <div class="pricing-card compact">
+        <h3>Párové focení</h3>
+        <div class="pricing-price">3 000 Kč</div>
+        <ul class="pricing-features">
+          <li>1 hodina focení</li>
+          <li>Min. 20 upravených fotek</li>
+          <li>Zásnuby, výročí, romantika</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta secondary">Domluvit termín</a>
+      </div>
+
+      <div class="pricing-card compact">
+        <h3>Firemní akce & eventy</h3>
+        <div class="pricing-price">od 5 000 Kč</div>
+        <ul class="pricing-features">
+          <li>Konference, teambuildingy, večírky</li>
+          <li>Cena dle rozsahu akce</li>
+          <li>Rychlé dodání vybraných fotek</li>
+        </ul>
+        <a href="/kontakt" class="pricing-cta secondary">Poptat akci</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Máte zájem? Ozvěte se!</h2>
+      <p>Každá zakázka je individuální. Napište mi a domluvíme se na detailech.</p>
+      <a href="/kontakt" class="btn-primary">Kontaktovat</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pricing-hero {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  }
+
+  .pricing-hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .pricing-hero p {
+    color: var(--color-text-muted);
+    font-size: 1.15rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .pricing-section {
+    padding-bottom: var(--space-2xl);
+  }
+
+  .section-title {
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    font-size: 1rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    padding: var(--space-xl) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .pricing-card.featured {
+    border-color: var(--color-accent);
+    transform: scale(1.03);
+  }
+
+  .pricing-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .pricing-card h3 {
+    color: var(--color-white);
+    font-size: 1.4rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .pricing-price {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-white);
+    margin-bottom: var(--space-lg);
+  }
+
+  .pricing-features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: var(--space-lg);
+  }
+
+  .pricing-features li {
+    color: var(--color-text-muted);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+  }
+
+  .pricing-features li::before {
+    content: "✓ ";
+    color: var(--color-accent);
+  }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background 0.2s ease;
+  }
+
+  .pricing-cta:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-bg);
+  }
+
+  .pricing-cta.secondary {
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .pricing-cta.secondary:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .pricing-card.compact {
+    padding: var(--space-lg);
+  }
+
+  .pricing-card.compact h3 {
+    font-size: 1.2rem;
+  }
+
+  .pricing-card.compact .pricing-price {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-bg-elevated);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cta-section h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-section p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+    font-size: 1.05rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 768px) {
+    .pricing-card.featured {
+      transform: none;
+    }
+  }
+</style>

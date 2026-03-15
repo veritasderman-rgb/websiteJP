@@ -1,0 +1,240 @@
+---
+import Base from '../layouts/Base.astro';
+
+const siteSettings = await import('../content/settings/site.json');
+---
+
+<Base title="Kontakt" description="Kontaktujte mě pro nezávaznou poptávku svatebního focení nebo jiných fotografických služeb.">
+  <section class="contact-hero">
+    <h1>Kontakt</h1>
+    <p>Napište mi a domluvíme se na detailech. Odpovídám zpravidla do 24 hodin.</p>
+  </section>
+
+  <section class="container contact-content">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Josef Pavlovic</h2>
+        <p class="contact-subtitle">Svatební & portrétní fotograf, Praha</p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Telefon</span>
+            <a href={`tel:${siteSettings.phone}`}>{siteSettings.phone}</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Instagram</span>
+            <a href={`https://instagram.com/${siteSettings.instagram.replace('@', '')}`} target="_blank" rel="noopener">{siteSettings.instagram}</a>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <h3>Jak to probíhá?</h3>
+          <ol>
+            <li>Napíšete mi — popíšete, co potřebujete</li>
+            <li>Domluvíme nezávaznou schůzku (osobně nebo online)</li>
+            <li>Připravím nabídku na míru</li>
+            <li>Po odsouhlasení rezervujeme termín</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <form class="contact-form" name="contact" method="POST" data-netlify="false">
+          <div class="form-group">
+            <label for="name">Jméno</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Typ focení</label>
+            <select id="service" name="service">
+              <option value="svatba">Svatba</option>
+              <option value="portret">Portrétní focení</option>
+              <option value="rodina">Rodinné focení</option>
+              <option value="pary">Párové focení</option>
+              <option value="event">Firemní akce / event</option>
+              <option value="jine">Jiné</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Preferovaný termín</label>
+            <input type="text" id="date" name="date" placeholder="např. červen 2026" />
+          </div>
+          <div class="form-group">
+            <label for="message">Zpráva</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Popište, co byste si představovali..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Odeslat poptávku</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact-hero {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  }
+
+  .contact-hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .contact-hero p {
+    color: var(--color-text-muted);
+    font-size: 1.15rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .contact-content {
+    padding-bottom: var(--space-2xl);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+
+  .contact-info h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-xs);
+  }
+
+  .contact-subtitle {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    font-size: 0.95rem;
+  }
+
+  .contact-details {
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-item {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xs);
+  }
+
+  .contact-item a {
+    color: var(--color-white);
+    font-size: 1.05rem;
+  }
+
+  .contact-note h3 {
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+    font-size: 1.1rem;
+  }
+
+  .contact-note ol {
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .contact-note li {
+    counter-increment: steps;
+    color: var(--color-text-muted);
+    padding: var(--space-sm) 0;
+    font-size: 0.9rem;
+  }
+
+  .contact-note li::before {
+    content: counter(steps) ". ";
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: var(--space-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .btn-submit {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .btn-submit:hover {
+    background: var(--color-accent-hover);
+  }
+</style>

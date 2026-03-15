@@ -5,37 +5,233 @@ import { getCollection } from 'astro:content';
 
 const siteSettings = await import('../content/settings/site.json');
 const allProjects = await getCollection('portfolio');
-const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const categories = [...new Set(projects.map((p) => p.data.category))];
+const featured = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 6);
+const recent = featured.length > 0 ? featured : allProjects
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 6);
 ---
 
 <Base>
   <section class="hero">
     <div>
+      <p class="hero-pre">Svatební & portrétní fotograf — Praha</p>
       <h1>{siteSettings.title}</h1>
-      <p>{siteSettings.heroText}</p>
+      <p class="hero-text">{siteSettings.heroText}</p>
+      <div class="hero-actions">
+        <a href="/cenik" class="btn-primary">Zobrazit ceník</a>
+        <a href="/kontakt" class="btn-secondary">Nezávazná poptávka</a>
+      </div>
     </div>
   </section>
 
-  <section class="container">
-    <div class="category-filter">
-      <a href="/" class="active">All</a>
-      {categories.map((cat) => (
-        <a href={`/category/${cat}`}>{cat}</a>
-      ))}
+  <section class="services-overview">
+    <div class="container">
+      <h2>Co nabízím</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Svatby</h3>
+          <p>Celý váš svatební den zachycený přirozeně a s citem. Od příprav až po první tanec.</p>
+          <span class="service-price">od 12 000 Kč</span>
+        </div>
+        <div class="service-card">
+          <h3>Portréty</h3>
+          <p>Profesionální portréty pro osobní brand, LinkedIn nebo jen tak pro radost.</p>
+          <span class="service-price">od 3 500 Kč</span>
+        </div>
+        <div class="service-card">
+          <h3>Rodinné focení</h3>
+          <p>Autentické rodinné fotky v přírodě nebo ve vašem oblíbeném prostředí.</p>
+          <span class="service-price">od 4 500 Kč</span>
+        </div>
+        <div class="service-card">
+          <h3>Párové focení</h3>
+          <p>Zásnuby, výročí nebo prostě oslava vašeho vztahu.</p>
+          <span class="service-price">od 3 000 Kč</span>
+        </div>
+      </div>
+      <div class="services-cta">
+        <a href="/cenik" class="btn-secondary">Kompletní ceník</a>
+      </div>
     </div>
+  </section>
 
-    <div class="portfolio-grid">
-      {projects.map((project) => (
-        <PortfolioCard
-          title={project.data.title}
-          description={project.data.description}
-          category={project.data.category}
-          cover={project.data.cover}
-          slug={project.id}
-        />
-      ))}
+  {recent.length > 0 && (
+    <section class="container portfolio-preview">
+      <h2>Z mého portfolia</h2>
+      <div class="portfolio-grid">
+        {recent.map((project) => (
+          <PortfolioCard
+            title={project.data.title}
+            description={project.data.description}
+            category={project.data.category}
+            cover={project.data.cover}
+            slug={project.id}
+          />
+        ))}
+      </div>
+      <div class="services-cta">
+        <a href="/portfolio" class="btn-secondary">Celé portfolio</a>
+      </div>
+    </section>
+  )}
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Hledáte fotografa na svatbu?</h2>
+      <p>Napište mi a nezávazně probereme vaše představy. Termíny se plní rychle — rezervujte si svůj den včas.</p>
+      <a href="/kontakt" class="btn-primary">Kontaktovat</a>
     </div>
   </section>
 </Base>
+
+<style>
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero-pre {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    font-style: normal;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    font-style: normal;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+    color: var(--color-bg);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .services-overview {
+    padding: var(--space-2xl) 0;
+    background: var(--color-bg-elevated);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .services-overview h2 {
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: var(--space-xl);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+    transition: border-color 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .service-card h3 {
+    color: var(--color-white);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .service-price {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-size: 1.1rem;
+  }
+
+  .services-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+  }
+
+  .portfolio-preview {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .portfolio-preview h2 {
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: var(--space-xl);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--color-bg-elevated);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-section h2 {
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-section p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    max-width: 550px;
+    margin: 0 auto var(--space-lg);
+  }
+</style>

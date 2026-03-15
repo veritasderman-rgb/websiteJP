@@ -1,6 +1,6 @@
-# Josef Pavlovič — Photography Portfolio
+# Josef Pavlovic — Svatební fotograf
 
-Dark editorial photography portfolio built with **Astro** + **Decap CMS**.
+Prodejní web svatebního a portrétního fotografa. Postaven na **Astro** + **Decap CMS**.
 
 ## Quick Start
 

@@ -11,8 +11,10 @@ const currentPath = Astro.url.pathname;
   <div class="container header-inner">
     <a href="/" class="logo">{siteTitle}</a>
     <nav class="nav">
-      <a href="/" class:list={[{ active: currentPath === '/' }]}>Portfolio</a>
-      <a href="/about" class:list={[{ active: currentPath === '/about' }]}>About</a>
+      <a href="/portfolio" class:list={[{ active: currentPath.startsWith('/portfolio') || currentPath.startsWith('/category') }]}>Portfolio</a>
+      <a href="/cenik" class:list={[{ active: currentPath === '/cenik' }]}>Ceník</a>
+      <a href="/about" class:list={[{ active: currentPath === '/about' }]}>O mně</a>
+      <a href="/kontakt" class:list={[{ active: currentPath === '/kontakt' }]}>Kontakt</a>
     </nav>
     <button class="menu-toggle" aria-label="Menu">
       <span></span>

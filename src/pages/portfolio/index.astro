@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('portfolio');
+const projects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const categories = [...new Set(projects.map((p) => p.data.category))];
+---
+
+<Base title="Portfolio" description="Ukázky z mé práce — svatby, portréty, rodinné focení a další.">
+  <section class="project-header">
+    <h1>Portfolio</h1>
+    <p class="project-meta">Ukázky z mé práce</p>
+  </section>
+
+  <section class="container">
+    <div class="category-filter">
+      <a href="/portfolio" class="active">Vše</a>
+      {categories.map((cat) => (
+        <a href={`/category/${cat}`}>{cat}</a>
+      ))}
+    </div>
+
+    <div class="portfolio-grid">
+      {projects.map((project) => (
+        <PortfolioCard
+          title={project.data.title}
+          description={project.data.description}
+          category={project.data.category}
+          cover={project.data.cover}
+          slug={project.id}
+        />
+      ))}
+    </div>
+  </section>
+</Base>
