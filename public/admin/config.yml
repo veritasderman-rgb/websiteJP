@@ -2,7 +2,7 @@ backend:
   name: github
   repo: veritasderman-rgb/websiteJP
   branch: main
-  base_url: https://website-jp-gamma.vercel.app
+  base_url: https://marienbad.vercel.app
   auth_endpoint: api/auth
 
 media_folder: "public/images/portfolio"
