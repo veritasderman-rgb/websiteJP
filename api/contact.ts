@@ -48,7 +48,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Send via Resend if API key is configured
   const resendKey = process.env.RESEND_API_KEY;
-  const recipientEmail = process.env.CONTACT_EMAIL || 'hello@josefpavlovic.com';
+  const recipientEmail = process.env.CONTACT_EMAIL || 'mail@josefpavlovic.cz';
 
   if (resendKey) {
     try {
