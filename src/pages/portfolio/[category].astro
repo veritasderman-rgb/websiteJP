@@ -11,17 +11,31 @@ const categoryLabels: Record<string, string> = {
   landscape: 'Krajina',
 };
 
+export async function getStaticPaths() {
+  return [
+    { params: { category: 'architecture' } },
+    { params: { category: 'events' } },
+    { params: { category: 'portraits' } },
+    { params: { category: 'landscape' } },
+  ];
+}
+
+const { category } = Astro.params;
 const allEntries = await getCollection('gallery', ({ data }) => !data.draft);
-const sorted = allEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const filtered = allEntries
+  .filter((e) => e.data.category === category)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const label = categoryLabels[category!] || category;
 ---
 
-<Base title="Portfolio" description="Ukázky z mé práce — architektura, reportáže, portréty, krajina.">
+<Base title={label} description={`Portfolio — ${label}`}>
   <div class="section--sm">
     <div class="container">
-      <h1 class="page-title">Portfolio</h1>
-      <GalleryFilter active="all" />
+      <h1 class="page-title">{label}</h1>
+      <GalleryFilter active={category} />
       <PhotoGrid
-        photos={sorted.map((e) => ({
+        photos={filtered.map((e) => ({
           src: e.data.cover,
           alt: e.data.title,
           title: e.data.title,

@@ -1,25 +1,24 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const portfolio = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
+const gallery = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/gallery' }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
-    category: z.enum(['architecture', 'street', 'landscape', 'portrait', 'documentary']),
     date: z.coerce.date(),
-    cover: z.string(),
-    gallery: z.array(z.string()).optional(),
+    category: z.enum(['architecture', 'events', 'portraits', 'landscape']),
+    tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
-  }),
-});
-
-const pages = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
-  schema: z.object({
-    title: z.string(),
+    cover: z.string(),
+    images: z.array(z.object({
+      src: z.string(),
+      alt: z.string(),
+      caption: z.string().optional(),
+    })).default([]),
     description: z.string().optional(),
+    location: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 
-export const collections = { portfolio, pages };
+export const collections = { gallery };

@@ -1,29 +1,42 @@
 ---
-interface Props {
-  copyright: string;
-}
-
-const { copyright } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>&copy; {year} {copyright}. All rights reserved.</p>
+    <p class="footer-copy">&copy; {year} Josef Pavlovic</p>
+    <a href="https://instagram.com/josefpavlovic" target="_blank" rel="noopener" class="footer-link">Instagram</a>
   </div>
 </footer>
 
 <style>
   .site-footer {
     border-top: 1px solid var(--color-border);
-    padding: var(--space-xl) 0;
-    text-align: center;
+    padding: 3rem 0;
   }
 
-  .site-footer p {
-    color: var(--color-text-muted);
-    font-size: 0.8rem;
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy {
+    color: var(--color-muted);
+    font-size: 0.75rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+  }
+
+  .footer-link {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color var(--transition);
+  }
+
+  .footer-link:hover {
+    color: var(--color-accent);
   }
 </style>

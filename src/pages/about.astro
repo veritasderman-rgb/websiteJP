@@ -1,24 +1,84 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection, render } from 'astro:content';
-
-const pages = await getCollection('pages');
-const aboutPage = pages.find((p) => p.id === 'about');
-
-let Content;
-let title = 'About';
-let description = '';
-
-if (aboutPage) {
-  const rendered = await render(aboutPage);
-  Content = rendered.Content;
-  title = aboutPage.data.title;
-  description = aboutPage.data.description || '';
-}
 ---
 
-<Base title={title} description={description}>
-  <div class="about-content">
-    {Content && <Content />}
-  </div>
+<Base title="O mně" description="Josef Pavlovic — fotograf zaměřený na architekturu, reportáže, portréty a krajinu.">
+  <section class="about section">
+    <div class="container about__grid">
+      <div class="about__photo">
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format"
+          alt="Josef Pavlovic"
+          width="600"
+          height="800"
+          loading="eager"
+        />
+      </div>
+      <div class="about__text">
+        <h1>O mně</h1>
+        <p>
+          Jmenuji se Josef Pavlovic a fotografuji to, co mě fascinuje — architekturu, lidi, krajinu
+          a příběhy, které se odehrávají na pomezí těchto světů.
+        </p>
+        <p>
+          Věřím, že dobrá fotografie nepotřebuje vysvětlování. Měla by vás zastavit, přinutit
+          se podívat znovu, možná se na chvíli zamyslet. Pracuji s přirozeným světlem, hledám
+          momenty, které trvají zlomek sekundy, ale ve fotografii zůstanou navždy.
+        </p>
+        <p>
+          Moje práce se pohybuje mezi dokumentárním a uměleckým přístupem. Ať už fotím
+          ranní mlhu nad Šumavou, kubistické fasády v Praze nebo portrét v ateliéru,
+          vždy hledám jednoduchost, čistotu kompozice a emocionální náboj.
+        </p>
+        <p>
+          Žiju a pracuji v Praze, ale fotografuji kdekoli, kde je zajímavé světlo.
+        </p>
+      </div>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    padding-top: var(--header-height);
+  }
+
+  @media (max-width: 768px) {
+    .about__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .about__photo img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .about__photo img {
+      height: 50vh;
+    }
+  }
+
+  .about__text {
+    padding-top: 3rem;
+  }
+
+  .about__text h1 {
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .about__text p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+</style>
