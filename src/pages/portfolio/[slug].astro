@@ -1,0 +1,200 @@
+---
+import Base from '../../layouts/Base.astro';
+import PhotoGrid from '../../components/PhotoGrid.astro';
+import LightboxModal from '../../components/LightboxModal.astro';
+import { getCollection } from 'astro:content';
+
+const categoryLabels: Record<string, string> = {
+  architecture: 'Architektura',
+  events: 'Akce',
+  portraits: 'Portréty',
+  landscape: 'Krajina',
+};
+
+export async function getStaticPaths() {
+  const entries = await getCollection('gallery');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, date, category, tags, cover, images, description, location } = entry.data;
+const formattedDate = date.toLocaleDateString('cs-CZ', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// Prev/next within same category
+const allEntries = await getCollection('gallery', ({ data }) => !data.draft);
+const sameCategory = allEntries
+  .filter((e) => e.data.category === category)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const currentIdx = sameCategory.findIndex((e) => e.id === entry.id);
+const prevEntry = currentIdx < sameCategory.length - 1 ? sameCategory[currentIdx + 1] : null;
+const nextEntry = currentIdx > 0 ? sameCategory[currentIdx - 1] : null;
+
+// Lightbox images
+const lightboxImages = images.map((img) => ({
+  src: img.src,
+  alt: img.alt,
+  caption: img.caption,
+}));
+---
+
+<Base title={title} description={description}>
+  <!-- COVER -->
+  <div class="detail-cover">
+    <img src={cover} alt={title} width="1600" height="900" fetchpriority="high" />
+  </div>
+
+  <!-- META -->
+  <div class="container detail-meta">
+    <span class="meta-text">{categoryLabels[category] || category} — {formattedDate}</span>
+    <h1 class="detail-title">{title}</h1>
+    {location && <p class="detail-location">{location}</p>}
+    {description && <p class="detail-description">{description}</p>}
+    {tags.length > 0 && (
+      <div class="detail-tags">
+        {tags.map((tag) => <span class="detail-tag">{tag}</span>)}
+      </div>
+    )}
+  </div>
+
+  <!-- PHOTO GRID -->
+  {images.length > 0 && (
+    <div class="container detail-gallery">
+      <PhotoGrid
+        photos={images.map((img) => ({
+          src: img.src,
+          alt: img.alt,
+        }))}
+      />
+    </div>
+  )}
+
+  <!-- PREV/NEXT -->
+  <nav class="container detail-nav" aria-label="Navigace mezi sériemi">
+    {prevEntry && (
+      <a href={`/portfolio/${prevEntry.id}`} class="detail-nav__link detail-nav__link--prev">
+        <span class="meta-text">&larr; Předchozí</span>
+        <span class="detail-nav__title">{prevEntry.data.title}</span>
+      </a>
+    )}
+    {nextEntry && (
+      <a href={`/portfolio/${nextEntry.id}`} class="detail-nav__link detail-nav__link--next">
+        <span class="meta-text">Další &rarr;</span>
+        <span class="detail-nav__title">{nextEntry.data.title}</span>
+      </a>
+    )}
+  </nav>
+
+  <LightboxModal images={lightboxImages} />
+</Base>
+
+<style>
+  .detail-cover {
+    width: 100%;
+    max-height: 70vh;
+    overflow: hidden;
+    margin-top: var(--header-height);
+  }
+
+  .detail-cover img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+
+  .detail-meta {
+    max-width: 700px;
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+  }
+
+  .detail-title {
+    margin: 0.75rem 0 0.5rem;
+    font-style: italic;
+  }
+
+  .detail-location {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .detail-description {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-tags {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .detail-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .detail-gallery {
+    padding: 2rem 2rem 6rem;
+    max-width: 1000px;
+  }
+
+  /* Photo grid in detail: 1 / 2 / 3 columns */
+  .detail-gallery :global(.photo-grid) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    .detail-gallery :global(.photo-grid) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .detail-gallery :global(.photo-grid) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .detail-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2rem 6rem;
+    border-top: 1px solid var(--color-border);
+    max-width: 700px;
+  }
+
+  .detail-nav__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .detail-nav__link--next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .detail-nav__title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .detail-nav__link:hover .detail-nav__title {
+    color: var(--color-accent);
+  }
+</style>

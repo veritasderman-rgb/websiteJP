@@ -1,237 +1,234 @@
 ---
 import Base from '../layouts/Base.astro';
-import PortfolioCard from '../components/PortfolioCard.astro';
+import PhotoGrid from '../components/PhotoGrid.astro';
 import { getCollection } from 'astro:content';
 
-const siteSettings = await import('../content/settings/site.json');
-const allProjects = await getCollection('portfolio');
-const featured = allProjects
-  .filter((p) => p.data.featured)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 6);
-const recent = featured.length > 0 ? featured : allProjects
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 6);
+const allEntries = await getCollection('gallery', ({ data }) => !data.draft);
+const sorted = allEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Hero: latest featured photo
+const heroEntry = sorted.find((e) => e.data.featured) || sorted[0];
+
+// Featured grid: up to 9 featured
+const featured = sorted.filter((e) => e.data.featured).slice(0, 9);
+
+// Category cards
+const categoryLabels: Record<string, string> = {
+  architecture: 'Architektura & nemovitosti',
+  events: 'Akce & reportáže',
+  portraits: 'Portréty & akty',
+  landscape: 'Krajina & street',
+};
+
+const categories = (['architecture', 'events', 'portraits', 'landscape'] as const).map((cat) => {
+  const latest = sorted.find((e) => e.data.category === cat);
+  return {
+    value: cat,
+    label: categoryLabels[cat],
+    cover: latest?.data.cover || '',
+  };
+});
 ---
 
-<Base>
-  <section class="hero">
-    <div>
-      <p class="hero-pre">Svatební & portrétní fotograf — Praha</p>
-      <h1>{siteSettings.title}</h1>
-      <p class="hero-text">{siteSettings.heroText}</p>
-      <div class="hero-actions">
-        <a href="/cenik" class="btn-primary">Zobrazit ceník</a>
-        <a href="/kontakt" class="btn-secondary">Nezávazná poptávka</a>
-      </div>
+<Base transparentNav={true}>
+  <!-- HERO -->
+  <section class="hero" style={`background-image: url('${heroEntry?.data.cover || ''}')`}>
+    <div class="hero__noise"></div>
+    <div class="hero__content">
+      <h1 class="hero__name">Josef Pavlovic</h1>
+      <p class="hero__tagline">Fotografie</p>
     </div>
+    <a href="#featured" class="hero__scroll" aria-label="Scroll dolů">
+      <span class="hero__arrow"></span>
+    </a>
   </section>
 
-  <section class="services-overview">
+  <!-- FEATURED -->
+  <section class="section" id="featured">
     <div class="container">
-      <h2>Co nabízím</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Svatby</h3>
-          <p>Celý váš svatební den zachycený přirozeně a s citem. Od příprav až po první tanec.</p>
-          <span class="service-price">od 12 000 Kč</span>
-        </div>
-        <div class="service-card">
-          <h3>Portréty</h3>
-          <p>Profesionální portréty pro osobní brand, LinkedIn nebo jen tak pro radost.</p>
-          <span class="service-price">od 3 500 Kč</span>
-        </div>
-        <div class="service-card">
-          <h3>Rodinné focení</h3>
-          <p>Autentické rodinné fotky v přírodě nebo ve vašem oblíbeném prostředí.</p>
-          <span class="service-price">od 4 500 Kč</span>
-        </div>
-        <div class="service-card">
-          <h3>Párové focení</h3>
-          <p>Zásnuby, výročí nebo prostě oslava vašeho vztahu.</p>
-          <span class="service-price">od 3 000 Kč</span>
-        </div>
-      </div>
-      <div class="services-cta">
-        <a href="/cenik" class="btn-secondary">Kompletní ceník</a>
-      </div>
+      <h2 class="section__heading">Vybrané práce</h2>
+      <PhotoGrid
+        masonry={true}
+        photos={featured.map((e) => ({
+          src: e.data.cover,
+          alt: e.data.title,
+          title: e.data.title,
+          category: categoryLabels[e.data.category] || e.data.category,
+          href: `/portfolio/${e.id}`,
+          count: e.data.images.length,
+        }))}
+      />
     </div>
   </section>
 
-  {recent.length > 0 && (
-    <section class="container portfolio-preview">
-      <h2>Z mého portfolia</h2>
-      <div class="portfolio-grid">
-        {recent.map((project) => (
-          <PortfolioCard
-            title={project.data.title}
-            description={project.data.description}
-            category={project.data.category}
-            cover={project.data.cover}
-            slug={project.id}
-          />
+  <!-- CATEGORIES -->
+  <section class="section--sm categories">
+    <div class="container">
+      <h2 class="section__heading">Kategorie</h2>
+      <div class="categories__grid">
+        {categories.map((cat) => (
+          <a href={`/portfolio/${cat.value}`} class="categories__card">
+            <img src={cat.cover} alt={cat.label} loading="lazy" width="600" height="400" />
+            <span class="categories__label">{cat.label}</span>
+          </a>
         ))}
       </div>
-      <div class="services-cta">
-        <a href="/portfolio" class="btn-secondary">Celé portfolio</a>
-      </div>
-    </section>
-  )}
-
-  <section class="cta-section">
-    <div class="container">
-      <h2>Hledáte fotografa na svatbu?</h2>
-      <p>Napište mi a nezávazně probereme vaše představy. Termíny se plní rychle — rezervujte si svůj den včas.</p>
-      <a href="/kontakt" class="btn-primary">Kontaktovat</a>
     </div>
   </section>
 </Base>
 
 <style>
+  /* HERO */
   .hero {
-    min-height: 70vh;
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
-  .hero-pre {
+  .hero__noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 10, 8, 0.3) 0%,
+      rgba(10, 10, 8, 0.1) 40%,
+      rgba(10, 10, 8, 0.6) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__name {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-family: var(--font-display);
+    font-weight: 400;
+    color: var(--color-text);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero__tagline {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.25em;
     color: var(--color-accent);
-    margin-bottom: var(--space-md);
-    font-style: normal;
   }
 
-  .hero-text {
-    font-size: 1.2rem;
-    color: var(--color-text-muted);
-    max-width: 600px;
-    margin: 0 auto var(--space-xl);
-    font-style: normal;
-  }
-
-  .hero-actions {
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
     display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-muted);
+    text-decoration: none;
   }
 
-  .btn-primary {
-    display: inline-block;
-    padding: var(--space-md) var(--space-xl);
-    background: var(--color-accent);
-    color: var(--color-bg);
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: background 0.2s ease;
+  .hero__arrow {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: var(--color-muted);
+    position: relative;
+    animation: scrollPulse 2s ease-in-out infinite;
   }
 
-  .btn-primary:hover {
-    background: var(--color-accent-hover);
-    color: var(--color-bg);
+  .hero__arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px solid var(--color-muted);
+    border-right: 1px solid var(--color-muted);
+    transform: rotate(45deg);
   }
 
-  .btn-secondary {
-    display: inline-block;
-    padding: var(--space-md) var(--space-xl);
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.2s ease;
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(6px); }
   }
 
-  .btn-secondary:hover {
-    background: var(--color-accent);
-    color: var(--color-bg);
-  }
-
-  .services-overview {
-    padding: var(--space-2xl) 0;
-    background: var(--color-bg-elevated);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .services-overview h2 {
+  /* SECTIONS */
+  .section__heading {
     text-align: center;
-    color: var(--color-white);
-    margin-bottom: var(--space-xl);
+    margin-bottom: 3.5rem;
+    font-style: italic;
+    color: var(--color-text);
   }
 
-  .services-grid {
+  /* CATEGORIES */
+  .categories__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--space-lg);
-    max-width: 900px;
-    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 
-  .service-card {
-    padding: var(--space-lg);
-    border: 1px solid var(--color-border);
-    background: var(--color-bg-card);
-    transition: border-color 0.3s ease;
+  @media (max-width: 1024px) {
+    .categories__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .service-card:hover {
-    border-color: var(--color-accent);
+  @media (max-width: 640px) {
+    .categories__grid {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .service-card h3 {
-    color: var(--color-white);
-    font-size: 1.2rem;
-    margin-bottom: var(--space-sm);
+  .categories__card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
   }
 
-  .service-card p {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-md);
-    line-height: 1.6;
+  .categories__card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .service-price {
-    font-family: var(--font-heading);
-    color: var(--color-accent);
-    font-size: 1.1rem;
+  .categories__card:hover img {
+    transform: scale(1.04);
   }
 
-  .services-cta {
-    text-align: center;
-    margin-top: var(--space-xl);
-  }
-
-  .portfolio-preview {
-    padding: var(--space-2xl) var(--space-lg);
-  }
-
-  .portfolio-preview h2 {
-    text-align: center;
-    color: var(--color-white);
-    margin-bottom: var(--space-xl);
-  }
-
-  .cta-section {
-    text-align: center;
-    padding: var(--space-2xl) var(--space-lg);
-    background: var(--color-bg-elevated);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .cta-section h2 {
-    color: var(--color-white);
-    margin-bottom: var(--space-sm);
-  }
-
-  .cta-section p {
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
-    max-width: 550px;
-    margin: 0 auto var(--space-lg);
+  .categories__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem;
+    background: linear-gradient(to top, rgba(10, 10, 8, 0.8), transparent);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
   }
 </style>

@@ -1,39 +1,32 @@
 /* ============================================
-   DARK EDITORIAL THEME
-   Photography Portfolio
+   DESIGN SYSTEM — josefpavlovic.cz
+   Dark editorial photography portfolio
    ============================================ */
 
 :root {
-  /* Colors */
-  --color-bg: #0a0a0a;
-  --color-bg-elevated: #141414;
-  --color-bg-card: #1a1a1a;
-  --color-border: #2a2a2a;
-  --color-text: #e8e8e8;
-  --color-text-muted: #888888;
-  --color-accent: #c8a86e;
-  --color-accent-hover: #d4b97e;
-  --color-white: #ffffff;
+  --color-bg:         #0a0a08;
+  --color-surface:    #111110;
+  --color-border:     #1e1e1c;
+  --color-text:       #f0ede8;
+  --color-muted:      #6b6760;
+  --color-accent:     #c8a96e;
+  --color-accent-dim: #8a7245;
 
-  /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
 
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 4rem;
-  --space-2xl: 6rem;
+  --radius-sm: 2px;
+  --radius-md: 4px;
 
-  /* Layout */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
   --max-width: 1200px;
-  --header-height: 80px;
+  --header-height: 72px;
 }
 
-/* Reset */
+/* ============================================
+   RESET
+   ============================================ */
 *,
 *::before,
 *::after {
@@ -46,10 +39,12 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-body);
+  font-weight: 300;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.7;
@@ -58,14 +53,44 @@ body {
   flex-direction: column;
 }
 
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.75rem 1.5rem;
+  z-index: 9999;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   BASE ELEMENTS
+   ============================================ */
 a {
   color: var(--color-accent);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition);
 }
 
 a:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-text);
 }
 
 img {
@@ -75,222 +100,56 @@ img {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.15;
   letter-spacing: -0.02em;
+  color: var(--color-text);
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
-h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.4rem); }
+h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
 
-/* Container */
+/* ============================================
+   UTILITY
+   ============================================ */
 .container {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-lg);
+  padding: 0 2rem;
 }
 
-/* Main content */
 main {
   flex: 1;
-  padding-top: var(--header-height);
+}
+
+.meta-text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
 }
 
 /* ============================================
-   HERO SECTION
+   SECTION SPACING
    ============================================ */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  text-align: center;
-  padding: var(--space-2xl) var(--space-lg);
+.section {
+  padding: 120px 0;
 }
 
-.hero h1 {
-  color: var(--color-white);
-  margin-bottom: var(--space-md);
-}
-
-.hero p {
-  font-size: 1.25rem;
-  color: var(--color-text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-  font-style: italic;
-}
-
-/* ============================================
-   PORTFOLIO GRID
-   ============================================ */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: var(--space-lg);
-  padding: var(--space-xl) 0;
+.section--sm {
+  padding: 80px 0;
 }
 
 @media (max-width: 768px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
+  .section {
+    padding: 80px 0;
   }
-}
-
-/* ============================================
-   CATEGORY FILTER
-   ============================================ */
-.category-filter {
-  display: flex;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: var(--space-lg) 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.category-filter a {
-  padding: var(--space-xs) var(--space-md);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: all 0.2s ease;
-}
-
-.category-filter a:hover,
-.category-filter a.active {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-/* ============================================
-   PROJECT DETAIL
-   ============================================ */
-.project-header {
-  text-align: center;
-  padding: var(--space-2xl) var(--space-lg) var(--space-xl);
-}
-
-.project-header h1 {
-  color: var(--color-white);
-  margin-bottom: var(--space-sm);
-}
-
-.project-meta {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.project-body {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: var(--space-lg);
-  color: var(--color-text-muted);
-  font-size: 1.05rem;
-}
-
-.project-gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-  max-width: 900px;
-  margin: var(--space-xl) auto;
-  padding: 0 var(--space-lg);
-}
-
-.project-gallery img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.project-gallery img:hover {
-  opacity: 0.85;
-}
-
-/* ============================================
-   ABOUT PAGE
-   ============================================ */
-.about-content {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: var(--space-2xl) var(--space-lg);
-}
-
-.about-content h2 {
-  color: var(--color-white);
-  margin-bottom: var(--space-md);
-}
-
-.about-content p,
-.about-content li {
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-md);
-}
-
-.about-content ul {
-  list-style: none;
-}
-
-.about-content strong {
-  color: var(--color-text);
-}
-
-/* ============================================
-   LIGHTBOX
-   ============================================ */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 1000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  cursor: zoom-out;
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-.lightbox img {
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: var(--space-lg);
-  right: var(--space-lg);
-  background: none;
-  border: none;
-  color: var(--color-white);
-  font-size: 2rem;
-  cursor: pointer;
-  line-height: 1;
-}
-
-/* ============================================
-   PLACEHOLDER IMAGES
-   ============================================ */
-.placeholder-img {
-  background: var(--color-bg-elevated);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  .section--sm {
+    padding: 60px 0;
+  }
 }

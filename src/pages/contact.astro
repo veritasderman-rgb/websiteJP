@@ -1,0 +1,176 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Kontakt" description="Kontaktujte Josefa Pavlovice pro fotografické zakázky.">
+  <section class="contact section">
+    <div class="container">
+      <h1 class="contact__title">Kontakt</h1>
+      <p class="contact__subtitle">Máte zájem o spolupráci? Napište mi.</p>
+
+      <div class="contact__grid">
+        <form class="contact__form" name="contact" method="POST" netlify>
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-group">
+            <label for="name">Jméno</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Typ zakázky</label>
+            <select id="service" name="service">
+              <option value="architektura">Architektura</option>
+              <option value="akce">Akce & reportáž</option>
+              <option value="portret">Portrét</option>
+              <option value="krajina">Krajina</option>
+              <option value="jine">Jiné</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Zpráva</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Odeslat</button>
+        </form>
+
+        <div class="contact__info">
+          <div class="contact__item">
+            <span class="meta-text">Email</span>
+            <a href="mailto:hello@josefpavlovic.com">hello@josefpavlovic.com</a>
+          </div>
+          <div class="contact__item">
+            <span class="meta-text">Instagram</span>
+            <a href="https://instagram.com/josefpavlovic" target="_blank" rel="noopener">@josefpavlovic</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact__title {
+    text-align: center;
+    font-style: italic;
+    padding-top: var(--header-height);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact__subtitle {
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .contact__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 0.85rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6760' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .form-submit {
+    padding: 0.85rem 2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+    align-self: flex-start;
+  }
+
+  .form-submit:hover {
+    background: var(--color-accent-dim);
+  }
+
+  .contact__info {
+    padding-top: 1rem;
+  }
+
+  .contact__item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .contact__item .meta-text {
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .contact__item a {
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: color var(--transition);
+  }
+
+  .contact__item a:hover {
+    color: var(--color-accent);
+  }
+</style>

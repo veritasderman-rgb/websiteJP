@@ -1,62 +1,41 @@
 backend:
-  name: github
-  repo: veritasderman-rgb/websiteJP
+  name: git-gateway
   branch: main
-  base_url: https://marienbad.vercel.app
-  auth_endpoint: api/auth
 
-media_folder: "public/images/portfolio"
-public_folder: "/images/portfolio"
+media_folder: public/images
+public_folder: /images
+
+locale: cs
 
 collections:
-  - name: "portfolio"
-    label: "Portfolio"
-    folder: "src/content/portfolio"
+  - name: gallery
+    label: Galerie
+    folder: src/content/gallery
     create: true
     slug: "{{slug}}"
+    extension: mdx
+    format: frontmatter
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - label: "Category"
-        name: "category"
-        widget: "select"
+      - { name: title, label: Název, widget: string }
+      - { name: date, label: Datum, widget: datetime }
+      - name: category
+        label: Kategorie
+        widget: select
         options:
-          - { label: "Svatby", value: "svatby" }
-          - { label: "Portréty", value: "portrety" }
-          - { label: "Rodinné focení", value: "rodina" }
-          - { label: "Párové focení", value: "pary" }
-          - { label: "Eventy", value: "eventy" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Cover Image", name: "cover", widget: "image" }
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
-        field: { label: "Image", name: "image", widget: "image" }
-        required: false
-      - { label: "Featured", name: "featured", widget: "boolean", default: false }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "pages"
-    label: "Stránky"
-    folder: "src/content/pages"
-    create: false
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "settings"
-    label: "Nastavení webu"
-    files:
-      - label: "Obecné"
-        name: "site"
-        file: "src/content/settings/site.json"
+          - { label: "Architektura & nemovitosti", value: architecture }
+          - { label: "Akce & reportáže", value: events }
+          - { label: "Portréty & akty", value: portraits }
+          - { label: "Krajina & street", value: landscape }
+      - { name: tags, label: Tagy, widget: list, default: [] }
+      - { name: featured, label: "Hlavní (featured)", widget: boolean, default: false }
+      - { name: cover, label: Titulní fotka, widget: image }
+      - name: images
+        label: Fotky série
+        widget: list
         fields:
-          - { label: "Název webu", name: "title", widget: "string" }
-          - { label: "Podtitulek", name: "tagline", widget: "string" }
-          - { label: "Hero text", name: "heroText", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "Telefon", name: "phone", widget: "string" }
-          - { label: "Copyright", name: "copyright", widget: "string" }
+          - { name: src, label: Fotka, widget: image }
+          - { name: alt, label: "Popisek (alt text)", widget: string }
+          - { name: caption, label: Caption, widget: string, required: false }
+      - { name: location, label: Místo, widget: string, required: false }
+      - { name: description, label: Popis, widget: text, required: false }
+      - { name: draft, label: Koncept, widget: boolean, default: false }
