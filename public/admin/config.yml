@@ -26,6 +26,7 @@ collections:
           - { label: "Akce & reportáže", value: events }
           - { label: "Portréty & akty", value: portraits }
           - { label: "Krajina & street", value: landscape }
+          - { label: "Svatby", value: weddings }
       - { name: tags, label: Tagy, widget: list, default: [] }
       - { name: featured, label: "Hlavní (featured)", widget: boolean, default: false }
       - { name: cover, label: Titulní fotka, widget: image }

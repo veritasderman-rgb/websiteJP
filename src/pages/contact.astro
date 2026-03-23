@@ -22,12 +22,17 @@ import Base from '../layouts/Base.astro';
           <div class="form-group">
             <label for="service">Typ zakázky</label>
             <select id="service" name="service">
+              <option value="svatba">Svatba</option>
               <option value="architektura">Architektura</option>
               <option value="akce">Akce & reportáž</option>
               <option value="portret">Portrét</option>
               <option value="krajina">Krajina</option>
               <option value="jine">Jiné</option>
             </select>
+          </div>
+          <div class="form-group" id="date-group" hidden>
+            <label for="wedding-date">Termín svatby</label>
+            <input type="date" id="wedding-date" name="wedding-date" />
           </div>
           <div class="form-group">
             <label for="message">Zpráva</label>
@@ -174,3 +179,17 @@ import Base from '../layouts/Base.astro';
     color: var(--color-accent);
   }
 </style>
+
+<script>
+  const serviceSelect = document.getElementById('service') as HTMLSelectElement;
+  const dateGroup = document.getElementById('date-group');
+
+  function toggleDateField() {
+    if (dateGroup) {
+      dateGroup.hidden = serviceSelect?.value !== 'svatba';
+    }
+  }
+
+  serviceSelect?.addEventListener('change', toggleDateField);
+  toggleDateField();
+</script>

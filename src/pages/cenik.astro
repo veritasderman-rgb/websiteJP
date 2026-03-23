@@ -1,0 +1,302 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Ceník" description="Ceník svatební a portrétní fotografie — Josef Pavlovic.">
+  <section class="pricing section">
+    <div class="container">
+      <h1 class="pricing__title">Ceník</h1>
+      <p class="pricing__subtitle">Investice do okamžiků, které zůstanou navždy</p>
+
+      <!-- WEDDING PACKAGES -->
+      <h2 class="pricing__section-title">Svatební fotografie</h2>
+      <div class="pricing__grid">
+        <div class="pricing__card">
+          <span class="pricing__badge">Základ</span>
+          <h3>Mini svatba</h3>
+          <div class="pricing__price">od 18 000 Kč</div>
+          <ul class="pricing__features">
+            <li>Obřad + 4 hodiny focení</li>
+            <li>Min. 200 upravených fotek</li>
+            <li>Online galerie ke stažení</li>
+            <li>Dodání do 3 týdnů</li>
+          </ul>
+          <a href="/contact" class="pricing__cta">Nezávazná poptávka</a>
+        </div>
+
+        <div class="pricing__card pricing__card--featured">
+          <span class="pricing__badge">Nejoblíbenější</span>
+          <h3>Celodenní svatba</h3>
+          <div class="pricing__price">od 28 000 Kč</div>
+          <ul class="pricing__features">
+            <li>Přípravy až po první tanec (8–10 h)</li>
+            <li>Min. 400 upravených fotek</li>
+            <li>Předsvatební schůzka</li>
+            <li>Online galerie ke stažení</li>
+            <li>10 vybraných fotek do 48 h</li>
+            <li>Dodání do 4 týdnů</li>
+          </ul>
+          <a href="/contact" class="pricing__cta">Nezávazná poptávka</a>
+        </div>
+
+        <div class="pricing__card">
+          <span class="pricing__badge">Premium</span>
+          <h3>Kompletní balíček</h3>
+          <div class="pricing__price">od 42 000 Kč</div>
+          <ul class="pricing__features">
+            <li>Celý svatební den bez limitu</li>
+            <li>Min. 600 upravených fotek</li>
+            <li>Předsvatební (engagement) focení</li>
+            <li>Druhý fotograf</li>
+            <li>Fotoalbum 30×30 cm (20 stran)</li>
+            <li>Online galerie ke stažení</li>
+            <li>Dodání do 4 týdnů</li>
+          </ul>
+          <a href="/contact" class="pricing__cta">Nezávazná poptávka</a>
+        </div>
+      </div>
+
+      <!-- OTHER SERVICES -->
+      <h2 class="pricing__section-title">Další služby</h2>
+      <div class="pricing__services">
+        <div class="pricing__service">
+          <div>
+            <h3>Portrétní focení</h3>
+            <p>1 hodina, min. 20 upravených fotek. Osobní brand, LinkedIn, umělecký portrét.</p>
+          </div>
+          <span class="pricing__service-price">od 3 500 Kč</span>
+        </div>
+        <div class="pricing__service">
+          <div>
+            <h3>Architektura & nemovitosti</h3>
+            <p>Interiéry, exteriéry, realitní fotografie. Cena dle rozsahu.</p>
+          </div>
+          <span class="pricing__service-price">od 5 000 Kč</span>
+        </div>
+        <div class="pricing__service">
+          <div>
+            <h3>Akce & reportáže</h3>
+            <p>Konference, firemní akce, koncerty. Cena dle délky a rozsahu.</p>
+          </div>
+          <span class="pricing__service-price">od 5 000 Kč</span>
+        </div>
+        <div class="pricing__service">
+          <div>
+            <h3>Krajina & umělecká fotografie</h3>
+            <p>Tisky na zakázku, limitované edice. Cena dle formátu a provedení.</p>
+          </div>
+          <span class="pricing__service-price">individuálně</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="pricing__footer">
+        <p>Každá zakázka je jiná. Napište mi a domluvíme se na detailech.</p>
+        <a href="/contact" class="pricing__footer-cta">Nezávazná konzultace</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pricing__title {
+    text-align: center;
+    font-style: italic;
+    padding-top: var(--header-height);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing__subtitle {
+    text-align: center;
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .pricing__section-title {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    color: var(--color-text);
+  }
+
+  /* WEDDING PACKAGES GRID */
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto 6rem;
+  }
+
+  @media (max-width: 900px) {
+    .pricing__grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+    }
+  }
+
+  .pricing__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--transition);
+  }
+
+  .pricing__card:hover {
+    border-color: var(--color-accent-dim);
+  }
+
+  .pricing__card--featured {
+    border-color: var(--color-accent);
+  }
+
+  .pricing__badge {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .pricing__card h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing__price {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+
+  .pricing__features {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 2rem;
+  }
+
+  .pricing__features li {
+    color: var(--color-muted);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    font-weight: 300;
+  }
+
+  .pricing__features li::before {
+    content: "— ";
+    color: var(--color-accent-dim);
+  }
+
+  .pricing__cta {
+    display: block;
+    text-align: center;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+  }
+
+  .pricing__cta:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .pricing__card--featured .pricing__cta {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .pricing__card--featured .pricing__cta:hover {
+    background: var(--color-accent-dim);
+  }
+
+  /* OTHER SERVICES */
+  .pricing__services {
+    max-width: 700px;
+    margin: 0 auto 6rem;
+  }
+
+  .pricing__service {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing__service h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing__service p {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .pricing__service-price {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-text);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .pricing__service {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  /* FOOTER CTA */
+  .pricing__footer {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .pricing__footer p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing__footer-cta {
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+  }
+
+  .pricing__footer-cta:hover {
+    background: var(--color-accent-dim);
+    color: var(--color-bg);
+  }
+</style>
