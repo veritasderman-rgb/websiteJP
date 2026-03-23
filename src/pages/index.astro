@@ -14,13 +14,14 @@ const featured = sorted.filter((e) => e.data.featured).slice(0, 9);
 
 // Category cards
 const categoryLabels: Record<string, string> = {
+  weddings: 'Svatby',
   architecture: 'Architektura & nemovitosti',
   events: 'Akce & reportáže',
   portraits: 'Portréty & akty',
   landscape: 'Krajina & street',
 };
 
-const categories = (['architecture', 'events', 'portraits', 'landscape'] as const).map((cat) => {
+const categories = (['weddings', 'architecture', 'events', 'portraits', 'landscape'] as const).map((cat) => {
   const latest = sorted.find((e) => e.data.category === cat);
   return {
     value: cat,
@@ -67,7 +68,7 @@ const categories = (['architecture', 'events', 'portraits', 'landscape'] as cons
       <h2 class="section__heading">Kategorie</h2>
       <div class="categories__grid">
         {categories.map((cat) => (
-          <a href={`/portfolio/${cat.value}`} class="categories__card">
+          <a href={`/portfolio/${cat.value}`} class:list={['categories__card', { 'categories__card--featured': cat.value === 'weddings' }]}>
             <img src={cat.cover} alt={cat.label} loading="lazy" width="600" height="400" />
             <span class="categories__label">{cat.label}</span>
           </a>
@@ -205,6 +206,18 @@ const categories = (['architecture', 'events', 'portraits', 'landscape'] as cons
     display: block;
     overflow: hidden;
     aspect-ratio: 4 / 3;
+  }
+
+  .categories__card--featured {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1;
+  }
+
+  @media (max-width: 640px) {
+    .categories__card--featured {
+      grid-column: span 1;
+      aspect-ratio: 4 / 3;
+    }
   }
 
   .categories__card img {

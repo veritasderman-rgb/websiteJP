@@ -12,6 +12,7 @@ const currentPath = Astro.url.pathname;
     <a href="/" class="logo">Josef Pavlovic</a>
     <nav class="nav" id="main-nav" aria-label="Hlavní navigace">
       <a href="/portfolio" class:list={[{ active: currentPath.startsWith('/portfolio') }]}>Portfolio</a>
+      <a href="/cenik" class:list={[{ active: currentPath === '/cenik' || currentPath === '/cenik/' }]}>Ceník</a>
       <a href="/about" class:list={[{ active: currentPath === '/about' || currentPath === '/about/' }]}>O mně</a>
       <a href="/contact" class:list={[{ active: currentPath === '/contact' || currentPath === '/contact/' }]}>Kontakt</a>
     </nav>

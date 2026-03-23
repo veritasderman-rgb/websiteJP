@@ -6,7 +6,7 @@ const gallery = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    category: z.enum(['architecture', 'events', 'portraits', 'landscape']),
+    category: z.enum(['architecture', 'events', 'portraits', 'landscape', 'weddings']),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     cover: z.string(),

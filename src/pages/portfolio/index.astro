@@ -9,13 +9,14 @@ const categoryLabels: Record<string, string> = {
   events: 'Akce',
   portraits: 'Portréty',
   landscape: 'Krajina',
+  weddings: 'Svatby',
 };
 
 const allEntries = await getCollection('gallery', ({ data }) => !data.draft);
 const sorted = allEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Base title="Portfolio" description="Ukázky z mé práce — architektura, reportáže, portréty, krajina.">
+<Base title="Portfolio" description="Ukázky z mé práce — svatby, architektura, reportáže, portréty, krajina.">
   <div class="section--sm">
     <div class="container">
       <h1 class="page-title">Portfolio</h1>
