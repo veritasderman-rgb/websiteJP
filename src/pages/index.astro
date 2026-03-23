@@ -9,8 +9,8 @@ const sorted = allEntries.sort((a, b) => b.data.date.getTime() - a.data.date.get
 // Hero: latest featured photo
 const heroEntry = sorted.find((e) => e.data.featured) || sorted[0];
 
-// Featured grid: up to 9 featured
-const featured = sorted.filter((e) => e.data.featured).slice(0, 9);
+// Featured grid: up to 6 featured
+const featured = sorted.filter((e) => e.data.featured).slice(0, 6);
 
 // Category cards
 const categoryLabels: Record<string, string> = {
@@ -36,18 +36,55 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
   <section class="hero" style={`background-image: url('${heroEntry?.data.cover || ''}')`}>
     <div class="hero__noise"></div>
     <div class="hero__content">
+      <p class="hero__pre">Svatební & portrétní fotograf — Praha</p>
       <h1 class="hero__name">Josef Pavlovic</h1>
-      <p class="hero__tagline">Fotografie</p>
+      <p class="hero__text">Zachytím vaše nejkrásnější momenty. Svatby, portréty, rodinné focení a více.</p>
+      <div class="hero__actions">
+        <a href="/cenik" class="hero__btn hero__btn--primary">Zobrazit ceník</a>
+        <a href="/contact" class="hero__btn hero__btn--secondary">Nezávazná poptávka</a>
+      </div>
     </div>
-    <a href="#featured" class="hero__scroll" aria-label="Scroll dolů">
+    <a href="#services" class="hero__scroll" aria-label="Scroll dolů">
       <span class="hero__arrow"></span>
     </a>
   </section>
 
-  <!-- FEATURED -->
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section__heading">Co nabízím</h2>
+      <div class="services__grid">
+        <div class="services__card">
+          <h3>Svatby</h3>
+          <p>Celý váš svatební den zachycený přirozeně a s citem. Od příprav až po první tanec.</p>
+          <span class="services__price">od 10 000 Kč</span>
+        </div>
+        <div class="services__card">
+          <h3>Portréty</h3>
+          <p>Profesionální portréty pro osobní brand, LinkedIn nebo jen tak pro radost.</p>
+          <span class="services__price">od 3 500 Kč</span>
+        </div>
+        <div class="services__card">
+          <h3>Architektura</h3>
+          <p>Interiéry, exteriéry, realitní fotografie. Unikátní pohled na prostor.</p>
+          <span class="services__price">od 5 000 Kč</span>
+        </div>
+        <div class="services__card">
+          <h3>Akce & reportáže</h3>
+          <p>Konference, firemní akce, koncerty. Energie okamžiku zachycená na film.</p>
+          <span class="services__price">od 5 000 Kč</span>
+        </div>
+      </div>
+      <div class="services__cta">
+        <a href="/cenik" class="hero__btn hero__btn--secondary">Kompletní ceník</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PORTFOLIO -->
   <section class="section" id="featured">
     <div class="container">
-      <h2 class="section__heading">Vybrané práce</h2>
+      <h2 class="section__heading">Z mého portfolia</h2>
       <PhotoGrid
         masonry={true}
         photos={featured.map((e) => ({
@@ -59,6 +96,9 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
           count: e.data.images.length,
         }))}
       />
+      <div class="services__cta">
+        <a href="/portfolio" class="hero__btn hero__btn--secondary">Celé portfolio</a>
+      </div>
     </div>
   </section>
 
@@ -74,6 +114,15 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Hledáte fotografa na svatbu?</h2>
+      <p>Napište mi a nezávazně probereme vaše představy. Termíny se plní rychle — rezervujte si svůj den včas.</p>
+      <a href="/contact" class="hero__btn hero__btn--primary">Kontaktovat</a>
     </div>
   </section>
 </Base>
@@ -107,9 +156,9 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(10, 10, 8, 0.3) 0%,
-      rgba(10, 10, 8, 0.1) 40%,
-      rgba(10, 10, 8, 0.6) 100%
+      rgba(10, 10, 8, 0.35) 0%,
+      rgba(10, 10, 8, 0.2) 40%,
+      rgba(10, 10, 8, 0.7) 100%
     );
     z-index: 1;
   }
@@ -117,6 +166,16 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
   .hero__content {
     position: relative;
     z-index: 2;
+    max-width: 650px;
+    padding: 0 2rem;
+  }
+
+  .hero__pre {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
   }
 
   .hero__name {
@@ -125,14 +184,52 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
     font-weight: 400;
     color: var(--color-text);
     letter-spacing: 0.02em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
-  .hero__tagline {
-    font-size: 0.8rem;
+  .hero__text {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero__btn {
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    font-size: 0.78rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+  }
+
+  .hero__btn--primary {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .hero__btn--primary:hover {
+    background: var(--color-accent-dim);
+    color: var(--color-bg);
+  }
+
+  .hero__btn--secondary {
+    border: 1px solid var(--color-accent);
     color: var(--color-accent);
+  }
+
+  .hero__btn--secondary:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
   }
 
   .hero__scroll {
@@ -180,6 +277,60 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
     margin-bottom: 3.5rem;
     font-style: italic;
     color: var(--color-text);
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 120px 0;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .services__card {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition);
+  }
+
+  .services__card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .services__card h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .services__card p {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .services__price {
+    font-family: var(--font-display);
+    color: var(--color-accent);
+    font-size: 1.05rem;
+  }
+
+  .services__cta {
+    text-align: center;
+    margin-top: 3rem;
   }
 
   /* CATEGORIES */
@@ -243,5 +394,26 @@ const categories = (['weddings', 'architecture', 'events', 'portraits', 'landsca
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text);
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    padding: 120px 2rem;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta h2 {
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
   }
 </style>
