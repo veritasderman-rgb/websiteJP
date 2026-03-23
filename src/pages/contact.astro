@@ -9,11 +9,10 @@ import Base from '../layouts/Base.astro';
       <p class="contact__subtitle">Máte zájem o spolupráci? Napište mi.</p>
 
       <div class="contact__grid">
-        <form class="contact__form" name="contact" method="POST" netlify>
-          <input type="hidden" name="form-name" value="contact" />
+        <form class="contact__form" id="contact-form" novalidate>
           <div class="form-group">
             <label for="name">Jméno</label>
-            <input type="text" id="name" name="name" required />
+            <input type="text" id="name" name="name" required minlength="2" />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -36,9 +35,13 @@ import Base from '../layouts/Base.astro';
           </div>
           <div class="form-group">
             <label for="message">Zpráva</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
           </div>
-          <button type="submit" class="form-submit">Odeslat</button>
+          <button type="submit" class="form-submit" id="submit-btn">
+            <span class="form-submit__text">Odeslat</span>
+            <span class="form-submit__loading" hidden>Odesílám…</span>
+          </button>
+          <div class="form-feedback" id="form-feedback" hidden></div>
         </form>
 
         <div class="contact__info">
@@ -126,6 +129,11 @@ import Base from '../layouts/Base.astro';
     border-color: var(--color-accent);
   }
 
+  .form-group input.is-invalid,
+  .form-group textarea.is-invalid {
+    border-color: #c44;
+  }
+
   .form-group select {
     cursor: pointer;
     appearance: none;
@@ -147,12 +155,36 @@ import Base from '../layouts/Base.astro';
     letter-spacing: 0.1em;
     cursor: pointer;
     border-radius: var(--radius-sm);
-    transition: background var(--transition);
+    transition: background var(--transition), opacity var(--transition);
     align-self: flex-start;
   }
 
   .form-submit:hover {
     background: var(--color-accent-dim);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-feedback {
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .form-feedback--success {
+    background: rgba(80, 160, 80, 0.12);
+    border: 1px solid rgba(80, 160, 80, 0.3);
+    color: #6ab76a;
+  }
+
+  .form-feedback--error {
+    background: rgba(200, 70, 70, 0.12);
+    border: 1px solid rgba(200, 70, 70, 0.3);
+    color: #c87070;
   }
 
   .contact__info {
@@ -181,15 +213,88 @@ import Base from '../layouts/Base.astro';
 </style>
 
 <script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const btnText = submitBtn.querySelector('.form-submit__text') as HTMLElement;
+  const btnLoading = submitBtn.querySelector('.form-submit__loading') as HTMLElement;
+  const feedback = document.getElementById('form-feedback') as HTMLElement;
   const serviceSelect = document.getElementById('service') as HTMLSelectElement;
-  const dateGroup = document.getElementById('date-group');
+  const dateGroup = document.getElementById('date-group') as HTMLElement;
 
   function toggleDateField() {
-    if (dateGroup) {
-      dateGroup.hidden = serviceSelect?.value !== 'svatba';
-    }
+    dateGroup.hidden = serviceSelect.value !== 'svatba';
   }
 
-  serviceSelect?.addEventListener('change', toggleDateField);
+  serviceSelect.addEventListener('change', toggleDateField);
   toggleDateField();
+
+  function showFeedback(msg: string, type: 'success' | 'error') {
+    feedback.textContent = msg;
+    feedback.hidden = false;
+    feedback.className = `form-feedback form-feedback--${type}`;
+  }
+
+  function setLoading(loading: boolean) {
+    submitBtn.disabled = loading;
+    btnText.hidden = loading;
+    btnLoading.hidden = !loading;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    feedback.hidden = true;
+
+    // Clear previous validation
+    form.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+    const service = (form.elements.namedItem('service') as HTMLSelectElement).value;
+    const weddingDate = (form.elements.namedItem('wedding-date') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
+
+    // Client-side validation
+    let valid = true;
+    if (name.length < 2) {
+      (form.elements.namedItem('name') as HTMLElement).classList.add('is-invalid');
+      valid = false;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      (form.elements.namedItem('email') as HTMLElement).classList.add('is-invalid');
+      valid = false;
+    }
+    if (message.length < 10) {
+      (form.elements.namedItem('message') as HTMLElement).classList.add('is-invalid');
+      valid = false;
+    }
+
+    if (!valid) {
+      showFeedback('Vyplňte prosím všechna povinná pole správně.', 'error');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, service, weddingDate, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        showFeedback('Děkuji za zprávu! Ozvu se vám co nejdříve.', 'success');
+        form.reset();
+        toggleDateField();
+      } else {
+        showFeedback(data.error || 'Něco se pokazilo. Zkuste to prosím znovu.', 'error');
+      }
+    } catch {
+      showFeedback('Nepodařilo se odeslat zprávu. Zkontrolujte připojení a zkuste to znovu.', 'error');
+    } finally {
+      setLoading(false);
+    }
+  });
 </script>
