@@ -1,4 +1,6 @@
 import { REST_DELETE, REST_GET, REST_PATCH, REST_POST, REST_PUT } from '@payloadcms/next/routes'
+
+export const maxDuration = 60
 import config from '@payload-config'
 
 export const GET = REST_GET(config)
