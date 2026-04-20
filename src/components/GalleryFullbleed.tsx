@@ -29,7 +29,7 @@ export default function GalleryFullbleed({ images }: { images: GalleryImage[] })
         {images.map((img, idx) => (
           <div
             key={idx}
-            className="relative w-full cursor-pointer overflow-hidden"
+            className="relative w-full cursor-pointer overflow-hidden isolate"
             style={{ maxHeight: '90vh' }}
             onClick={() => setLightboxIndex(idx)}
           >
@@ -38,7 +38,7 @@ export default function GalleryFullbleed({ images }: { images: GalleryImage[] })
               alt={img.alt}
               width={2400}
               height={1600}
-              className="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-700"
+              className="w-full h-auto object-cover transform-gpu transition-transform duration-700 hover:scale-[1.01]"
               sizes="100vw"
             />
             {img.caption && (

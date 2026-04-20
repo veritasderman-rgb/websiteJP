@@ -29,7 +29,7 @@ export default function ImageCard({
   return (
     <figure
       onClick={onClick}
-      className={`group overflow-hidden bg-surface ${onClick ? 'cursor-pointer' : ''} ${aspectRatio !== 'auto' ? aspectClass + ' relative' : 'relative'} ${className}`}
+      className={`group bg-surface isolate ${onClick ? 'cursor-pointer' : ''} ${aspectRatio !== 'auto' ? aspectClass + ' relative overflow-hidden' : 'relative overflow-hidden'} ${className}`}
     >
       <Image
         src={src}
@@ -37,7 +37,7 @@ export default function ImageCard({
         fill={aspectRatio !== 'auto'}
         width={aspectRatio === 'auto' ? 800 : undefined}
         height={aspectRatio === 'auto' ? 600 : undefined}
-        className={`object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] ${aspectRatio === 'auto' ? 'w-full h-auto' : ''}`}
+        className={`object-cover transform-gpu transition-transform duration-500 ease-out group-hover:scale-[1.03] ${aspectRatio === 'auto' ? 'w-full h-auto' : ''}`}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
       {caption && (
