@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-export const maxDuration = 60
 import { Resend } from 'resend'
+
+export const maxDuration = 30
 
 const typeLabels: Record<string, string> = {
   svatba: 'Svatba',

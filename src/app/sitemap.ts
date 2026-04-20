@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
-import { getPayload } from 'payload'
-import config from '@payload-config'
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../keystatic.config'
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://josefpavlovic.cz'
 
@@ -14,27 +14,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/kontakt`, priority: 0.7, changeFrequency: 'monthly' },
   ]
 
-  try {
-    const payload = await getPayload({ config })
-    const [galleries, posts] = await Promise.all([
-      payload.find({ collection: 'galleries', limit: 200, depth: 0 }),
-      payload.find({ collection: 'posts', limit: 200, depth: 0 }),
-    ])
+  const reader = createReader(process.cwd(), keystaticConfig)
+  const [galleries, posts] = await Promise.all([
+    reader.collections.galleries.all(),
+    reader.collections.posts.all(),
+  ])
 
-    const galleryUrls: MetadataRoute.Sitemap = galleries.docs.map((g: any) => ({
-      url: `${BASE}/portfolio/${g.slug}`,
-      priority: 0.8,
-      changeFrequency: 'monthly' as const,
-    }))
+  const galleryUrls: MetadataRoute.Sitemap = galleries.map((g) => ({
+    url: `${BASE}/portfolio/${g.slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  }))
 
-    const postUrls: MetadataRoute.Sitemap = posts.docs.map((p: any) => ({
-      url: `${BASE}/blog/${p.slug}`,
-      priority: 0.5,
-      changeFrequency: 'never' as const,
-    }))
+  const postUrls: MetadataRoute.Sitemap = posts.map((p) => ({
+    url: `${BASE}/blog/${p.slug}`,
+    priority: 0.5,
+    changeFrequency: 'never' as const,
+  }))
 
-    return [...staticPages, ...galleryUrls, ...postUrls]
-  } catch {
-    return staticPages
-  }
+  return [...staticPages, ...galleryUrls, ...postUrls]
 }

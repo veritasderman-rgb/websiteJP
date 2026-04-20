@@ -1,78 +1,44 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../../../../keystatic.config'
 import { notFound } from 'next/navigation'
 import GalleryMasonry from '@/components/GalleryMasonry'
-import GalleryFullbleed from '@/components/GalleryFullbleed'
-import { getMediaUrl } from '@/lib/utils'
 import type { Metadata } from 'next'
 
-export const revalidate = 3600
+export const revalidate = false
 
 export async function generateStaticParams() {
-  try {
-    const payload = await getPayload({ config })
-    const result = await payload.find({ collection: 'galleries', limit: 200 })
-    return result.docs.map((g: any) => ({ slug: g.slug }))
-  } catch {
-    return []
-  }
+  const reader = createReader(process.cwd(), keystaticConfig)
+  const galleries = await reader.collections.galleries.all()
+  return galleries.map((g) => ({ slug: g.slug }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
   const { slug } = await params
-  try {
-    const payload = await getPayload({ config })
-    const result = await payload.find({
-      collection: 'galleries',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      depth: 1,
-    })
-    const gallery = result.docs[0]
-    if (!gallery) return {}
-    return {
-      title: gallery.seo?.metaTitle || gallery.title,
-      description: gallery.seo?.metaDescription || '',
-    }
-  } catch {
-    return {}
+  const reader = createReader(process.cwd(), keystaticConfig)
+  const gallery = await reader.collections.galleries.read(slug)
+  if (!gallery) return {}
+  return {
+    title: gallery.title,
+    description: gallery.description || '',
   }
 }
 
 export default async function GalleryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-
-  let gallery: any = null
-  try {
-    const payload = await getPayload({ config })
-    const result = await payload.find({
-      collection: 'galleries',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      depth: 2,
-    })
-    gallery = result.docs[0]
-  } catch {
-    notFound()
-  }
+  const reader = createReader(process.cwd(), keystaticConfig)
+  const gallery = await reader.collections.galleries.read(slug)
 
   if (!gallery) notFound()
 
   const images = (gallery.images || [])
-    .map((item: any) => {
-      const img = typeof item.image === 'object' ? item.image : null
-      if (!img) return null
-      return {
-        id: img.id,
-        filename: img.filename,
-        alt: img.alt || gallery.title,
-        caption: item.caption || img.caption,
-        sizes: img.sizes,
-      }
-    })
-    .filter(Boolean)
-
-  const GalleryComponent = gallery.layout === 'vertical-fullbleed' ? GalleryFullbleed : GalleryMasonry
+    .filter((item) => !!item.image)
+    .map((item) => ({
+      src: item.image as string,
+      alt: gallery.title,
+      caption: item.caption || '',
+    }))
 
   return (
     <div className="pt-24 pb-24">
@@ -82,10 +48,15 @@ export default async function GalleryPage({ params }: { params: Promise<{ slug: 
           <h1 className="font-display text-4xl md:text-5xl text-primary font-light tracking-wide">
             {gallery.title}
           </h1>
+          {gallery.description && (
+            <p className="text-secondary font-sans text-sm mt-4 max-w-xl mx-auto leading-relaxed">
+              {gallery.description}
+            </p>
+          )}
         </header>
 
         {images.length > 0 ? (
-          <GalleryComponent images={images} />
+          <GalleryMasonry images={images} />
         ) : (
           <p className="text-center text-secondary font-sans py-20">Galerie je prázdná.</p>
         )}
