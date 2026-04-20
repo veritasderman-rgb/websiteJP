@@ -7,21 +7,18 @@ import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import Counter from 'yet-another-react-lightbox/plugins/counter'
 import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/counter.css'
-import { getMediaUrl } from '@/lib/utils'
 
 interface GalleryImage {
-  id?: string
-  filename: string
+  src: string
   alt: string
   caption?: string
-  sizes?: { gallery?: { filename: string } }
 }
 
 export default function GalleryFullbleed({ images }: { images: GalleryImage[] }) {
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
   const slides = images.map((img) => ({
-    src: getMediaUrl(img.sizes?.gallery?.filename || img.filename),
+    src: img.src,
     alt: img.alt,
     title: img.caption,
   }))
@@ -31,13 +28,13 @@ export default function GalleryFullbleed({ images }: { images: GalleryImage[] })
       <div className="flex flex-col gap-2">
         {images.map((img, idx) => (
           <div
-            key={img.id || idx}
+            key={idx}
             className="relative w-full cursor-pointer overflow-hidden"
             style={{ maxHeight: '90vh' }}
             onClick={() => setLightboxIndex(idx)}
           >
             <Image
-              src={getMediaUrl(img.sizes?.gallery?.filename || img.filename)}
+              src={img.src}
               alt={img.alt}
               width={2400}
               height={1600}

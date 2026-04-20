@@ -13,6 +13,3 @@ export function formatDate(dateString: string): string {
   }).format(new Date(dateString))
 }
 
-export function getMediaUrl(filename: string): string {
-  return `/media/${filename}`
-}

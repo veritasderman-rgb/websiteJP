@@ -9,17 +9,11 @@ import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import 'yet-another-react-lightbox/plugins/counter.css'
 import ImageCard from './ImageCard'
-import { getMediaUrl } from '@/lib/utils'
 
 interface GalleryImage {
-  id?: string
-  filename: string
+  src: string
   alt: string
   caption?: string
-  sizes?: {
-    gallery?: { filename: string }
-    card?: { filename: string }
-  }
 }
 
 interface GalleryMasonryProps {
@@ -30,7 +24,7 @@ export default function GalleryMasonry({ images }: GalleryMasonryProps) {
   const [lightboxIndex, setLightboxIndex] = useState(-1)
 
   const slides = images.map((img) => ({
-    src: getMediaUrl(img.sizes?.gallery?.filename || img.filename),
+    src: img.src,
     alt: img.alt,
     title: img.caption,
   }))
@@ -39,9 +33,9 @@ export default function GalleryMasonry({ images }: GalleryMasonryProps) {
     <>
       <div className="columns-2 md:columns-3 lg:columns-4 gap-2 md:gap-3">
         {images.map((img, idx) => (
-          <div key={img.id || idx} className="mb-2 md:mb-3 break-inside-avoid">
+          <div key={idx} className="mb-2 md:mb-3 break-inside-avoid">
             <ImageCard
-              src={getMediaUrl(img.sizes?.card?.filename || img.filename)}
+              src={img.src}
               alt={img.alt}
               caption={img.caption}
               onClick={() => setLightboxIndex(idx)}

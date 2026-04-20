@@ -1,29 +1,24 @@
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../../../keystatic.config'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import { getMediaUrl } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'O mně',
   description: 'Jsem Josef Pavlovic, fotograf z Mariánských Lázní. Zachycuji příběhy, emoce a krásu — od svatebních ceremonií po fine art portréty.',
 }
 
-export const revalidate = 3600
+export const revalidate = false
 
 export default async function OmnePage() {
-  let aboutImage: string | null = null
-  let aboutText: string | null = null
+  const reader = createReader(process.cwd(), keystaticConfig)
+  const settings = await reader.singletons.siteSettings.read()
 
-  try {
-    const payload = await getPayload({ config })
-    const settings = await payload.findGlobal({ slug: 'site-settings' })
-    if (settings?.aboutImage && typeof settings.aboutImage === 'object') {
-      aboutImage = getMediaUrl((settings.aboutImage as any).filename)
-    }
-    aboutText = settings?.aboutText || null
-  } catch {}
+  const aboutImage = settings?.aboutImage || null
+  const aboutText = settings?.aboutText || null
+  const email = settings?.email || 'mail@josefpavlovic.cz'
+  const location = settings?.location || 'Mariánské Lázně, Karlovarský kraj'
 
   return (
     <div className="pt-24 pb-24">
@@ -72,8 +67,8 @@ export default async function OmnePage() {
             <div className="mt-12 pt-12 border-t border-gray-100">
               <h2 className="font-display text-2xl text-primary font-light mb-6">Kontakt</h2>
               <div className="space-y-2 font-sans text-sm text-secondary">
-                <p>📍 Mariánské Lázně, Karlovarský kraj</p>
-                <p>✉ mail@josefpavlovic.cz</p>
+                <p>📍 {location}</p>
+                <p>✉ {email}</p>
               </div>
               <div className="mt-8">
                 <Link
