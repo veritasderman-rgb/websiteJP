@@ -1,4 +1,5 @@
 import { createReader } from '@keystatic/core/reader'
+import Markdoc from '@markdoc/markdoc'
 import keystaticConfig from '../../../../../keystatic.config'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
@@ -35,6 +36,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) notFound()
 
   const content = await post.content()
+  const transformed = content?.node ? Markdoc.transform(content.node) : null
+  const renderedHtml = transformed ? Markdoc.renderers.html(transformed) : ''
 
   return (
     <article className="pt-24 pb-24">
@@ -68,9 +71,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </h1>
         <div className="prose prose-lg max-w-none font-sans text-secondary leading-relaxed">
           {post.excerpt && <p className="text-base">{post.excerpt}</p>}
-          {content?.node && (
-            <div dangerouslySetInnerHTML={{ __html: '' }} />
-          )}
+          {renderedHtml && <div dangerouslySetInnerHTML={{ __html: renderedHtml }} />}
         </div>
       </div>
     </article>
