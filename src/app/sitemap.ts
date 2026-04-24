@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/nabidka`, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${BASE}/blog`, priority: 0.6, changeFrequency: 'weekly' },
     { url: `${BASE}/kontakt`, priority: 0.7, changeFrequency: 'monthly' },
+    { url: `${BASE}/ochrana-udaju`, priority: 0.4, changeFrequency: 'yearly' },
   ]
 
   const reader = createReader(process.cwd(), keystaticConfig)

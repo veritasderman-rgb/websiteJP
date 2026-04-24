@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const schema = z.object({
   jmeno: z.string().min(2, 'Zadejte prosím jméno'),
@@ -27,17 +27,38 @@ type FormData = {
   honeypot?: string
 }
 
+const formTypeMap: Record<string, FormData['typPoptavky']> = {
+  svatba: 'svatba',
+  boudoir: 'boudoir',
+  portret: 'portret',
+}
+
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema) as any,
+    defaultValues: {
+      typPoptavky: 'svatba',
+    },
   })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const typeFromQuery = new URLSearchParams(window.location.search).get('typ')
+    if (!typeFromQuery) return
+
+    const mappedType = formTypeMap[typeFromQuery]
+    if (mappedType) {
+      setValue('typPoptavky', mappedType)
+    }
+  }, [setValue])
 
   const onSubmit = async (data: FormData) => {
     if (data.honeypot) return // spam bot
@@ -96,7 +117,6 @@ export default function ContactForm() {
         <div>
           <label htmlFor="typPoptavky" className={labelClass}>Typ focení *</label>
           <select id="typPoptavky" {...register('typPoptavky')} className={inputClass(!!errors.typPoptavky)}>
-            <option value="">Vyberte...</option>
             <option value="svatba">Svatba</option>
             <option value="boudoir">Boudoir & Akt</option>
             <option value="portret">Portrét</option>
