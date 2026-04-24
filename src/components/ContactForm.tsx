@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 
 const schema = z.object({
   jmeno: z.string().min(2, 'Zadejte prosím jméno'),
@@ -36,8 +35,6 @@ const formTypeMap: Record<string, FormData['typPoptavky']> = {
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-  const searchParams = useSearchParams()
-
   const {
     register,
     handleSubmit,
@@ -52,14 +49,16 @@ export default function ContactForm() {
   })
 
   useEffect(() => {
-    const typeFromQuery = searchParams.get('typ')
+    if (typeof window === 'undefined') return
+
+    const typeFromQuery = new URLSearchParams(window.location.search).get('typ')
     if (!typeFromQuery) return
 
     const mappedType = formTypeMap[typeFromQuery]
     if (mappedType) {
       setValue('typPoptavky', mappedType)
     }
-  }, [searchParams, setValue])
+  }, [setValue])
 
   const onSubmit = async (data: FormData) => {
     if (data.honeypot) return // spam bot
