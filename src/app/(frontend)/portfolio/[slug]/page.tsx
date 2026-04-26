@@ -38,6 +38,8 @@ export default async function GalleryPage({ params }: { params: Promise<{ slug: 
       src: item.image as string,
       alt: gallery.title,
       caption: item.caption || '',
+      width: item.width ?? 2048,
+      height: item.height ?? 1365,
     }))
 
   return (

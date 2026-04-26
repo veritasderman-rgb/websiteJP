@@ -1,35 +1,35 @@
-title: Fine Art
+title: Fine Art & Boudoir
 category: boudoir
-coverImage: /media/17.jpg
+coverImage: /media/14063811_293922034308013_994628417273836055_n.jpg
+coverWidth: 960
+coverHeight: 960
 images:
-  - image: /media/17.jpg
+  - image: /media/14063811_293922034308013_994628417273836055_n.jpg
     caption: ''
-  - image: /media/21.jpg
+    width: 960
+    height: 960
+  - image: /media/14449064_316759418690941_1564686649965420177_n.jpg
     caption: ''
-  - image: /media/29.jpg
+    width: 720
+    height: 480
+  - image: /media/16107503_377093979324151_8231638736442525477_o.jpg
     caption: ''
-  - image: /media/31.jpg
+    width: 1280
+    height: 854
+  - image: /media/15675908_365577290475820_6685272438777031984_o.jpg
     caption: ''
-  - image: /media/34.jpg
+    width: 1047
+    height: 720
+  - image: /media/12670642_222255268141357_5510625044549368715_n.jpg
     caption: ''
-  - image: /media/37.jpg
+    width: 900
+    height: 600
+  - image: /media/15000666_10207357485437793_4039621213393806197_o.jpg
     caption: ''
-  - image: /media/4.jpg
-    caption: ''
-  - image: /media/40.jpg
-    caption: ''
-  - image: /media/40-1.jpg
-    caption: ''
-  - image: /media/40-2.jpg
-    caption: ''
-  - image: /media/42.jpg
-    caption: ''
-  - image: /media/44.jpg
-    caption: ''
-  - image: /media/45.jpg
-    caption: ''
-  - image: /media/7.jpg
-    caption: ''
+    width: 2048
+    height: 676
 featured: true
-description: Fine art a boudoir fotografie — oslava ženské krásy a sebevědomí.
-publishedDate: '2024-03-01'
+description: >-
+  Fine art a boudoir fotografie — oslava krásy, sebevědomí a intimity.
+  Realizováno s maximálním respektem a diskrétností.
+publishedDate: '2024-06-01'

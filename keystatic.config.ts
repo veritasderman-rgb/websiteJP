@@ -40,6 +40,8 @@ export default config({
           directory: 'public/media',
           publicPath: '/media/',
         }),
+        coverWidth: fields.integer({ label: 'Šířka titulního foto (px)' }),
+        coverHeight: fields.integer({ label: 'Výška titulního foto (px)' }),
         images: fields.array(
           fields.object({
             image: fields.image({
@@ -48,6 +50,8 @@ export default config({
               publicPath: '/media/',
             }),
             caption: fields.text({ label: 'Popisek', multiline: false }),
+            width: fields.integer({ label: 'Šířka (px)' }),
+            height: fields.integer({ label: 'Výška (px)' }),
           }),
           { label: 'Fotografie', itemLabel: (props) => props.fields.caption.value || 'Fotografie' },
         ),

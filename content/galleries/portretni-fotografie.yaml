@@ -1,35 +1,59 @@
-title: Portrétní fotografie
-category: portrait
-coverImage: /media/IMG_3597.jpg
+title: Mariánské Lázně
+category: architecture
+coverImage: /media/13244010_1055013777879376_3096502114485230235_o.jpg
+coverWidth: 2048
+coverHeight: 1365
 images:
-  - image: /media/IMG_3597.jpg
+  - image: /media/13244010_1055013777879376_3096502114485230235_o.jpg
+    caption: Hlavní kolonáda
+    width: 2048
+    height: 1365
+  - image: /media/Ferdinandova-kolonáda-2.jpg
+    caption: Ferdinandova kolonáda
+    width: 2048
+    height: 1247
+  - image: /media/Ferdinandova-kolonáda-4.jpg
     caption: ''
-  - image: /media/IMG_3533.jpg
+    width: 2048
+    height: 1366
+  - image: /media/Ferdinandova-kolonáda-5.jpg
     caption: ''
-  - image: /media/IMG_3209.jpg
+    width: 2048
+    height: 668
+  - image: /media/Ferdinandova-kolonáda-6.jpg
     caption: ''
-  - image: /media/IMG_2849.jpg
+    width: 2048
+    height: 1365
+  - image: /media/Ferdinandova-kolonáda-7.jpg
     caption: ''
-  - image: /media/IMG_2844.jpg
+    width: 2048
+    height: 1160
+  - image: /media/Ferdinandova-kolonáda-8.jpg
     caption: ''
-  - image: /media/IMG_2832.jpg
-    caption: ''
-  - image: /media/IMG_2656.jpg
-    caption: ''
+    width: 2048
+    height: 1160
   - image: /media/IMG_2458.jpg
     caption: ''
-  - image: /media/IMG_2295.jpg
-    caption: ''
+    width: 2048
+    height: 1365
+  - image: /media/20160106-IMG_6298-HDR-Pano.jpg
+    caption: Křížový pramen
+    width: 2048
+    height: 1574
+  - image: /media/13227341_1055013781212709_8686236128411355365_o.jpg
+    caption: Lázeňský park
+    width: 2048
+    height: 1365
   - image: /media/IMG_2207.jpg
     caption: ''
-  - image: /media/IMG_1133.jpg
+    width: 2048
+    height: 1365
+  - image: /media/IMG_2295.jpg
     caption: ''
-  - image: /media/IMG_0953.jpg
-    caption: ''
-  - image: /media/IMG_0831.jpg
-    caption: ''
-  - image: /media/IMG_0795.jpg
-    caption: ''
+    width: 2048
+    height: 1365
 featured: true
-description: Portrétní fotografie zachycující přirozené emoce a výrazy.
-publishedDate: '2024-06-01'
+description: >-
+  Mariánské Lázně a jejich unikátní atmosféra — kolonády, parky a historická
+  architektura Karlovarského kraje.
+publishedDate: '2024-04-01'

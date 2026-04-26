@@ -1,19 +1,67 @@
-title: Ferdinandova kolonáda
+title: Architektura & Krajina
 category: architecture
-coverImage: /media/Ferdinandova-kolonáda-2.jpg
+coverImage: /media/20160627-DSC_0027-Edit-Edit.jpg
+coverWidth: 2048
+coverHeight: 1362
 images:
-  - image: /media/Ferdinandova-kolonáda-2.jpg
+  - image: /media/20160627-DSC_0027-Edit-Edit.jpg
+    caption: Hrad Loket
+    width: 2048
+    height: 1362
+  - image: /media/37.jpg
     caption: ''
-  - image: /media/Ferdinandova-kolonáda-4.jpg
+    width: 2048
+    height: 1968
+  - image: /media/34.jpg
     caption: ''
-  - image: /media/Ferdinandova-kolonáda-5.jpg
+    width: 1931
+    height: 2048
+  - image: /media/31.jpg
     caption: ''
-  - image: /media/Ferdinandova-kolonáda-6.jpg
+    width: 2048
+    height: 1365
+  - image: /media/4.jpg
     caption: ''
-  - image: /media/Ferdinandova-kolonáda-7.jpg
+    width: 2048
+    height: 1365
+  - image: /media/17.jpg
     caption: ''
-  - image: /media/Ferdinandova-kolonáda-8.jpg
+    width: 2048
+    height: 1365
+  - image: /media/21.jpg
     caption: ''
-featured: false
-description: Architektura Ferdinandovy kolonády v Mariánských Lázních.
-publishedDate: '2024-01-01'
+    width: 2048
+    height: 1365
+  - image: /media/29.jpg
+    caption: ''
+    width: 2048
+    height: 1365
+  - image: /media/7.jpg
+    caption: ''
+    width: 2048
+    height: 1365
+  - image: /media/40.jpg
+    caption: ''
+    width: 2048
+    height: 1365
+  - image: /media/42.jpg
+    caption: ''
+    width: 2048
+    height: 1365
+  - image: /media/44.jpg
+    caption: ''
+    width: 2048
+    height: 1365
+  - image: /media/45.jpg
+    caption: ''
+    width: 1365
+    height: 2048
+  - image: /media/IMG_2656.jpg
+    caption: ''
+    width: 2048
+    height: 1365
+featured: true
+description: >-
+  Architektura, krajina a detaily — od historických interiérů a hradů po zimní
+  krajiny a přírodu Česka.
+publishedDate: '2024-03-01'
