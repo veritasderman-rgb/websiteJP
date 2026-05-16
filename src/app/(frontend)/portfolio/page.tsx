@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'Galerie fotografií — svatby, boudoir, portréty, architektura a street fotografie.',
+  description: 'Galerie fotografií — svatby, akt, portréty, architektura, interiéry, krajina a reportáž.',
 }
 
 export const revalidate = false
@@ -16,6 +16,10 @@ const categoryLabels: Record<string, string> = {
   boudoir: 'Boudoir & Akt',
   portrait: 'Portréty',
   architecture: 'Architektura',
+  interiors: 'Interiéry a reality',
+  landscape: 'Krajina a příroda',
+  reportage: 'Reportáž a dokument',
+  details: 'Detail a zátiší',
   street: 'Ulice & Cestování',
   other: 'Ostatní',
 }
@@ -24,11 +28,13 @@ export default async function PortfolioPage() {
   const reader = createReader(process.cwd(), keystaticConfig)
   const galleries = await reader.collections.galleries.all()
 
-  const sorted = [...galleries].sort((a, b) => {
-    const da = a.entry.publishedDate || ''
-    const db = b.entry.publishedDate || ''
-    return db.localeCompare(da)
-  })
+  const sorted = [...galleries]
+    .filter((gallery) => gallery.slug.startsWith('portfolio-'))
+    .sort((a, b) => {
+      const da = a.entry.publishedDate || ''
+      const db = b.entry.publishedDate || ''
+      return db.localeCompare(da)
+    })
 
   return (
     <div className="pt-24 pb-24">
@@ -65,7 +71,7 @@ export default async function PortfolioPage() {
                       className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       sizes="(max-width: 768px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-end p-5 opacity-0 group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-5 opacity-0 group-hover:opacity-100">
                       <div>
                         <p className="text-white/70 text-xs tracking-[0.15em] uppercase font-sans mb-1">
                           {categoryLabels[entry.category] || entry.category}
@@ -74,7 +80,7 @@ export default async function PortfolioPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="pt-3 pb-1 group-hover:hidden">
+                  <div className="pt-3 pb-1 transition-opacity duration-300 group-hover:opacity-0">
                     <h2 className="font-display text-base text-primary">{entry.title}</h2>
                     <p className="text-secondary text-xs tracking-wider uppercase font-sans mt-0.5">
                       {categoryLabels[entry.category] || entry.category}

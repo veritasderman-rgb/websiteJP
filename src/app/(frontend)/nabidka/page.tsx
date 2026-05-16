@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Nabídka',
@@ -22,6 +23,15 @@ const services = [
     ],
     cta: { href: '/kontakt?typ=svatba', label: 'Poptat svatbu' },
     note: 'Cena individuálně dle rozsahu a lokality.',
+    gallery: {
+      href: '/portfolio/portfolio-svatba-a-reportaz',
+      label: 'Ukázka svatební galerie',
+      images: [
+        '/media/portfolio/images/svatby/001-121168890-3866924716670768-7460127427355046781-n.webp',
+        '/media/portfolio/images/svatby/004-img-2925.webp',
+        '/media/portfolio/images/svatby/010-macurovi-237-of-392.webp',
+      ],
+    },
   },
   {
     slug: 'boudoir',
@@ -38,6 +48,15 @@ const services = [
     ],
     cta: { href: '/kontakt?typ=boudoir', label: 'Poptat boudoir' },
     note: 'Galerie zveřejňovány pouze s výslovným souhlasem.',
+    gallery: {
+      href: '/portfolio/portfolio-fine-art-akt',
+      label: 'Ukázka fine art galerie',
+      images: [
+        '/media/portfolio/images/akt/001-img-7102.webp',
+        '/media/portfolio/images/akt/012-img-7474.webp',
+        '/media/portfolio/images/akt/028-img-8153.webp',
+      ],
+    },
   },
   {
     slug: 'portrait',
@@ -52,6 +71,15 @@ const services = [
     ],
     cta: { href: '/kontakt?typ=portret', label: 'Poptat portrét' },
     note: 'Rodinná, párová i individuální focení.',
+    gallery: {
+      href: '/portfolio/portfolio-portret-a-lifestyle',
+      label: 'Ukázka portrétní galerie',
+      images: [
+        '/media/portfolio/images/portret/006-img-4140.webp',
+        '/media/portfolio/images/portret/010-img-7306.webp',
+        '/media/portfolio/images/portret/017-veronikakejrova-0581.webp',
+      ],
+    },
   },
 ]
 
@@ -94,10 +122,40 @@ export default function NabidkaPage() {
                 </Link>
               </div>
 
-              {/* Placeholder for gallery preview */}
-              <div className={`bg-surface aspect-[4/3] flex items-center justify-center ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                <Link href={`/portfolio`} className="text-secondary text-xs tracking-[0.15em] uppercase font-sans hover:text-accent transition-colors">
-                  Zobrazit galerii →
+              <div className={i % 2 === 1 ? 'md:order-1' : ''}>
+                <Link href={service.gallery.href} className="group block">
+                  <div className="grid grid-cols-5 gap-2 md:gap-3">
+                    <div className="relative col-span-3 aspect-[4/5] overflow-hidden bg-surface">
+                      <Image
+                        src={service.gallery.images[0]}
+                        alt={`${service.label} - hlavní náhled galerie`}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        sizes="(max-width: 768px) 60vw, 36vw"
+                      />
+                    </div>
+                    <div className="col-span-2 grid grid-rows-2 gap-2 md:gap-3">
+                      {service.gallery.images.slice(1).map((image, imageIndex) => (
+                        <div key={image} className="relative overflow-hidden bg-surface">
+                          <Image
+                            src={image}
+                            alt={`${service.label} - náhled ${imageIndex + 2}`}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                            sizes="(max-width: 768px) 40vw, 22vw"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                    <span className="text-secondary text-xs tracking-[0.15em] uppercase font-sans">
+                      {service.gallery.label}
+                    </span>
+                    <span className="text-primary text-xs tracking-[0.15em] uppercase font-sans group-hover:text-accent transition-colors">
+                      Otevřít galerii
+                    </span>
+                  </div>
                 </Link>
               </div>
             </article>

@@ -11,7 +11,7 @@ export default config({
   ui: {
     brand: { name: 'Josef Pavlovic' },
     navigation: {
-      'Galerie a blog': ['galleries', 'posts'],
+      Galerie: ['galleries'],
       'Ostatní': ['testimonials', 'siteSettings'],
     },
   },
@@ -30,6 +30,10 @@ export default config({
             { label: 'Boudoir & Akt', value: 'boudoir' },
             { label: 'Portréty', value: 'portrait' },
             { label: 'Architektura', value: 'architecture' },
+            { label: 'Interiéry a reality', value: 'interiors' },
+            { label: 'Krajina a příroda', value: 'landscape' },
+            { label: 'Reportáž a dokument', value: 'reportage' },
+            { label: 'Detail a zátiší', value: 'details' },
             { label: 'Ulice & Cestování', value: 'street' },
             { label: 'Ostatní', value: 'other' },
           ],
@@ -54,24 +58,6 @@ export default config({
         featured: fields.checkbox({ label: 'Zobrazit na homepage', defaultValue: false }),
         description: fields.text({ label: 'Popis galerie', multiline: true }),
         publishedDate: fields.date({ label: 'Datum' }),
-      },
-    }),
-
-    posts: collection({
-      label: 'Blog',
-      slugField: 'title',
-      path: 'content/posts/*',
-      format: { contentField: 'content' },
-      schema: {
-        title: fields.slug({ name: { label: 'Název článku' } }),
-        featuredImage: fields.image({
-          label: 'Titulní obrázek',
-          directory: 'public/media',
-          publicPath: '/media/',
-        }),
-        excerpt: fields.text({ label: 'Perex', multiline: true }),
-        publishedDate: fields.date({ label: 'Datum publikace' }),
-        content: fields.markdoc({ label: 'Obsah článku' }),
       },
     }),
 

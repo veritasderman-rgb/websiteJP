@@ -17,6 +17,10 @@ const categoryLabels: Record<string, string> = {
   boudoir: 'Boudoir & Akt',
   portrait: 'Portréty',
   architecture: 'Architektura',
+  interiors: 'Interiéry a reality',
+  landscape: 'Krajina a příroda',
+  reportage: 'Reportáž a dokument',
+  details: 'Detail a zátiší',
   street: 'Ulice & Cestování',
   other: 'Ostatní',
 }
@@ -31,7 +35,12 @@ export default async function HomePage() {
   ])
 
   const featuredGalleries = allGalleries
-    .filter((g) => g.entry.featured)
+    .filter((g) => g.slug.startsWith('portfolio-') && g.entry.featured)
+    .sort((a, b) => {
+      const da = a.entry.publishedDate || ''
+      const db = b.entry.publishedDate || ''
+      return db.localeCompare(da)
+    })
     .slice(0, 3)
 
   const testimonial = allTestimonials.find((t) => t.entry.featured)

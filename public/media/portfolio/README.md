@@ -1,31 +1,22 @@
-# Portfolio pro JosefPavlovic.cz
+# Portfolio assets
 
-Vybrané a optimalizované fotografie pro web. Originály zůstaly beze změny; exporty jsou ve formátu WebP.
+Generated from `C:\Users\verit\Documents\GitHub\JP web\Portfolio` on 2026-05-16.
 
-## Kategorie
+The website uses optimized WebP copies under:
 
-### Místa a architektura (21)
-Čisté kompozice lázeňských domů, kolonád, sakrálních detailů a městských struktur. Kategorie ukazuje cit pro prostor, rytmus linií a světlo v architektuře.
+- `public/media/portfolio/images/<category>/` for gallery images
+- `public/media/portfolio/thumbs/<category>/` for thumbnails and future index views
 
-### Krajina a atmosféra (16)
-Tiché zimní a podzimní scenérie, lesy, voda, mlha a letecké pohledy. Výběr staví na náladě, barvě a výrazném světelném okamžiku.
+Source originals stay outside the Git repository. The committed assets are sized for web publishing and GitHub.
 
-### Portrét a lifestyle (12)
-Přirozené portréty a stylizované série s důrazem na výraz, prostředí a jemnou práci se světlem. Hodí se jako lidská, civilní část portfolia.
+Category counts:
+- `svatby`: 17
+- `akt`: 45
+- `portret`: 17
+- `architektura`: 168
+- `interiery-reality`: 31
+- `krajina-priroda`: 66
+- `reportaz`: 17
+- `detail-zatisi`: 32
 
-### Fine art / akt (13)
-Výtvarně laděné portréty a aktové kompozice v historických interiérech i exteriérech. Pro veřejný web doporučuji držet tuto kategorii odděleně a uvádět ji jen tam, kde odpovídá cílovému publiku.
-
-### Svatba a reportáž (15)
-Výběr z celodenní svatební série: portréty páru, dokumentární momenty, detaily a atmosféra hostiny. Kategorie ukazuje schopnost vyprávět událost v obrazech.
-
-## Doporučené použití
-
-- `images/` obsahuje velké webové verze s dlouhou hranou max. 2200 px.
-- `thumbs/` obsahuje náhledy s dlouhou hranou max. 720 px.
-- `manifest.json` je připravený pro galerie ve webu.
-- `portfolio.csv` je přehled pro ruční kontrolu, titulky a případné úpravy pořadí.
-
-## Poznámka k publikaci
-
-Kategorie Fine art / akt je záměrně oddělená. Před nasazením na veřejný web doporučuji potvrdit souhlasy modelek/modelů a rozhodnout, zda má být tato část veřejná, skrytá nebo prezentovaná samostatně.
+Total photos: 393

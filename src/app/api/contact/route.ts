@@ -15,6 +15,9 @@ const typeLabels: Record<string, string> = {
   jine: 'Jiné',
 }
 
+const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'mail@josefpavlovic.cz'
+const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'web@josefpavlovic.cz'
+
 const requestSchema = z.object({
   jmeno: z.string().min(2).max(120),
   email: z.string().email().max(254),
@@ -51,7 +54,12 @@ function isRateLimited(ip: string) {
 }
 
 export async function POST(req: NextRequest) {
-  const body = await req.json()
+  let body: unknown
+  try {
+    body = await req.json()
+  } catch {
+    return NextResponse.json({ error: 'Neplatná data formuláře' }, { status: 400 })
+  }
 
   const parsed = requestSchema.safeParse(body)
   if (!parsed.success) {
@@ -72,14 +80,20 @@ export async function POST(req: NextRequest) {
 
   try {
     if (!process.env.RESEND_API_KEY) {
-      console.log('Contact form submission (no Resend key):', { jmeno, email, typPoptavky })
-      return NextResponse.json({ ok: true })
+      console.warn('Contact form submission without RESEND_API_KEY:', { jmeno, email, typPoptavky })
+      if (process.env.NODE_ENV === 'production') {
+        return NextResponse.json(
+          { error: `Formulář není nakonfigurovaný pro odesílání. Napište prosím na ${CONTACT_TO_EMAIL}.` },
+          { status: 503 },
+        )
+      }
+      return NextResponse.json({ ok: true, mode: 'logged' })
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY)
     await resend.emails.send({
-      from: 'web@josefpavlovic.cz',
-      to: 'mail@josefpavlovic.cz',
+      from: CONTACT_FROM_EMAIL,
+      to: CONTACT_TO_EMAIL,
       replyTo: email,
       subject: `Nová poptávka: ${typeLabels[typPoptavky] || typPoptavky} — ${jmeno}`,
       html: `

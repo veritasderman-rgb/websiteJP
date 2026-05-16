@@ -10,16 +10,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/portfolio`, priority: 0.9, changeFrequency: 'weekly' },
     { url: `${BASE}/o-mne`, priority: 0.7, changeFrequency: 'monthly' },
     { url: `${BASE}/nabidka`, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/blog`, priority: 0.6, changeFrequency: 'weekly' },
     { url: `${BASE}/kontakt`, priority: 0.7, changeFrequency: 'monthly' },
     { url: `${BASE}/ochrana-udaju`, priority: 0.4, changeFrequency: 'yearly' },
   ]
 
   const reader = createReader(process.cwd(), keystaticConfig)
-  const [galleries, posts] = await Promise.all([
-    reader.collections.galleries.all(),
-    reader.collections.posts.all(),
-  ])
+  const galleries = await reader.collections.galleries.all()
 
   const galleryUrls: MetadataRoute.Sitemap = galleries.map((g) => ({
     url: `${BASE}/portfolio/${g.slug}`,
@@ -27,11 +23,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'monthly' as const,
   }))
 
-  const postUrls: MetadataRoute.Sitemap = posts.map((p) => ({
-    url: `${BASE}/blog/${p.slug}`,
-    priority: 0.5,
-    changeFrequency: 'never' as const,
-  }))
-
-  return [...staticPages, ...galleryUrls, ...postUrls]
+  return [...staticPages, ...galleryUrls]
 }

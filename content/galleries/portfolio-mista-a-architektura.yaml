@@ -1,49 +1,343 @@
-title: Místa a architektura
+title: Architektura
 category: architecture
-coverImage: /media/portfolio/images/mista-architektura/01-galleria-vittorio-emanuele-ii.webp
+coverImage: /media/portfolio/images/architektura/004-dji-0756-hdr-pano-2.webp
 images:
-  - image: /media/portfolio/images/mista-architektura/01-galleria-vittorio-emanuele-ii.webp
-    caption: 'Galleria Vittorio Emanuele II'
-  - image: /media/portfolio/images/mista-architektura/02-strecha-milanskeho-domu.webp
-    caption: 'Střecha milánského dómu'
-  - image: /media/portfolio/images/mista-architektura/03-cernobily-detail-domu.webp
-    caption: 'Černobílý detail dómu'
-  - image: /media/portfolio/images/mista-architektura/04-klasterni-nadvori.webp
-    caption: 'Klášterní nádvoří'
-  - image: /media/portfolio/images/mista-architektura/05-socharsky-detail.webp
-    caption: 'Sochařský detail'
-  - image: /media/portfolio/images/mista-architektura/06-chrlic-nad-mestem.webp
-    caption: 'Chrlič nad městem'
-  - image: /media/portfolio/images/mista-architektura/07-lazenska-osa.webp
-    caption: 'Lázeňská osa'
-  - image: /media/portfolio/images/mista-architektura/08-interier-kolonady.webp
-    caption: 'Interiér kolonády'
-  - image: /media/portfolio/images/mista-architektura/09-lazensky-dum.webp
-    caption: 'Lázeňský dům'
-  - image: /media/portfolio/images/mista-architektura/10-pramen-v-kolonade.webp
-    caption: 'Pramen v kolonádě'
-  - image: /media/portfolio/images/mista-architektura/11-kolonada-v-lete.webp
-    caption: 'Kolonáda v létě'
-  - image: /media/portfolio/images/mista-architektura/12-svetlo-v-pavilonu.webp
-    caption: 'Světlo v pavilonu'
-  - image: /media/portfolio/images/mista-architektura/13-mlzne-rano-u-kolonady.webp
-    caption: 'Mlžné ráno u kolonády'
-  - image: /media/portfolio/images/mista-architektura/14-marianskolazenska-kolonada.webp
-    caption: 'Mariánskolázeňská kolonáda'
-  - image: /media/portfolio/images/mista-architektura/15-rytmus-kolonady.webp
-    caption: 'Rytmus kolonády'
-  - image: /media/portfolio/images/mista-architektura/16-sochy-v-parku.webp
-    caption: 'Sochy v parku'
-  - image: /media/portfolio/images/mista-architektura/17-zluty-pavilon.webp
-    caption: 'Žlutý pavilon'
-  - image: /media/portfolio/images/mista-architektura/18-formalni-zahrada.webp
-    caption: 'Formální zahrada'
-  - image: /media/portfolio/images/mista-architektura/19-moderni-lazensky-detail.webp
-    caption: 'Moderní lázeňský detail'
-  - image: /media/portfolio/images/mista-architektura/20-chotesovske-pruceli.webp
-    caption: 'Chotěšovské průčelí'
-  - image: /media/portfolio/images/mista-architektura/21-klasterni-refektar.webp
-    caption: 'Klášterní refektář'
+  - image: /media/portfolio/images/architektura/001-21734062084-5da9ac0969-k.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/002-dji-0747.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/003-dji-0753.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/004-dji-0756-hdr-pano-2.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/005-dji-0777-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/006-eh9a4668.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/007-eh9a4715.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/008-eh9a5049-effects.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/009-img-0222.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/010-img-0248.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/011-img-0335.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/012-img-0345.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/013-img-0359.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/014-img-0370.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/015-img-0372.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/016-img-0396-pano-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/017-img-0403.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/018-img-0408.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/019-img-0444-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/020-img-0494.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/021-img-0495.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/022-img-0503.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/023-img-0550-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/024-img-0587-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/025-img-0657.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/026-img-0665-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/027-img-0764.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/028-img-0834.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/029-img-0864.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/030-img-0892.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/031-img-0932.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/032-img-0949-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/033-img-0960.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/034-img-0974.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/035-img-0975.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/036-img-0978.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/037-img-0991.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/038-img-0995.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/039-img-1016.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/040-img-1022-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/041-img-1024.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/042-img-1025.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/043-img-1036.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/044-img-1038.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/045-img-1039.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/046-img-1041-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/047-img-1044.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/048-img-1060.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/049-img-1078.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/050-img-1079.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/051-img-1120-pano-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/052-img-1184-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/053-img-1196-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/054-img-1207.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/055-img-1210.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/056-img-1213-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/057-img-1219-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/058-img-1221.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/059-img-1222-hdr-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/060-img-1225.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/061-img-1228.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/062-img-1231-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/063-img-1231.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/064-img-1233.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/065-img-1237-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/066-img-1249-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/067-img-1249.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/068-img-1262.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/069-img-1269-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/070-img-1275.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/071-img-1279.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/072-img-1583-hdr-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/073-img-1688-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/074-img-1730-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/075-img-1829.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/076-img-1832.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/077-img-1836.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/078-img-1837.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/079-img-1838.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/080-img-1851-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/081-img-1859.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/082-img-1861-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/083-img-1864.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/084-img-1868.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/085-img-1874.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/086-img-1900.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/087-img-1906.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/088-img-1909.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/089-img-1980.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/090-img-1983.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/091-img-1985.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/092-img-1991.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/093-img-1994-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/094-img-2003.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/095-img-2011.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/096-img-2018.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/097-img-2020.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/098-img-2023-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/099-img-2035.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/100-img-2041.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/101-img-2077.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/102-img-2169.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/103-img-2199.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/104-img-2229.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/105-img-2244.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/106-img-2358.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/107-img-2363.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/108-img-2457.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/109-img-2507.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/110-img-2656.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/111-img-4025.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/112-img-4034.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/113-img-4204.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/114-img-4540.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/115-img-4567.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/116-img-4580.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/117-img-4613.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/118-img-4763.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/119-img-5213-hdr-pano-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/120-img-5557.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/121-img-5567.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/122-img-5623.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/123-img-5708.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/124-img-5824.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/125-img-5855.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/126-img-6162.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/127-img-6234.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/128-img-6237.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/129-img-6365.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/130-img-6763-hdr-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/131-img-6797.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/132-img-6804.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/133-img-6808.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/134-img-6814.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/135-img-7586.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/136-img-8648.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/137-img-8666.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/138-img-8696.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/139-img-8697.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/140-img-8705.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/141-img-8730.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/142-img-8732-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/143-img-8816-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/144-img-8833-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/145-img-8880.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/146-img-9167.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/147-img-9188.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/148-img-9233-edit.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/149-img-9241-hdr.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/150-img-9261.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/151-img-9273.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/152-kolonada-leto-2.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/153-ml-zima-2016-23852011134-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/154-ml-zima-2016-23852032424-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/155-ml-zima-2016-23852098514-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/156-ml-zima-2016-24112430259-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/157-ml-zima-2016-24112472889-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/158-ml-zima-2016-24184628520-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/159-ml-zima-2016-24184641950-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/160-ml-zima-2016-24184666490-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/161-ml-zima-2016-24397869911-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/162-ml-zima-2016-24454037896-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/163-ml-zima-2016-24454089246-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/164-ml-zima-2016-24480174625-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/165-ml-zima-2016-24480195925-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/166-ml-zima-2016-24480208855-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/167-ml-zima-2016-24480233645-o.webp
+    caption: ''
+  - image: /media/portfolio/images/architektura/168-print-6.webp
+    caption: ''
 featured: true
-description: 'Čisté kompozice lázeňských domů, kolonád, sakrálních detailů a městských struktur. Kategorie ukazuje cit pro prostor, rytmus linií a světlo v architektuře.'
-publishedDate: '2026-05-03'
+description: 'Místa, památky, kolonády, sakrální prostory a architektonické kompozice postavené na rytmu, světle a linii.'
+publishedDate: '2026-05-16'

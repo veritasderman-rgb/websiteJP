@@ -1,39 +1,139 @@
-title: Krajina a atmosféra
-category: other
-coverImage: /media/portfolio/images/krajina-atmosfera/22-kladsky-rybnik-panorama.webp
+title: Krajina a příroda
+category: landscape
+coverImage: /media/portfolio/images/krajina-priroda/024-img-2735-pano.webp
 images:
-  - image: /media/portfolio/images/krajina-atmosfera/22-kladsky-rybnik-panorama.webp
-    caption: 'Kladský rybník panorama'
-  - image: /media/portfolio/images/krajina-atmosfera/23-vetve-nad-hladinou.webp
-    caption: 'Větve nad hladinou'
-  - image: /media/portfolio/images/krajina-atmosfera/24-lesni-protisvetlo.webp
-    caption: 'Lesní protisvětlo'
-  - image: /media/portfolio/images/krajina-atmosfera/25-mrazive-pobrezi.webp
-    caption: 'Mrazivé pobřeží'
-  - image: /media/portfolio/images/krajina-atmosfera/26-podzimni-odlesk.webp
-    caption: 'Podzimní odlesk'
-  - image: /media/portfolio/images/krajina-atmosfera/27-zlata-hodina-u-vody.webp
-    caption: 'Zlatá hodina u vody'
-  - image: /media/portfolio/images/krajina-atmosfera/28-dreveny-chodnik.webp
-    caption: 'Dřevěný chodník'
-  - image: /media/portfolio/images/krajina-atmosfera/29-ticha-hladina.webp
-    caption: 'Tichá hladina'
-  - image: /media/portfolio/images/krajina-atmosfera/30-zimni-lazne-z-vysky.webp
-    caption: 'Zimní lázně z výšky'
-  - image: /media/portfolio/images/krajina-atmosfera/31-zimni-horizont.webp
-    caption: 'Zimní horizont'
-  - image: /media/portfolio/images/krajina-atmosfera/32-zimni-kolonada.webp
-    caption: 'Zimní kolonáda'
-  - image: /media/portfolio/images/krajina-atmosfera/33-altan-ve-snehu.webp
-    caption: 'Altán ve sněhu'
-  - image: /media/portfolio/images/krajina-atmosfera/34-zamek-shora.webp
-    caption: 'Zámek shora'
-  - image: /media/portfolio/images/krajina-atmosfera/35-zimni-nadvori.webp
-    caption: 'Zimní nádvoří'
-  - image: /media/portfolio/images/krajina-atmosfera/36-pudorys-ve-snehu.webp
-    caption: 'Půdorys ve sněhu'
-  - image: /media/portfolio/images/krajina-atmosfera/37-zimni-geometrie.webp
-    caption: 'Zimní geometrie'
-featured: true
-description: 'Tiché zimní a podzimní scenérie, lesy, voda, mlha a letecké pohledy. Výběr staví na náladě, barvě a výrazném světelném okamžiku.'
-publishedDate: '2026-05-03'
+  - image: /media/portfolio/images/krajina-priroda/001-img-0894.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/002-img-0900.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/003-img-0917.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/004-img-1831.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/005-img-2042.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/006-img-2045.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/007-img-2093.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/008-img-2097.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/009-img-2102.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/010-img-2108.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/011-img-2200-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/012-img-2207.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/013-img-2413.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/014-img-2655.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/015-img-2662.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/016-img-2668-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/017-img-2685.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/018-img-2686.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/019-img-2687.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/020-img-2699.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/021-img-2718.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/022-img-2724.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/023-img-2730.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/024-img-2735-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/025-img-2737-pano.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/026-img-2740.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/027-img-2743.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/028-img-2747.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/029-img-2753.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/030-img-2757.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/031-img-2771.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/032-img-2780.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/033-img-2787.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/034-img-2789.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/035-img-2792.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/036-img-2797.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/037-img-2800.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/038-img-2802.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/039-img-2805.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/040-img-2814.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/041-img-3370.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/042-img-3381.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/043-img-6210.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/044-img-6821.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/045-img-6825.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/046-img-6827.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/047-img-6830.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/048-img-7892.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/049-img-7893.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/050-img-7895.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/051-img-8620.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/052-img-8629.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/053-img-8642.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/054-img-8654.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/055-img-8657.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/056-img-8658.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/057-img-8701.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/058-img-9145.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/059-img-9146.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/060-ml-zima-2016-23852069684-o.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/061-ml-zima-2016-24112508279-o.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/062-ml-zima-2016-24112512439-o.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/063-ml-zima-2016-24454014256-o.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/064-ml-zima-2016-24480229175-o.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/065-ml-zima-2016-24480258575-o.webp
+    caption: ''
+  - image: /media/portfolio/images/krajina-priroda/066-podzim-2016-5.webp
+    caption: ''
+featured: false
+description: 'Lesy, voda, parky, zvířata, sezónní nálady a klidné scenérie s důrazem na atmosféru místa.'
+publishedDate: '2026-05-16'

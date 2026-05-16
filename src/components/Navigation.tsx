@@ -8,7 +8,6 @@ const navLinks = [
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/o-mne', label: 'O mně' },
   { href: '/nabidka', label: 'Nabídka' },
-  { href: '/blog', label: 'Blog' },
   { href: '/kontakt', label: 'Kontakt' },
 ]
 
