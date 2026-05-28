@@ -8,7 +8,9 @@ interface ImageCardProps {
   caption?: string
   onClick?: () => void
   className?: string
-  aspectRatio?: 'auto' | 'square' | 'portrait' | 'landscape'
+  width?: number
+  height?: number
+  sizes?: string
 }
 
 export default function ImageCard({
@@ -17,28 +19,26 @@ export default function ImageCard({
   caption,
   onClick,
   className = '',
-  aspectRatio = 'auto',
+  width,
+  height,
+  sizes = '(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw',
 }: ImageCardProps) {
-  const aspectClass = {
-    auto: '',
-    square: 'aspect-square',
-    portrait: 'aspect-[3/4]',
-    landscape: 'aspect-[4/3]',
-  }[aspectRatio]
+  const w = width ?? 800
+  const h = height ?? 600
 
   return (
     <figure
       onClick={onClick}
-      className={`group bg-surface isolate ${onClick ? 'cursor-pointer' : ''} ${aspectRatio !== 'auto' ? aspectClass + ' relative overflow-hidden' : 'relative overflow-hidden'} ${className}`}
+      style={{ aspectRatio: `${w} / ${h}` }}
+      className={`group bg-surface isolate relative overflow-hidden ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
       <Image
         src={src}
         alt={alt}
-        fill={aspectRatio !== 'auto'}
-        width={aspectRatio === 'auto' ? 800 : undefined}
-        height={aspectRatio === 'auto' ? 600 : undefined}
-        className={`object-cover transform-gpu transition-transform duration-500 ease-out group-hover:scale-[1.03] ${aspectRatio === 'auto' ? 'w-full h-auto' : ''}`}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        width={w}
+        height={h}
+        className="w-full h-full object-cover transform-gpu transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        sizes={sizes}
       />
       {caption && (
         <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -36,6 +36,14 @@ images:
     caption: ''
   - image: /media/portfolio/images/reportaz/017-veronikakejrova-8793.webp
     caption: ''
+  - image: /media/portfolio/images/reportaz/018-krojovany-tanec-uvitani.webp
+    caption: 'Krojovaná v dobré náladě'
+  - image: /media/portfolio/images/reportaz/019-muzikant-u-dodavky-cb.webp
+    caption: 'Muzikant u dodávky'
+  - image: /media/portfolio/images/reportaz/020-detsky-kytarovy-soubor.webp
+    caption: 'Dětský kytarový soubor'
+  - image: /media/portfolio/images/reportaz/021-usmev-na-festivalu.webp
+    caption: 'Úsměv na festivalu'
 featured: false
 description: 'Momentky z akcí, dokumentární situace, street fotografie a dění zachycené bez zbytečného aranžování.'
 publishedDate: '2026-05-16'

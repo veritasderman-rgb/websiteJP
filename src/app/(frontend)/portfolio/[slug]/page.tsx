@@ -2,9 +2,13 @@ import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../../../../../keystatic.config'
 import { notFound } from 'next/navigation'
 import GalleryMasonry from '@/components/GalleryMasonry'
+import AgeGate from '@/components/AgeGate'
+import { getPhotoMeta } from '@/lib/portfolio'
 import type { Metadata } from 'next'
 
 export const revalidate = false
+
+const NSFW_SLUGS = new Set(['portfolio-fine-art-akt'])
 
 export async function generateStaticParams() {
   const reader = createReader(process.cwd(), keystaticConfig)
@@ -34,11 +38,27 @@ export default async function GalleryPage({ params }: { params: Promise<{ slug: 
 
   const images = (gallery.images || [])
     .filter((item) => !!item.image)
-    .map((item) => ({
-      src: item.image as string,
-      alt: gallery.title,
-      caption: item.caption || '',
-    }))
+    .map((item) => {
+      const src = item.image as string
+      const meta = getPhotoMeta(src)
+      return {
+        src,
+        alt: gallery.title,
+        caption: item.caption || '',
+        thumb: meta?.thumb,
+        width: meta?.width,
+        height: meta?.height,
+      }
+    })
+
+  const isNsfw = NSFW_SLUGS.has(slug)
+
+  const galleryView =
+    images.length > 0 ? (
+      <GalleryMasonry images={images} />
+    ) : (
+      <p className="text-center text-secondary font-sans py-20">Galerie je prázdná.</p>
+    )
 
   return (
     <div className="pt-24 pb-24">
@@ -55,11 +75,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ slug: 
           )}
         </header>
 
-        {images.length > 0 ? (
-          <GalleryMasonry images={images} />
-        ) : (
-          <p className="text-center text-secondary font-sans py-20">Galerie je prázdná.</p>
-        )}
+        {isNsfw ? <AgeGate galleryTitle={gallery.title}>{galleryView}</AgeGate> : galleryView}
       </div>
     </div>
   )

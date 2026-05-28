@@ -1,5 +1,6 @@
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../../../../keystatic.config'
+import { getPhotoMeta } from '@/lib/portfolio'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 }
 
 export const revalidate = false
+
+const NSFW_SLUGS = new Set(['portfolio-fine-art-akt'])
 
 const categoryLabels: Record<string, string> = {
   wedding: 'Svatby',
@@ -56,21 +59,34 @@ export default async function PortfolioPage() {
           <div className="columns-2 md:columns-3 gap-4">
             {sorted.map(({ slug, entry }) => {
               if (!entry.coverImage) return null
+              const meta = getPhotoMeta(entry.coverImage)
+              const coverSrc = meta?.thumb || entry.coverImage
+              const w = meta?.width ?? 800
+              const h = meta?.height ?? 600
+              const isNsfw = NSFW_SLUGS.has(slug)
               return (
                 <Link
                   key={slug}
                   href={`/portfolio/${slug}`}
                   className="group block mb-4 break-inside-avoid overflow-hidden"
                 >
-                  <div className="relative overflow-hidden bg-surface">
+                  <div
+                    className="relative overflow-hidden bg-surface"
+                    style={{ aspectRatio: `${w} / ${h}` }}
+                  >
                     <Image
-                      src={entry.coverImage}
+                      src={coverSrc}
                       alt={entry.title}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                      width={w}
+                      height={h}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       sizes="(max-width: 768px) 50vw, 33vw"
                     />
+                    {isNsfw && (
+                      <span className="absolute top-3 right-3 bg-black/70 text-white text-[10px] tracking-[0.2em] uppercase font-sans px-2.5 py-1">
+                        18+
+                      </span>
+                    )}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-5 opacity-0 group-hover:opacity-100">
                       <div>
                         <p className="text-white/70 text-xs tracking-[0.15em] uppercase font-sans mb-1">
