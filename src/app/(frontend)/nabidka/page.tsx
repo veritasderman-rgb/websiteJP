@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { thumbFor } from '@/lib/portfolio'
 
 export const metadata: Metadata = {
   title: 'Nabídka',
@@ -127,7 +128,7 @@ export default function NabidkaPage() {
                   <div className="grid grid-cols-5 gap-2 md:gap-3">
                     <div className="relative col-span-3 aspect-[4/5] overflow-hidden bg-surface">
                       <Image
-                        src={service.gallery.images[0]}
+                        src={thumbFor(service.gallery.images[0]) || service.gallery.images[0]}
                         alt={`${service.label} - hlavní náhled galerie`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -138,7 +139,7 @@ export default function NabidkaPage() {
                       {service.gallery.images.slice(1).map((image, imageIndex) => (
                         <div key={image} className="relative overflow-hidden bg-surface">
                           <Image
-                            src={image}
+                            src={thumbFor(image) || image}
                             alt={`${service.label} - náhled ${imageIndex + 2}`}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"

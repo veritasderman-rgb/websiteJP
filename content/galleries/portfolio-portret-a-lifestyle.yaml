@@ -36,6 +36,34 @@ images:
     caption: ''
   - image: /media/portfolio/images/portret/017-veronikakejrova-0581.webp
     caption: ''
+  - image: /media/portfolio/images/portret/018-objeti-rukou-detail.webp
+    caption: 'Objetí — detail rukou'
+  - image: /media/portfolio/images/portret/019-par-skrze-sochu.webp
+    caption: 'Pár skrze sochu'
+  - image: /media/portfolio/images/portret/020-intimni-portret-paru.webp
+    caption: 'Intimní portrét páru'
+  - image: /media/portfolio/images/portret/021-studio-portret-nausnice.webp
+    caption: 'Studiový portrét — náušnice'
+  - image: /media/portfolio/images/portret/022-studio-cele-postava-cerne-saty.webp
+    caption: 'Studio — černé šaty'
+  - image: /media/portfolio/images/portret/023-historicke-saty-na-mustku.webp
+    caption: 'Historické šaty na můstku'
+  - image: /media/portfolio/images/portret/024-kostym-u-zlateho-svicnu.webp
+    caption: 'Kostým u zlatého svícnu'
+  - image: /media/portfolio/images/portret/025-damy-pri-cajovem-rituálu.webp
+    caption: 'Dámy při čajovém rituálu'
+  - image: /media/portfolio/images/portret/026-klobouk-za-deszovym-sklem.webp
+    caption: 'Klobouk za deštivým sklem'
+  - image: /media/portfolio/images/portret/027-baletka-pred-sochou.webp
+    caption: 'Baletka před sochou'
+  - image: /media/portfolio/images/portret/028-baletka-na-karluv-most.webp
+    caption: 'Baletka na Karlově mostě'
+  - image: /media/portfolio/images/portret/029-rodina-v-podzimnim-listi.webp
+    caption: 'Rodina v podzimním listí'
+  - image: /media/portfolio/images/portret/030-mimi-v-podzimnim-listi.webp
+    caption: 'Miminko v podzimním listí'
+  - image: /media/portfolio/images/portret/031-rodina-v-parku.webp
+    caption: 'Rodina v parku'
 featured: true
 description: 'Civilní i stylizované portréty, kde je hlavní výraz, atmosféra prostředí a přirozená práce se světlem.'
 publishedDate: '2026-05-16'

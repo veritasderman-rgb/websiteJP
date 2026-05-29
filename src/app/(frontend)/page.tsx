@@ -1,6 +1,7 @@
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../../../keystatic.config'
 import HeroSection from '@/components/HeroSection'
+import { thumbFor } from '@/lib/portfolio'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
@@ -62,12 +63,14 @@ export default async function HomePage() {
             Výběr z portfolia
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredGalleries.map(({ slug, entry }) => (
+            {featuredGalleries.map(({ slug, entry }) => {
+              const coverSrc = entry.coverImage ? thumbFor(entry.coverImage) || entry.coverImage : null
+              return (
               <Link key={slug} href={`/portfolio/${slug}`} className="group block overflow-hidden">
                 <div className="relative aspect-[3/4] overflow-hidden bg-surface">
-                  {entry.coverImage && (
+                  {coverSrc && (
                     <Image
-                      src={entry.coverImage}
+                      src={coverSrc}
                       alt={entry.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
@@ -82,7 +85,8 @@ export default async function HomePage() {
                   </p>
                 </div>
               </Link>
-            ))}
+              )
+            })}
           </div>
           <div className="text-center mt-12">
             <Link

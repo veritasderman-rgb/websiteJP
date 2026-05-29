@@ -338,6 +338,10 @@ images:
     caption: ''
   - image: /media/portfolio/images/architektura/168-print-6.webp
     caption: ''
+  - image: /media/portfolio/images/architektura/175-silueta-klasterniho-chramu.webp
+    caption: 'Silueta klášterního chrámu'
+  - image: /media/portfolio/images/architektura/176-nepomuk-ve-vetvich.webp
+    caption: 'Nepomuk ve větvích'
 featured: true
 description: 'Místa, památky, kolonády, sakrální prostory a architektonické kompozice postavené na rytmu, světle a linii.'
 publishedDate: '2026-05-16'
