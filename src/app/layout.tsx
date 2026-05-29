@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { playfair, dmSans } from '@/lib/fonts'
 import './globals.css'
 
@@ -16,11 +17,14 @@ export const metadata: Metadata = {
   },
 }
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-2S72BHM3Z5'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="cs" className={`${playfair.variable} ${dmSans.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-background text-primary antialiased">
         {children}
+        {process.env.NODE_ENV === 'production' && GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
   )
