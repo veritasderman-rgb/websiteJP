@@ -11,7 +11,7 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-6">
           <Link
-            href="https://www.instagram.com/josefpavlovic"
+            href="https://www.instagram.com/josefpavlovicfoto/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
