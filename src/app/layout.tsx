@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/next'
 import { playfair, dmSans } from '@/lib/fonts'
 import './globals.css'
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col bg-background text-primary antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && GA_ID && <GoogleAnalytics gaId={GA_ID} />}
+        <Analytics />
       </body>
     </html>
   )
