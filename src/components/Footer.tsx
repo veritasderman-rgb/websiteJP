@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -15,6 +18,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
+            onClick={() => trackEvent('instagram_click', { umisteni: 'footer' })}
             className="text-secondary hover:text-accent transition-colors"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

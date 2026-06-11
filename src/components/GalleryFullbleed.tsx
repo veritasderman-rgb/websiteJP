@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import Counter from 'yet-another-react-lightbox/plugins/counter'
+import { trackEvent } from '@/lib/analytics'
 import 'yet-another-react-lightbox/styles.css'
 import 'yet-another-react-lightbox/plugins/counter.css'
 
@@ -31,7 +32,10 @@ export default function GalleryFullbleed({ images }: { images: GalleryImage[] })
             key={idx}
             className="relative w-full cursor-pointer overflow-hidden isolate"
             style={{ maxHeight: '90vh' }}
-            onClick={() => setLightboxIndex(idx)}
+            onClick={() => {
+              trackEvent('gallery_open', { typ: 'fullbleed', index: idx })
+              setLightboxIndex(idx)
+            }}
           >
             <Image
               src={img.src}

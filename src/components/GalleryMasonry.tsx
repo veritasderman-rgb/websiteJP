@@ -11,6 +11,7 @@ import 'yet-another-react-lightbox/plugins/thumbnails.css'
 import 'yet-another-react-lightbox/plugins/counter.css'
 import 'yet-another-react-lightbox/plugins/captions.css'
 import ImageCard from './ImageCard'
+import { trackEvent } from '@/lib/analytics'
 
 export interface GalleryImage {
   src: string
@@ -47,7 +48,10 @@ export default function GalleryMasonry({ images }: GalleryMasonryProps) {
               caption={img.caption}
               width={img.width}
               height={img.height}
-              onClick={() => setLightboxIndex(idx)}
+              onClick={() => {
+                trackEvent('gallery_open', { typ: 'masonry', index: idx })
+                setLightboxIndex(idx)
+              }}
             />
           </div>
         ))}
