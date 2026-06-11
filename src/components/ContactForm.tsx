@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useEffect, useState } from 'react'
+import { trackEvent } from '@/lib/analytics'
 
 const schema = z.object({
   jmeno: z.string().min(2, 'Zadejte prosím jméno'),
@@ -101,6 +102,7 @@ export default function ContactForm({ contactEmail }: ContactFormProps) {
       }
 
       setStatus('success')
+      trackEvent('contact_form_submit', { typ: data.typPoptavky })
       reset({ typPoptavky: 'svatba', gdpr: false })
     } catch (err) {
       setStatus('error')

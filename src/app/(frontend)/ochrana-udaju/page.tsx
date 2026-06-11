@@ -48,6 +48,18 @@ export default function OchranaUdajuPage() {
           </section>
 
           <section>
+            <h2 className="font-display text-2xl text-primary font-light mb-3">Cookies a měření návštěvnosti</h2>
+            <p>
+              Web používá nástroje pro anonymní měření návštěvnosti – Google Analytics 4
+              a Vercel Analytics / Speed Insights. Statistická cookies (Google Analytics)
+              se nahrávají až po vašem souhlasu, který udělujete přes lištu cookies; do té
+              doby je měření v režimu bez ukládání cookies (Google Consent Mode v2). Svou
+              volbu můžete kdykoli změnit smazáním údajů webu v prohlížeči. Data slouží
+              výhradně k anonymní analýze chování návštěvníků a zlepšování webu.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display text-2xl text-primary font-light mb-3">Vaše práva</h2>
             <p>
               Máte právo požádat o přístup ke svým údajům, opravu, výmaz, omezení zpracování a podat námitku.
