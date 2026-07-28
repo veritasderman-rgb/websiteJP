@@ -104,10 +104,11 @@ export const uvodContent = {
 /**
  * Podstránky rozcestníku.
  *
- * Text vychází výhradně z údajů, které už na rozcestníku byly — role, roky a
- * projekty nejsou nikde domýšlené. Dokud si je Josef neprojde, drží stránky
- * `draft`, tedy noindex a mimo sitemapu (viz sitemap.ts); zrušením příznaku se
- * stanou běžnou indexovanou stránkou.
+ * Text smí obsahovat jen to, co je doložené jinde v repu — role, roky, projekty.
+ * Žádné názory ani motivace, které autor sám nenapsal: stránky jsou psané v jeho
+ * první osobě a jsou z rozcestníku volně proklikatelné, takže by mu nesmí nic
+ * vkládat do úst. Dokud si text neprojde, drží stránky `draft`, tedy noindex
+ * a mimo sitemapu (viz sitemap.ts).
  */
 export type HubSection = {
   slug: string
@@ -126,11 +127,7 @@ export const hubSections: HubSection[] = [
     slug: 'zivotopis',
     title: 'O mně',
     perex: uvodContent.lead,
-    body: [
-      uvodContent.summary,
-      'Ke zdravotnictví jsem se nedostal přes školu ani přes plán. Dostal jsem se k němu tím, že v mém městě zrušili nemocnici. Chtěl jsem vědět, jak se taková věc rozhoduje a kdo za ni nese odpovědnost — a skončil jsem u toho, že jsem takové věci sám rozhodoval.',
-      'Většinu času dneska trávím jinde: vedu marketing lázeňských hotelů, stavím datové projekty, školím produktivitu a fotím. Veřejná služba mi zůstala jako zastupiteli a členovi Správní rady VZP.',
-    ],
+    body: [uvodContent.summary],
     listLabel: 'Kde jsem byl',
     list: [
       { label: 'Poslanecká sněmovna', text: 'asistent poslance — první práce ve veřejné funkci' },
@@ -147,9 +144,9 @@ export const hubSections: HubSection[] = [
     title: 'Zdravotnictví a veřejná služba',
     perex: uvodContent.areas[0].text,
     body: [
-      'Do zdravotnictví mě přivedlo rušení nemocnice v Mariánských Lázních. Je to konkrétní zkušenost s tím, jak se v Česku rozhoduje o péči, která lidem chybí až ve chvíli, kdy ji potřebují — a ta zkušenost mi zůstala ve všem, co jsem od té doby ve veřejné funkci dělal.',
+      'Do zdravotnictví mě přivedlo rušení nemocnice v Mariánských Lázních.',
       'Začínal jsem jako asistent poslance, pak jsem u Pirátů vedl resortní tým zdravotnictví. V letech 2022 až 2024 jsem byl náměstkem ministra zdravotnictví. Dneska jsem ve Správní radě VZP.',
-      'Chystám sem přehled toho, co jsem kde dělal — včetně věcí, které nedopadly. Ty bývají zajímavější než výčet úspěchů.',
+      'Chystám sem přehled toho, co jsem kde dělal.',
     ],
     draft: true,
   },
@@ -158,9 +155,9 @@ export const hubSections: HubSection[] = [
     title: 'Mariánské Lázně',
     perex: uvodContent.areas[1].text,
     body: [
-      'Narodil jsem se tady a žiju tu celý život. Při škole jsem začínal na hotelové recepci, dneska týmž hotelům vedu marketing. Zastupitelem jsem od roku 2018, předsedám správní radě symfonického orchestru.',
-      'Město, kterému rozumíte zevnitř, se dá popsat poctivěji než z volebního letáku. Chystám sem tedy obojí: co se za tu dobu povedlo a co ne.',
-      'Právě teď chystám kandidátku pro komunální volby.',
+      'Narodil jsem se tady a žiju tu celý život. Při škole jsem začínal na hotelové recepci, dneska týmž hotelům vedu marketing.',
+      'Zastupitelem jsem od roku 2018, předsedám správní radě symfonického orchestru.',
+      'Chystám sem přehled toho, co se ve městě povedlo a co ne. Zároveň teď chystám kandidátku pro komunální volby.',
     ],
     draft: true,
   },
@@ -169,8 +166,8 @@ export const hubSections: HubSection[] = [
     title: 'Marketing a destinace',
     perex: uvodContent.areas[2].text,
     body: [
-      'Vedu marketing lázeňského klastru Ensana. Začínal jsem na recepci jednoho z těch hotelů, což je na téhle práci to nejužitečnější — vím, jak vypadá zevnitř.',
-      'Vedle toho stavím marienbad.com. Destinační marketing je jiná disciplína než marketing hotelu: nepropagujete produkt, který ovládáte, ale místo, na kterém se musí domluvit lidé s protichůdnými zájmy.',
+      'Vedu marketing lázeňského klastru Ensana. Při škole jsem začínal na hotelové recepci.',
+      'Vedle toho stavím marienbad.com.',
     ],
     draft: true,
   },
@@ -179,8 +176,7 @@ export const hubSections: HubSection[] = [
     title: 'Co stavím',
     perex: uvodContent.areas[3].text,
     body: [
-      'HSPA Česko, datové pipeline, aplikace. Většinou proto, že to nikdo jiný neudělal — ne proto, že bych chtěl zakládat produkt.',
-      'Data o zdravotnictví v Česku existují, ale bývají roztroušená a v podobě, ze které se špatně čte. Většina toho, co stavím, jsou nástroje, které je dají dohromady.',
+      'HSPA Česko, datové pipeline, aplikace. Většinou proto, že to nikdo jiný neudělal.',
       'Právě teď dokončuju sociální publikační vrstvu pro HSPA Česko.',
     ],
     draft: true,
@@ -190,8 +186,7 @@ export const hubSections: HubSection[] = [
     title: 'Time management a GTD',
     perex: uvodContent.areas[4].text,
     body: [
-      'Školím týmy i jednotlivce. Napsal jsem k tomu příručku.',
-      'Vycházím z GTD, ale bez obřadnosti, která se kolem něj nabalila. Většině lidí nechybí systém — chybí jim rozhodnutí, co dělat nebudou.',
+      'Školím týmy i jednotlivce v time managementu a GTD. Napsal jsem k tomu příručku.',
       'Sem doplním, jak školení probíhá a jak si o něj říct.',
     ],
     draft: true,
@@ -201,7 +196,7 @@ export const hubSections: HubSection[] = [
     title: 'Hry pro radost',
     perex: uvodContent.areas[5].text,
     body: [
-      'Vesmírná strategie a taktika plachetnic. Dvě věci bez jakéhokoli účelu, a přesně proto tady jsou.',
+      'Vesmírná strategie a taktika plachetnic. Dvě věci bez jakéhokoli účelu.',
       'Zrovna dodělávám kampaň pirátské námořní hry, mise 7 až 11.',
     ],
     draft: true,
