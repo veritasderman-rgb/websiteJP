@@ -7,6 +7,7 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://josefpavlovic.cz'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, priority: 1.0, changeFrequency: 'monthly' },
+    { url: `${BASE}/foto`, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${BASE}/portfolio`, priority: 0.9, changeFrequency: 'weekly' },
     { url: `${BASE}/o-mne`, priority: 0.7, changeFrequency: 'monthly' },
     { url: `${BASE}/nabidka`, priority: 0.8, changeFrequency: 'monthly' },

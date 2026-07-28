@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { uvodContent, uvodNav } from '@/lib/uvod-content'
 import Portrait from './Portrait'
 
@@ -30,15 +31,25 @@ export default function VariantA() {
           {uvodContent.name}
         </span>
         <nav className="flex flex-wrap gap-1 text-[13.5px]" style={{ color: MUTED }}>
-          {uvodNav.map((item, i) => (
-            <span
-              key={item}
-              className="rounded-md px-2.5 py-[7px]"
-              style={i === 0 ? { color: ACCENT, background: '#E8F1F2', fontWeight: 500 } : undefined}
-            >
-              {item}
-            </span>
-          ))}
+          {uvodNav.map((item, i) => {
+            const className = 'rounded-md px-2.5 py-[7px]'
+            const style =
+              i === 0 ? { color: ACCENT, background: '#E8F1F2', fontWeight: 500 } : undefined
+            return item.href ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`${className} transition-colors hover:text-[#14606B]`}
+                style={style}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <span key={item.label} className={className} style={style}>
+                {item.label}
+              </span>
+            )
+          })}
         </nav>
       </header>
 
@@ -72,23 +83,37 @@ export default function VariantA() {
         className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-12"
         style={{ background: RULE, borderBottom: `1px solid ${RULE}` }}
       >
-        {uvodContent.areas.map((area, i) => (
-          <article
-            key={area.title}
-            className="px-[26px] pt-[30px] pb-[26px]"
-            style={{ background: PAPER, gridColumn: `span ${SPANS[i]}` }}
-          >
-            <h3 className="font-[family-name:var(--font-source-serif)] m-0 mb-2.5 text-[19px] font-semibold leading-[1.2]">
-              {area.title}
-            </h3>
-            <p className="m-0 text-sm leading-[1.6]" style={{ color: MUTED }}>
-              {area.text}
-            </p>
-            <p className="mt-4 mb-0 text-[13.5px] font-medium" style={{ color: ACCENT }}>
-              {area.cta}
-            </p>
-          </article>
-        ))}
+        {uvodContent.areas.map((area, i) => {
+          const body = (
+            <>
+              <h3 className="font-[family-name:var(--font-source-serif)] m-0 mb-2.5 text-[19px] font-semibold leading-[1.2]">
+                {area.title}
+              </h3>
+              <p className="m-0 text-sm leading-[1.6]" style={{ color: MUTED }}>
+                {area.text}
+              </p>
+              <p className="mt-4 mb-0 text-[13.5px] font-medium" style={{ color: ACCENT }}>
+                {area.cta}
+              </p>
+            </>
+          )
+          const className = 'px-[26px] pt-[30px] pb-[26px]'
+          const style = { background: PAPER, gridColumn: `span ${SPANS[i]}` }
+          return area.href ? (
+            <Link
+              key={area.title}
+              href={area.href}
+              className={`${className} block transition-colors hover:bg-[#F2F0E9]`}
+              style={style}
+            >
+              {body}
+            </Link>
+          ) : (
+            <article key={area.title} className={className} style={style}>
+              {body}
+            </article>
+          )
+        })}
       </section>
 
       {/* Právě teď */}

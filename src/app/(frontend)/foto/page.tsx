@@ -1,5 +1,5 @@
 import { createReader } from '@keystatic/core/reader'
-import keystaticConfig from '../../../keystatic.config'
+import keystaticConfig from '../../../../keystatic.config'
 import HeroSection from '@/components/HeroSection'
 import { thumbFor } from '@/lib/portfolio'
 import Link from 'next/link'
@@ -9,6 +9,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Josef Pavlovic — Svatební & Fine Art Fotograf',
   description: 'Profesionální fotograf z Mariánských Lázní. Specializace na svatební fotografii a boudoir / fine art akt. Fotografie plné emocí a příběhů.',
+  alternates: { canonical: '/foto' },
 }
 
 export const revalidate = false

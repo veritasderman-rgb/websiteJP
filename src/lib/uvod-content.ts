@@ -7,17 +7,25 @@ export type UvodArea = {
   title: string
   text: string
   cta: string
+  /** Odkaz, pokud už cílová stránka existuje. Bez něj se dlaždice nerenderuje
+   *  jako odkaz — v designu jsou položky menu i dlaždice zatím nekliknutelné. */
+  href?: string
 }
 
-export const uvodNav = [
-  'Úvod',
-  'O mně',
-  'Veřejná služba',
-  'Projekty',
-  'Produktivita',
-  'Tvorba',
-  'Kontakt',
-] as const
+export type UvodNavItem = {
+  label: string
+  href?: string
+}
+
+export const uvodNav: UvodNavItem[] = [
+  { label: 'Úvod' },
+  { label: 'O mně' },
+  { label: 'Veřejná služba' },
+  { label: 'Projekty' },
+  { label: 'Produktivita' },
+  { label: 'Tvorba', href: '/foto' },
+  { label: 'Kontakt' },
+]
 
 export const uvodContent = {
   name: 'Josef Pavlovic',
@@ -65,6 +73,7 @@ export const uvodContent = {
       title: 'Tvorba',
       text: 'Česká hlídka, analýzy ke zdravotnictví, fotoaparát.',
       cta: 'Podrobně →',
+      href: '/foto',
     },
   ] satisfies UvodArea[],
 

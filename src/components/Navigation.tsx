@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
 const navLinks = [
+  { href: '/foto', label: 'Foto' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/o-mne', label: 'O mně' },
   { href: '/nabidka', label: 'Nabídka' },
@@ -38,13 +39,14 @@ export default function Navigation() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const isHome = pathname === '/'
+  // Přes hero na /foto je lišta průhledná a bílá, jinde plná a tmavá.
+  const isHero = pathname === '/foto'
   const navBg = scrolled
     ? 'bg-white/95 backdrop-blur-sm shadow-sm'
-    : isHome
+    : isHero
     ? 'bg-transparent'
     : 'bg-white'
-  const textColor = scrolled || !isHome ? 'text-primary' : 'text-white'
+  const textColor = scrolled || !isHero ? 'text-primary' : 'text-white'
 
   return (
     <>
