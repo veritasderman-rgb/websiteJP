@@ -16,16 +16,14 @@ export type UvodNavItem = {
   href?: string
 }
 
-const EMAIL = 'josef@josefpavlovic.cz'
-
 export const uvodNav: UvodNavItem[] = [
   { label: 'Úvod', href: '/' },
-  { label: 'O mně', href: '/zivotopis' },
+  { label: 'O mně', href: '/o-mne' },
   { label: 'Veřejná služba', href: '/verejna-sluzba' },
   { label: 'Projekty', href: '/projekty' },
   { label: 'Produktivita', href: '/produktivita' },
-  { label: 'Tvorba', href: '/foto' },
-  { label: 'Kontakt', href: `mailto:${EMAIL}` },
+  { label: 'Tvorba', href: '/tvorba' },
+  { label: 'Kontakt', href: '/kontakt' },
 ]
 
 export const uvodContent = {
@@ -50,13 +48,13 @@ export const uvodContent = {
       title: 'Mariánské Lázně',
       text: 'Zastupitel od roku 2018, předseda správní rady symfonického orchestru. Co se ve městě povedlo a co ne.',
       cta: 'Podrobně →',
-      href: '/marianske-lazne',
+      href: '/verejna-sluzba',
     },
     {
       title: 'Marketing a destinace',
       text: 'Vedu marketing lázeňského klastru Ensana. Vedle toho stavím marienbad.com.',
       cta: 'Podrobně →',
-      href: '/marketing',
+      href: '/projekty',
     },
     {
       title: 'Co stavím',
@@ -74,13 +72,13 @@ export const uvodContent = {
       title: 'Hry pro radost',
       text: 'Vesmírná strategie a taktika plachetnic. Dvě věci bez jakéhokoli účelu.',
       cta: 'Podrobně →',
-      href: '/hry',
+      href: '/projekty',
     },
     {
       title: 'Tvorba',
       text: 'Česká hlídka, analýzy ke zdravotnictví, fotoaparát.',
       cta: 'Podrobně →',
-      href: '/foto',
+      href: '/tvorba',
     },
   ] satisfies UvodArea[],
 
@@ -95,114 +93,8 @@ export const uvodContent = {
   summary:
     'Začínal jsem ve sněmovně jako asistent poslance, pak jsem vedl resortní tým zdravotnictví u Pirátů a v letech 2022 až 2024 byl náměstkem ministra zdravotnictví. Dneska jsem ve Správní radě VZP. Živí mě marketing lázeňských hotelů, zbytek času stavím datové projekty, školím produktivitu, píšu a fotím.',
   cvLabel: 'Celý životopis →',
-  cvHref: '/zivotopis',
+  cvHref: '/o-mne',
 
   copyright: '© 2026 Josef Pavlovic · Mariánské Lázně',
-  email: EMAIL,
-}
-
-/**
- * Podstránky rozcestníku.
- *
- * Text smí obsahovat jen to, co je doložené jinde v repu — role, roky, projekty.
- * Žádné názory ani motivace, které autor sám nenapsal: stránky jsou psané v jeho
- * první osobě a jsou z rozcestníku volně proklikatelné, takže by mu nesmí nic
- * vkládat do úst. Dokud si text neprojde, drží stránky `draft`, tedy noindex
- * a mimo sitemapu (viz sitemap.ts).
- */
-export type HubSection = {
-  slug: string
-  title: string
-  perex: string
-  body?: string[]
-  /** Přehled rolí nebo témat, vykreslí se pod textem. */
-  list?: { label: string; text: string }[]
-  listLabel?: string
-  /** Text zatím neprošel autorskou revizí — noindex, mimo sitemapu. */
-  draft?: boolean
-}
-
-export const hubSections: HubSection[] = [
-  {
-    slug: 'zivotopis',
-    title: 'O mně',
-    perex: uvodContent.lead,
-    body: [uvodContent.summary],
-    listLabel: 'Kde jsem byl',
-    list: [
-      { label: 'Poslanecká sněmovna', text: 'asistent poslance — první práce ve veřejné funkci' },
-      { label: 'Piráti', text: 'vedoucí resortního týmu zdravotnictví' },
-      { label: '2022–2024', text: 'náměstek ministra zdravotnictví' },
-      { label: 'Dnes', text: 'Správní rada VZP' },
-      { label: 'Od roku 2018', text: 'zastupitel města Mariánské Lázně' },
-      { label: 'Ensana', text: 'vedoucí marketingu lázeňského klastru' },
-    ],
-    draft: true,
-  },
-  {
-    slug: 'verejna-sluzba',
-    title: 'Zdravotnictví a veřejná služba',
-    perex: uvodContent.areas[0].text,
-    body: [
-      'Do zdravotnictví mě přivedlo rušení nemocnice v Mariánských Lázních.',
-      'Začínal jsem jako asistent poslance, pak jsem u Pirátů vedl resortní tým zdravotnictví. V letech 2022 až 2024 jsem byl náměstkem ministra zdravotnictví. Dneska jsem ve Správní radě VZP.',
-      'Chystám sem přehled toho, co jsem kde dělal.',
-    ],
-    draft: true,
-  },
-  {
-    slug: 'marianske-lazne',
-    title: 'Mariánské Lázně',
-    perex: uvodContent.areas[1].text,
-    body: [
-      'Narodil jsem se tady a žiju tu celý život. Při škole jsem začínal na hotelové recepci, dneska týmž hotelům vedu marketing.',
-      'Zastupitelem jsem od roku 2018, předsedám správní radě symfonického orchestru.',
-      'Chystám sem přehled toho, co se ve městě povedlo a co ne. Zároveň teď chystám kandidátku pro komunální volby.',
-    ],
-    draft: true,
-  },
-  {
-    slug: 'marketing',
-    title: 'Marketing a destinace',
-    perex: uvodContent.areas[2].text,
-    body: [
-      'Vedu marketing lázeňského klastru Ensana. Při škole jsem začínal na hotelové recepci.',
-      'Vedle toho stavím marienbad.com.',
-    ],
-    draft: true,
-  },
-  {
-    slug: 'projekty',
-    title: 'Co stavím',
-    perex: uvodContent.areas[3].text,
-    body: [
-      'HSPA Česko, datové pipeline, aplikace. Většinou proto, že to nikdo jiný neudělal.',
-      'Právě teď dokončuju sociální publikační vrstvu pro HSPA Česko.',
-    ],
-    draft: true,
-  },
-  {
-    slug: 'produktivita',
-    title: 'Time management a GTD',
-    perex: uvodContent.areas[4].text,
-    body: [
-      'Školím týmy i jednotlivce v time managementu a GTD. Napsal jsem k tomu příručku.',
-      'Sem doplním, jak školení probíhá a jak si o něj říct.',
-    ],
-    draft: true,
-  },
-  {
-    slug: 'hry',
-    title: 'Hry pro radost',
-    perex: uvodContent.areas[5].text,
-    body: [
-      'Vesmírná strategie a taktika plachetnic. Dvě věci bez jakéhokoli účelu.',
-      'Zrovna dodělávám kampaň pirátské námořní hry, mise 7 až 11.',
-    ],
-    draft: true,
-  },
-]
-
-export function getHubSection(slug: string): HubSection | undefined {
-  return hubSections.find((section) => section.slug === slug)
+  email: 'josef@josefpavlovic.cz',
 }

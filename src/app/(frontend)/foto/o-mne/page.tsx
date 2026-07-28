@@ -1,5 +1,5 @@
 import { createReader } from '@keystatic/core/reader'
-import keystaticConfig from '../../../../keystatic.config'
+import keystaticConfig from '../../../../../keystatic.config'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -72,7 +72,7 @@ export default async function OmnePage() {
               </div>
               <div className="mt-8">
                 <Link
-                  href="/kontakt"
+                  href="/foto/kontakt"
                   className="inline-block border border-primary text-primary text-xs tracking-[0.2em] uppercase px-8 py-4 hover:bg-primary hover:text-white transition-all duration-300 font-sans"
                 >
                   Napište mi

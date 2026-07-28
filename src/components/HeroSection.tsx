@@ -44,7 +44,7 @@ export default function HeroSection({
             {subtitle}
           </p>
           <Link
-            href="/portfolio"
+            href="/foto/portfolio"
             className="inline-block border border-white/60 text-white text-xs tracking-[0.2em] uppercase px-8 py-3 hover:bg-white hover:text-primary transition-all duration-300 font-sans"
           >
             Zobrazit portfolio

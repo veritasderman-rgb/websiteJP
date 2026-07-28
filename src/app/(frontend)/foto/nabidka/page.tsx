@@ -22,10 +22,10 @@ const services = [
       'Profesionální zpracování a retuše',
       'Možnost tisknutých alb a tisků',
     ],
-    cta: { href: '/kontakt?typ=svatba', label: 'Poptat svatbu' },
+    cta: { href: '/foto/kontakt?typ=svatba', label: 'Poptat svatbu' },
     note: 'Cena individuálně dle rozsahu a lokality.',
     gallery: {
-      href: '/portfolio/portfolio-svatba-a-reportaz',
+      href: '/foto/portfolio/portfolio-svatba-a-reportaz',
       label: 'Ukázka svatební galerie',
       images: [
         '/media/portfolio/images/svatby/001-121168890-3866924716670768-7460127427355046781-n.webp',
@@ -47,10 +47,10 @@ const services = [
       'Diskrétní přístup a respekt k soukromí',
       'Možnost anonym (žádné zveřejňování bez souhlasu)',
     ],
-    cta: { href: '/kontakt?typ=boudoir', label: 'Poptat boudoir' },
+    cta: { href: '/foto/kontakt?typ=boudoir', label: 'Poptat boudoir' },
     note: 'Galerie zveřejňovány pouze s výslovným souhlasem.',
     gallery: {
-      href: '/portfolio/portfolio-fine-art-akt',
+      href: '/foto/portfolio/portfolio-fine-art-akt',
       label: 'Ukázka fine art galerie',
       images: [
         '/media/portfolio/images/akt/001-img-7102.webp',
@@ -70,10 +70,10 @@ const services = [
       'Výběr z nejlepších snímků',
       'Profesionální retuš',
     ],
-    cta: { href: '/kontakt?typ=portret', label: 'Poptat portrét' },
+    cta: { href: '/foto/kontakt?typ=portret', label: 'Poptat portrét' },
     note: 'Rodinná, párová i individuální focení.',
     gallery: {
-      href: '/portfolio/portfolio-portret-a-lifestyle',
+      href: '/foto/portfolio/portfolio-portret-a-lifestyle',
       label: 'Ukázka portrétní galerie',
       images: [
         '/media/portfolio/images/portret/006-img-4140.webp',

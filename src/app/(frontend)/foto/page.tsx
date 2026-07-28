@@ -67,7 +67,7 @@ export default async function HomePage() {
             {featuredGalleries.map(({ slug, entry }) => {
               const coverSrc = entry.coverImage ? thumbFor(entry.coverImage) || entry.coverImage : null
               return (
-              <Link key={slug} href={`/portfolio/${slug}`} className="group block overflow-hidden">
+              <Link key={slug} href={`/foto/portfolio/${slug}`} className="group block overflow-hidden">
                 <div className="relative aspect-[3/4] overflow-hidden bg-surface">
                   {coverSrc && (
                     <Image
@@ -91,7 +91,7 @@ export default async function HomePage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/portfolio"
+              href="/foto/portfolio"
               className="inline-block border border-primary text-primary text-xs tracking-[0.2em] uppercase px-10 py-4 hover:bg-primary hover:text-white transition-all duration-300 font-sans"
             >
               Celé portfolio
@@ -123,7 +123,7 @@ export default async function HomePage() {
                 'Jsem fotograf z Mariánských Lázní specializující se na svatební fotografii a fine art akt. Každé focení je pro mě jedinečný příběh, který si zaslouží být zachycen s citlivostí a upřímností.'}
             </p>
             <Link
-              href="/o-mne"
+              href="/foto/o-mne"
               className="text-xs tracking-[0.2em] uppercase font-sans text-primary border-b border-primary pb-0.5 hover:text-accent hover:border-accent transition-colors"
             >
               Více o mně →
@@ -170,7 +170,7 @@ export default async function HomePage() {
             Pojďme společně zachytit váš příběh. Kontaktujte mě a domluvíme se na detailech.
           </p>
           <Link
-            href="/kontakt"
+            href="/foto/kontakt"
             className="inline-block bg-white text-primary text-xs tracking-[0.2em] uppercase px-10 py-4 hover:bg-accent hover:text-white transition-all duration-300 font-sans"
           >
             Napište mi
