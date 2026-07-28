@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { uvodContent, uvodNav } from '@/lib/uvod-content'
 import Portrait from './Portrait'
 
@@ -31,23 +32,26 @@ export default function VariantB() {
           className="flex flex-wrap gap-x-[22px] gap-y-2 text-[12.5px] uppercase tracking-[0.08em]"
           style={{ color: MUTED }}
         >
-          {uvodNav.map((item, i) => (
-            <span
-              key={item}
-              style={
-                i === 0
-                  ? {
-                      color: ACCENT,
-                      borderBottom: `2px solid ${ACCENT}`,
-                      paddingBottom: 3,
-                      fontWeight: 600,
-                    }
-                  : undefined
-              }
-            >
-              {item}
-            </span>
-          ))}
+          {uvodNav.map((item, i) => {
+            const style =
+              i === 0
+                ? {
+                    color: ACCENT,
+                    borderBottom: `2px solid ${ACCENT}`,
+                    paddingBottom: 3,
+                    fontWeight: 600,
+                  }
+                : undefined
+            return item.href ? (
+              <Link key={item.label} href={item.href} className="hover:underline" style={style}>
+                {item.label}
+              </Link>
+            ) : (
+              <span key={item.label} style={style}>
+                {item.label}
+              </span>
+            )
+          })}
         </nav>
       </header>
 
@@ -85,28 +89,42 @@ export default function VariantB() {
       {/* Oblasti — číslovaný seznam */}
       <section className="px-6 pt-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16">
-          {uvodContent.areas.map((area, i) => (
-            <div
-              key={area.title}
-              className="flex items-baseline gap-[18px] py-6"
-              style={{ borderBottom: `1px solid ${RULE}` }}
-            >
-              <span
-                className="font-[family-name:var(--font-newsreader)] min-w-[22px] text-[15px] italic"
-                style={{ color: ACCENT }}
+          {uvodContent.areas.map((area, i) => {
+            const body = (
+              <>
+                <span
+                  className="font-[family-name:var(--font-newsreader)] min-w-[22px] text-[15px] italic"
+                  style={{ color: ACCENT }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="font-[family-name:var(--font-newsreader)] m-0 mb-1.5 text-[21px] font-medium leading-[1.2]">
+                    {area.title}
+                  </h3>
+                  <p className="m-0 text-sm leading-[1.6]" style={{ color: MUTED }}>
+                    {area.text}
+                  </p>
+                </div>
+              </>
+            )
+            const className = 'flex items-baseline gap-[18px] py-6'
+            const style = { borderBottom: `1px solid ${RULE}` }
+            return area.href ? (
+              <Link
+                key={area.title}
+                href={area.href}
+                className={`${className} transition-opacity hover:opacity-70`}
+                style={style}
               >
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 className="font-[family-name:var(--font-newsreader)] m-0 mb-1.5 text-[21px] font-medium leading-[1.2]">
-                  {area.title}
-                </h3>
-                <p className="m-0 text-sm leading-[1.6]" style={{ color: MUTED }}>
-                  {area.text}
-                </p>
+                {body}
+              </Link>
+            ) : (
+              <div key={area.title} className={className} style={style}>
+                {body}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
 

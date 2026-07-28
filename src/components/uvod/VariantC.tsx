@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { uvodContent, uvodNav } from '@/lib/uvod-content'
 import Portrait from './Portrait'
 
@@ -29,24 +30,27 @@ export default function VariantC() {
           {uvodContent.name}
         </span>
         <nav className="flex flex-wrap gap-1.5 text-[13.5px]" style={{ color: MUTED }}>
-          {uvodNav.map((item, i) => (
-            <span
-              key={item}
-              className="px-[11px] py-1.5"
-              style={
-                i === 0
-                  ? {
-                      color: PAPER,
-                      background: ACCENT,
-                      borderRadius: 100,
-                      fontWeight: 500,
-                    }
-                  : undefined
-              }
-            >
-              {item}
-            </span>
-          ))}
+          {uvodNav.map((item, i) => {
+            const className = 'px-[11px] py-1.5'
+            const style =
+              i === 0
+                ? { color: PAPER, background: ACCENT, borderRadius: 100, fontWeight: 500 }
+                : undefined
+            return item.href ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`${className} rounded-full transition-colors hover:text-[#1C1A16]`}
+                style={style}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <span key={item.label} className={className} style={style}>
+                {item.label}
+              </span>
+            )
+          })}
         </nav>
       </header>
 
@@ -73,14 +77,12 @@ export default function VariantC() {
       <section className="grid grid-cols-1 gap-4 px-6 pb-2 md:grid-cols-2 md:px-11">
         {uvodContent.areas.map((area, i) => {
           const isLast = i === uvodContent.areas.length - 1
-          return (
-            <article
-              key={area.title}
-              className={`rounded-[10px] px-[26px] pt-[26px] pb-[22px] ${
-                isLast ? 'md:col-span-2 md:flex md:items-baseline md:justify-between md:gap-6' : ''
-              }`}
-              style={{ background: CARD, border: `1px solid ${RULE}` }}
-            >
+          const className = `rounded-[10px] px-[26px] pt-[26px] pb-[22px] ${
+            isLast ? 'md:col-span-2 md:flex md:items-baseline md:justify-between md:gap-6' : ''
+          }`
+          const style = { background: CARD, border: `1px solid ${RULE}` }
+          const body = (
+            <>
               <div>
                 <h3 className="font-[family-name:var(--font-piazzolla)] m-0 mb-2 text-xl font-semibold leading-[1.2]">
                   {area.title}
@@ -95,6 +97,20 @@ export default function VariantC() {
               >
                 {area.cta}
               </p>
+            </>
+          )
+          return area.href ? (
+            <Link
+              key={area.title}
+              href={area.href}
+              className={`${className} block transition-shadow hover:shadow-[0_2px_10px_rgba(23,25,28,.09)]`}
+              style={style}
+            >
+              {body}
+            </Link>
+          ) : (
+            <article key={area.title} className={className} style={style}>
+              {body}
             </article>
           )
         })}
