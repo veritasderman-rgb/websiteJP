@@ -102,16 +102,23 @@ export const uvodContent = {
 }
 
 /**
- * Podstránky rozcestníku. Zatím nesou jen perex převzatý z dlaždice — plný
- * text se dopisuje, proto jsou noindex a nejsou v sitemapě (viz sitemap.ts).
- * Až text přibude, stačí doplnit `body` a zrušit `draft`.
+ * Podstránky rozcestníku.
+ *
+ * Text smí obsahovat jen to, co je doložené jinde v repu — role, roky, projekty.
+ * Žádné názory ani motivace, které autor sám nenapsal: stránky jsou psané v jeho
+ * první osobě a jsou z rozcestníku volně proklikatelné, takže by mu nesmí nic
+ * vkládat do úst. Dokud si text neprojde, drží stránky `draft`, tedy noindex
+ * a mimo sitemapu (viz sitemap.ts).
  */
 export type HubSection = {
   slug: string
   title: string
   perex: string
   body?: string[]
-  /** Bez hotového textu — noindex, mimo sitemapu. */
+  /** Přehled rolí nebo témat, vykreslí se pod textem. */
+  list?: { label: string; text: string }[]
+  listLabel?: string
+  /** Text zatím neprošel autorskou revizí — noindex, mimo sitemapu. */
   draft?: boolean
 }
 
@@ -121,15 +128,79 @@ export const hubSections: HubSection[] = [
     title: 'O mně',
     perex: uvodContent.lead,
     body: [uvodContent.summary],
+    listLabel: 'Kde jsem byl',
+    list: [
+      { label: 'Poslanecká sněmovna', text: 'asistent poslance — první práce ve veřejné funkci' },
+      { label: 'Piráti', text: 'vedoucí resortního týmu zdravotnictví' },
+      { label: '2022–2024', text: 'náměstek ministra zdravotnictví' },
+      { label: 'Dnes', text: 'Správní rada VZP' },
+      { label: 'Od roku 2018', text: 'zastupitel města Mariánské Lázně' },
+      { label: 'Ensana', text: 'vedoucí marketingu lázeňského klastru' },
+    ],
+    draft: true,
   },
-  ...uvodContent.areas
-    .filter((area) => area.href?.startsWith('/') && area.href !== '/foto')
-    .map((area) => ({
-      slug: area.href!.slice(1),
-      title: area.title,
-      perex: area.text,
-      draft: true,
-    })),
+  {
+    slug: 'verejna-sluzba',
+    title: 'Zdravotnictví a veřejná služba',
+    perex: uvodContent.areas[0].text,
+    body: [
+      'Do zdravotnictví mě přivedlo rušení nemocnice v Mariánských Lázních.',
+      'Začínal jsem jako asistent poslance, pak jsem u Pirátů vedl resortní tým zdravotnictví. V letech 2022 až 2024 jsem byl náměstkem ministra zdravotnictví. Dneska jsem ve Správní radě VZP.',
+      'Chystám sem přehled toho, co jsem kde dělal.',
+    ],
+    draft: true,
+  },
+  {
+    slug: 'marianske-lazne',
+    title: 'Mariánské Lázně',
+    perex: uvodContent.areas[1].text,
+    body: [
+      'Narodil jsem se tady a žiju tu celý život. Při škole jsem začínal na hotelové recepci, dneska týmž hotelům vedu marketing.',
+      'Zastupitelem jsem od roku 2018, předsedám správní radě symfonického orchestru.',
+      'Chystám sem přehled toho, co se ve městě povedlo a co ne. Zároveň teď chystám kandidátku pro komunální volby.',
+    ],
+    draft: true,
+  },
+  {
+    slug: 'marketing',
+    title: 'Marketing a destinace',
+    perex: uvodContent.areas[2].text,
+    body: [
+      'Vedu marketing lázeňského klastru Ensana. Při škole jsem začínal na hotelové recepci.',
+      'Vedle toho stavím marienbad.com.',
+    ],
+    draft: true,
+  },
+  {
+    slug: 'projekty',
+    title: 'Co stavím',
+    perex: uvodContent.areas[3].text,
+    body: [
+      'HSPA Česko, datové pipeline, aplikace. Většinou proto, že to nikdo jiný neudělal.',
+      'Právě teď dokončuju sociální publikační vrstvu pro HSPA Česko.',
+    ],
+    draft: true,
+  },
+  {
+    slug: 'produktivita',
+    title: 'Time management a GTD',
+    perex: uvodContent.areas[4].text,
+    body: [
+      'Školím týmy i jednotlivce v time managementu a GTD. Napsal jsem k tomu příručku.',
+      'Sem doplním, jak školení probíhá a jak si o něj říct.',
+    ],
+    draft: true,
+  },
+  {
+    slug: 'hry',
+    title: 'Hry pro radost',
+    perex: uvodContent.areas[5].text,
+    body: [
+      'Vesmírná strategie a taktika plachetnic. Dvě věci bez jakéhokoli účelu.',
+      'Zrovna dodělávám kampaň pirátské námořní hry, mise 7 až 11.',
+    ],
+    draft: true,
+  },
 ]
 
 export function getHubSection(slug: string): HubSection | undefined {
