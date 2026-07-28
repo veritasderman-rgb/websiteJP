@@ -1,5 +1,5 @@
 import { createReader } from '@keystatic/core/reader'
-import keystaticConfig from '../../../../../keystatic.config'
+import keystaticConfig from '../../../../../../keystatic.config'
 import { notFound } from 'next/navigation'
 import GalleryMasonry from '@/components/GalleryMasonry'
 import AgeGate from '@/components/AgeGate'

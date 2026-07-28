@@ -55,7 +55,7 @@ export default function AgeGate({
             Je mi 18+, vstoupit
           </button>
           <Link
-            href="/portfolio"
+            href="/foto/portfolio"
             className="inline-block border border-primary text-primary text-xs tracking-[0.2em] uppercase px-8 py-3.5 hover:bg-primary hover:text-white transition-colors font-sans"
           >
             Vrátit se

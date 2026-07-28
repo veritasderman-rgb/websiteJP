@@ -1,5 +1,5 @@
 import { createReader } from '@keystatic/core/reader'
-import keystaticConfig from '../../../../keystatic.config'
+import keystaticConfig from '../../../../../keystatic.config'
 import { getPhotoMeta } from '@/lib/portfolio'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -67,7 +67,7 @@ export default async function PortfolioPage() {
               return (
                 <Link
                   key={slug}
-                  href={`/portfolio/${slug}`}
+                  href={`/foto/portfolio/${slug}`}
                   className="group block mb-4 break-inside-avoid overflow-hidden"
                 >
                   <div

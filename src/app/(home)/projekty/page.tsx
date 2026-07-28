@@ -1,15 +1,36 @@
-import { notFound } from 'next/navigation'
-import SectionPage from '@/components/uvod/SectionPage'
-import { getHubSection } from '@/lib/uvod-content'
-import { hubSectionMetadata } from '@/lib/hub-section-meta'
+import type { Metadata } from 'next'
+import HubPage, { Card, SectionLabel } from '@/components/uvod/HubPage'
+import { projekty } from '@/lib/hub-content'
 
-const SLUG = 'projekty'
+export const metadata: Metadata = {
+  title: 'Projekty',
+  description:
+    'HSPA Česko, marienbad.com, marketing lázeňských hotelů Ensana a hry pro radost. Většina z toho vznikla proto, že to nikdo jiný neudělal.',
+  alternates: { canonical: '/projekty' },
+}
 
-export const metadata = hubSectionMetadata(SLUG)
 export const revalidate = false
 
-export default function Page() {
-  const section = getHubSection(SLUG)
-  if (!section) notFound()
-  return <SectionPage section={section} />
+const MUTED = '#6B6E76'
+
+export default function ProjektyPage() {
+  return (
+    <HubPage title={projekty.title} perex={projekty.perex} activeHref="/projekty">
+      <section className="mt-12">
+        {projekty.items.map((item) => (
+          <Card key={item.title} {...item} />
+        ))}
+      </section>
+
+      <section className="mt-16">
+        <SectionLabel>{projekty.hryLabel}</SectionLabel>
+        <p className="m-0 mb-2 max-w-[38em] text-[15px] italic" style={{ color: MUTED }}>
+          {projekty.hryPerex}
+        </p>
+        {projekty.hry.map((item) => (
+          <Card key={item.title} {...item} />
+        ))}
+      </section>
+    </HubPage>
+  )
 }

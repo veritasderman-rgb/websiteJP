@@ -6,10 +6,10 @@ import { useEffect, useRef, useState } from 'react'
 
 const navLinks = [
   { href: '/foto', label: 'Foto' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/o-mne', label: 'O mně' },
-  { href: '/nabidka', label: 'Nabídka' },
-  { href: '/kontakt', label: 'Kontakt' },
+  { href: '/foto/portfolio', label: 'Portfolio' },
+  { href: '/foto/o-mne', label: 'O mně' },
+  { href: '/foto/nabidka', label: 'Nabídka' },
+  { href: '/foto/kontakt', label: 'Kontakt' },
 ]
 
 export default function Navigation() {
