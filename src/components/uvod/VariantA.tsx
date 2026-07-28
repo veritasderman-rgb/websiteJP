@@ -1,17 +1,13 @@
 import Link from 'next/link'
-import { uvodContent, uvodNav } from '@/lib/uvod-content'
+import { uvodContent } from '@/lib/uvod-content'
 import Portrait from './Portrait'
+import { HubFooter, HubHeader, ACCENT, MUTED, PAPER, RULE } from './HubChrome'
 
 /**
  * Varianta 1a — „Lázeňský deník"
  * Source Serif 4 + Inter · akcent #14606B · papír #FAF9F6
  * Dlaždice ve 12sloupcové mřížce (3+3+3+3, 4+4+4), oddělovače hairline 1px.
  */
-
-const ACCENT = '#14606B'
-const PAPER = '#FAF9F6'
-const RULE = '#E4E1DA'
-const MUTED = '#6B6E76'
 
 // Rozložení dlaždic podle designu: první čtyři na 3 sloupce, zbylé tři na 4.
 const SPANS = [3, 3, 3, 3, 4, 4, 4]
@@ -23,35 +19,7 @@ export default function VariantA() {
       style={{ background: PAPER, color: '#17191C' }}
     >
       {/* Hlavička */}
-      <header
-        className="flex flex-wrap items-center justify-between gap-y-3 px-6 py-4 md:h-16 md:flex-nowrap md:px-10 md:py-0"
-        style={{ borderBottom: `1px solid ${RULE}` }}
-      >
-        <span className="font-[family-name:var(--font-source-serif)] text-[19px] font-semibold tracking-[-0.01em]">
-          {uvodContent.name}
-        </span>
-        <nav className="flex flex-wrap gap-1 text-[13.5px]" style={{ color: MUTED }}>
-          {uvodNav.map((item, i) => {
-            const className = 'rounded-md px-2.5 py-[7px]'
-            const style =
-              i === 0 ? { color: ACCENT, background: '#E8F1F2', fontWeight: 500 } : undefined
-            return item.href ? (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`${className} transition-colors hover:text-[#14606B]`}
-                style={style}
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <span key={item.label} className={className} style={style}>
-                {item.label}
-              </span>
-            )
-          })}
-        </nav>
-      </header>
+      <HubHeader activeLabel="Úvod" />
 
       {/* Hero */}
       <section
@@ -159,18 +127,14 @@ export default function VariantA() {
           {uvodContent.summary}
         </p>
         <p className="mt-[18px] mb-0 text-base">
-          <span style={{ color: ACCENT }}>{uvodContent.cvLabel}</span>
+          <Link href={uvodContent.cvHref} style={{ color: ACCENT }}>
+            {uvodContent.cvLabel}
+          </Link>
         </p>
       </section>
 
       {/* Patička */}
-      <footer
-        className="flex flex-col justify-between gap-4 px-6 py-[34px] text-[13.5px] sm:flex-row md:px-10"
-        style={{ borderTop: `1px solid ${RULE}`, color: MUTED }}
-      >
-        <span>{uvodContent.copyright}</span>
-        <span>{uvodContent.email}</span>
-      </footer>
+      <HubFooter />
     </div>
   )
 }
