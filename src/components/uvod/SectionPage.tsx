@@ -39,18 +39,43 @@ export default function SectionPage({ section }: { section: HubSection }) {
           </p>
         ))}
 
-        {section.draft && (
-          <p
-            className="mt-10 max-w-[34em] border-l-2 pl-4 text-[15px] leading-[1.6]"
-            style={{ borderColor: RULE, color: MUTED }}
-          >
-            Podrobnosti k této oblasti teprve dopisuju. Mezitím mi můžete napsat na{' '}
-            <a href={`mailto:${uvodContent.email}`} style={{ color: ACCENT }}>
-              {uvodContent.email}
-            </a>
-            .
-          </p>
+        {section.list && (
+          <section className="mt-12 max-w-[38em]">
+            {section.listLabel && (
+              <p
+                className="m-0 mb-3.5 text-xs font-semibold uppercase tracking-[0.13em]"
+                style={{ color: MUTED }}
+              >
+                {section.listLabel}
+              </p>
+            )}
+            <dl className="m-0">
+              {section.list.map((item, i) => (
+                <div
+                  key={item.label}
+                  className="grid grid-cols-1 gap-x-6 py-3 sm:grid-cols-[11em_1fr]"
+                  style={i > 0 ? { borderTop: `1px solid ${RULE}` } : undefined}
+                >
+                  <dt className="text-[15px] font-medium">{item.label}</dt>
+                  <dd className="m-0 text-[15px] leading-[1.6]" style={{ color: MUTED }}>
+                    {item.text}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
         )}
+
+        <p
+          className="mt-12 max-w-[34em] border-l-2 pl-4 text-[15px] leading-[1.6]"
+          style={{ borderColor: RULE, color: MUTED }}
+        >
+          Máte k tomu otázku nebo poznámku? Napište mi na{' '}
+          <a href={`mailto:${uvodContent.email}`} style={{ color: ACCENT }}>
+            {uvodContent.email}
+          </a>
+          .
+        </p>
 
         <p className="mt-12 mb-0 text-[13.5px]">
           <Link href="/" style={{ color: ACCENT }}>
