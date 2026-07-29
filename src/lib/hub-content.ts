@@ -20,7 +20,7 @@ export const oMne = {
   portret: {
     src: '/media/o-mne/josef-pavlovic-portret-2024.webp',
     alt: 'Josef Pavlovic',
-    kredit: 'Foto Aleš Vopát, 2024',
+    kredit: 'Foto Vopát, 2024',
   },
   bio: [
     'Narodil jsem se v Mariánských Lázních — tenkrát tu ještě byla nemocnice — a žiju tady celý život. Při škole jsem začínal na recepci lázeňských hotelů, potom jsem na obchodním oddělení dělal OTA a konference. Občas mě to na chvíli zaválo jinam, ale vždycky jsem se vrátil. Tohle město miluju.',
@@ -49,19 +49,19 @@ export const oMne = {
       title: 'Lipová MTB',
       meta: 'Pořádali jsme',
       text: 'Závod horských kol v Lipové jsem několik let pořádal s tátou. Po jeho smrti proběhl ještě jeden ročník jako Memoriál Josefa Pavlovice a tím to skončilo. Bez něj to nedávalo smysl.',
-      fotky: [{ src: '/media/o-mne/lipova-mtb.webp', w: 1000, h: 750, alt: 'Start závodu horských kol v Lipové' }],
+      fotky: [{ src: '/media/o-mne/lipova-mtb.webp', w: 1240, h: 301, alt: 'Start závodu horských kol v Lipové' }],
     },
     {
       title: 'Aikidó',
       meta: 'Od 2010 · aikidoml.cz',
       text: 'Členem oddílu Aikidó Mariánské Lázně jsem od roku 2010. Posledních několik let pomáhám našemu senseiovi vést tréninky.',
-      fotky: [{ src: '/media/o-mne/aikido.webp', w: 1000, h: 408, alt: 'Oddíl Aikidó Mariánské Lázně na tatami' }],
+      fotky: [{ src: '/media/o-mne/aikido.webp', w: 1240, h: 301, alt: 'Oddíl Aikidó Mariánské Lázně na tatami' }],
     },
     {
       title: 'Zapomenuté říše',
       meta: 'Aktivně',
       text: 'Vedu dlouhodobou kampaň v Dungeons & Dragons. K jednomu z vrcholů příběhu vznikly tři symfonické metalové skladby v češtině.',
-      fotky: [{ src: '/media/o-mne/zapomenute-rise.webp', w: 1000, h: 750, alt: 'Bitevní mapa s terénem a figurkami' }],
+      fotky: [{ src: '/media/o-mne/zapomenute-rise.webp', w: 1240, h: 301, alt: 'Bitevní mapa s terénem a figurkami' }],
     },
     {
       title: 'Whisky',
@@ -129,8 +129,9 @@ export const verejnaSluzba = {
     },
     {
       title: 'Člen Správní rady VZP ČR',
+      period: 'od února 2026',
       intro:
-        'Správní rada schvaluje zdravotně pojistný plán, rozpočet a nakládání s majetkem největší zdravotní pojišťovny v zemi. Pracovní skupiny pro NIS, finance, investice a fond prevence.',
+        'Zvolen Poslaneckou sněmovnou. Správní rada schvaluje zdravotně pojistný plán, rozpočet a nakládání s majetkem největší zdravotní pojišťovny v zemi. Pracovní skupiny pro NIS, finance, investice a fond prevence.',
       outcomes: [
         'Analýza závislosti VZP na jediném dodavateli informačního systému a dopadů bezpečnostního opatření NÚKIB.',
         'Připomínky k preventivnímu programu a ke kritériím hodnocení ředitele VZP.',
@@ -440,8 +441,8 @@ export const tvorba = {
       status: 'cyklus, rozepsáno',
       text: 'Městská fantasy v současném Česku. Existují lidé, kteří vidí víc než ostatní, říkají si Jiní a žijí mezi námi. Nad příměřím mezi Světlem a Tmou dohlíží Noční a Denní hlídka.',
     },
-    { title: 'Hlína a světlo', status: 'díl cyklu', text: '' },
-    { title: 'Požehnání v krvi', status: 'díl cyklu', text: '' },
+    // Deck uváděl i díly „Hlína a světlo" a „Požehnání v krvi". Autor je nechal
+    // odstranit — psala je AI, takže je mezi svou tvorbu uvádět nechce.
   ] satisfies Project[],
 
   analyzyLabel: 'Analýzy a texty',
@@ -464,9 +465,9 @@ export const tvorba = {
   ] satisfies Project[],
 
   /**
-   * Videa. Titulky a kanály jsou převzaté z YouTube oEmbed, ne odhadnuté.
-   * „Dream come true" je na kanálu MLmag, ne na Josefově — proto je uvedený
-   * jako cizí kanál a netvrdí se u něj autorství.
+   * Videa. Titulky jsou převzaté z YouTube oEmbed, ne odhadnuté.
+   * Autorství je u všech tří Josefovo — potvrdil to; „Dream come true" jen
+   * vyšlo na cizím kanálu, což je uvedené jako místo publikace, ne jako autor.
    */
   videoLabel: 'Video',
   videoPerex: 'Časosběry a jedno video o městě.',
@@ -474,17 +475,17 @@ export const tvorba = {
     {
       id: 'eacCwogEOTs',
       titulek: 'Timelapse2',
-      kanal: 'Josef Pavlovic',
+      kredit: 'Josef Pavlovic',
     },
     {
       id: 'KFnTn-gmY-Y',
       titulek: 'Timelapse Podhora 2017',
-      kanal: 'Josef Pavlovic',
+      kredit: 'Josef Pavlovic',
     },
     {
       id: '6oDMDRrlIlE',
       titulek: 'Dream come true Marianske Lazne',
-      kanal: 'MLmag',
+      kredit: 'Josef Pavlovic · vyšlo na kanálu MLmag',
       start: 29,
     },
   ],
@@ -521,7 +522,7 @@ export const kontakt = {
     {
       nahled: '/media/tisk/josef-pavlovic-portret-vopat-web.jpg',
       popis: 'Portrét, 9. 4. 2024',
-      kredit: 'Foto Aleš Vopát',
+      kredit: 'Foto Vopát',
       web: '/media/tisk/josef-pavlovic-portret-vopat-web.jpg',
       tisk: '/media/tisk/josef-pavlovic-portret-vopat-tisk.jpg',
       tiskPopis: '4976 × 3318',

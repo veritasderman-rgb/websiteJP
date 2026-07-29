@@ -19,31 +19,36 @@ const ACCENT = '#14606B'
 export default function OMnePage() {
   return (
     <HubPage title={oMne.title} activeHref="/o-mne">
-      <figure className="mt-8 mb-2 max-w-[42em]">
-        <Image
-          src={oMne.portret.src}
-          alt={oMne.portret.alt}
-          width={1400}
-          height={933}
-          priority
-          sizes="(max-width: 768px) 100vw, 42rem"
-          className="h-auto w-full"
-          style={{ border: `1px solid ${RULE}` }}
-        />
-        <figcaption className="mt-2 text-[13px]" style={{ color: MUTED }}>
-          {oMne.portret.kredit}
-        </figcaption>
-      </figure>
+      {/* Text vlevo, portrét vpravo; na mobilu portrét nahoře nad textem. */}
+      <div className="mt-8 grid grid-cols-1 gap-x-12 md:grid-cols-[1fr_340px]">
+        <div className="order-2 md:order-1">
+          <Prose paragraphs={oMne.bio} />
 
-      <Prose paragraphs={oMne.bio} />
+          <p className="mt-5 max-w-[38em] text-[17px] leading-[1.7]" style={{ color: '#2A2D33' }}>
+            Psát mi můžete na{' '}
+            <a href={`mailto:${EMAIL}`} style={{ color: ACCENT }}>
+              {EMAIL}
+            </a>
+            .
+          </p>
+        </div>
 
-      <p className="mt-5 max-w-[38em] text-[17px] leading-[1.7]" style={{ color: '#2A2D33' }}>
-        Psát mi můžete na{' '}
-        <a href={`mailto:${EMAIL}`} style={{ color: ACCENT }}>
-          {EMAIL}
-        </a>
-        .
-      </p>
+        <figure className="order-1 mb-8 md:sticky md:top-8 md:order-2 md:mb-0 md:self-start">
+          <Image
+            src={oMne.portret.src}
+            alt={oMne.portret.alt}
+            width={1400}
+            height={933}
+            priority
+            sizes="(max-width: 768px) 100vw, 21rem"
+            className="h-auto w-full"
+            style={{ border: `1px solid ${RULE}` }}
+          />
+          <figcaption className="mt-2 text-[13px]" style={{ color: MUTED }}>
+            {oMne.portret.kredit}
+          </figcaption>
+        </figure>
+      </div>
 
       <section className="mt-16">
         <SectionLabel>{oMne.mimoPraciLabel}</SectionLabel>
@@ -83,7 +88,14 @@ export default function OMnePage() {
                       alt={foto.alt}
                       width={foto.w}
                       height={foto.h}
-                      sizes="(max-width: 640px) 30vw, 12rem"
+                      // Jedna fotka zabírá celou šířku karty (~35rem), tři se
+                      // dělí o třetiny. Bez rozlišení si prohlížeč stahoval
+                      // 192px zdroj do 552px slotu a fotka byla rozmazaná.
+                      sizes={
+                        item.fotky.length > 1
+                          ? '(max-width: 640px) 30vw, 12rem'
+                          : '(max-width: 640px) 100vw, 35rem'
+                      }
                       className="h-auto w-full"
                       style={{ border: `1px solid ${RULE}` }}
                     />
