@@ -9,8 +9,15 @@ import { HubFooter, HubHeader, ACCENT, MUTED, PAPER, RULE } from './HubChrome'
  * Dlaždice ve 12sloupcové mřížce (3+3+3+3, 4+4+4), oddělovače hairline 1px.
  */
 
-// Rozložení dlaždic podle designu: první čtyři na 3 sloupce, zbylé tři na 4.
-const SPANS = [3, 3, 3, 3, 4, 4, 4]
+/**
+ * Rozložení dlaždic podle designu: první čtyři na 3 sloupce, zbylé tři na 4.
+ *
+ * Musí to být třídy s `lg:`, ne inline `gridColumn` — dvanáctisloupcová mřížka
+ * platí až od `lg`. Inline styl se neumí zeptat na šířku okna, takže si span
+ * vynucoval i na mobilu a mřížka pak měla čtyři sloupce (tři nulové) místo
+ * jednoho. Třídy jsou vypsané celé, aby je Tailwind našel při sestavování.
+ */
+const SPAN_CLASS = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-3', 'lg:col-span-4', 'lg:col-span-4', 'lg:col-span-4']
 
 export default function VariantA() {
   return (
@@ -65,8 +72,15 @@ export default function VariantA() {
               </p>
             </>
           )
-          const className = 'px-[26px] pt-[30px] pb-[26px]'
-          const style = { background: PAPER, gridColumn: `span ${SPANS[i]}` }
+          // Dlaždic je lichý počet, takže mezi `sm` a `lg` zbývala v posledním
+          // řádku prázdná půlka s barvou linek. Poslední dlaždice tam zabere
+          // oba sloupce; od `lg` platí zase rozvržení z designu.
+          const lastSpan =
+            i === uvodContent.areas.length - 1 && uvodContent.areas.length % 2 === 1
+              ? 'sm:col-span-2 '
+              : ''
+          const className = `px-[26px] pt-[30px] pb-[26px] ${lastSpan}${SPAN_CLASS[i]}`
+          const style = { background: PAPER }
           return area.href ? (
             <Link
               key={area.title}
