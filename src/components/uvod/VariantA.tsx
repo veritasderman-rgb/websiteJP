@@ -72,7 +72,14 @@ export default function VariantA() {
               </p>
             </>
           )
-          const className = `px-[26px] pt-[30px] pb-[26px] ${SPAN_CLASS[i]}`
+          // Dlaždic je lichý počet, takže mezi `sm` a `lg` zbývala v posledním
+          // řádku prázdná půlka s barvou linek. Poslední dlaždice tam zabere
+          // oba sloupce; od `lg` platí zase rozvržení z designu.
+          const lastSpan =
+            i === uvodContent.areas.length - 1 && uvodContent.areas.length % 2 === 1
+              ? 'sm:col-span-2 '
+              : ''
+          const className = `px-[26px] pt-[30px] pb-[26px] ${lastSpan}${SPAN_CLASS[i]}`
           const style = { background: PAPER }
           return area.href ? (
             <Link
