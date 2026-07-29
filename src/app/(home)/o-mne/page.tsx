@@ -56,14 +56,16 @@ export default function OMnePage() {
           {oMne.mimoPraci.map((item, i) => (
             <article
               key={item.title}
-              className="px-6 py-6"
-              style={{
-                background: '#FAF9F6',
-                // Lichá poslední karta zabere celou šířku, ať v mřížce nezůstane díra.
-                ...(i === oMne.mimoPraci.length - 1 && oMne.mimoPraci.length % 2 === 1
-                  ? { gridColumn: 'span 2' }
-                  : {}),
-              }}
+              // Lichá poslední karta zabere celou šířku, ať v mřížce nezůstane
+              // díra — ale až od `sm`, kde je mřížka dvousloupcová. Dřív to byl
+              // inline `gridColumn`, který media query neumí, takže si i na
+              // mobilu vynutil druhý sloupec a karty se navzájem natahovaly.
+              className={`px-6 py-6 ${
+                i === oMne.mimoPraci.length - 1 && oMne.mimoPraci.length % 2 === 1
+                  ? 'sm:col-span-2'
+                  : ''
+              }`}
+              style={{ background: '#FAF9F6' }}
             >
               <h3 className="font-[family-name:var(--font-source-serif)] m-0 text-[18px] font-semibold">
                 {item.title}
