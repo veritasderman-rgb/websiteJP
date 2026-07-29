@@ -68,6 +68,40 @@ export default function VerejnaSluzbaPage() {
       </section>
 
       <section className="mt-16">
+        <SectionLabel>{vs.zdrojeLabel}</SectionLabel>
+        <p className="m-0 mb-6 max-w-[40em] text-[14px]" style={{ color: MUTED }}>
+          {vs.zdrojeNote}
+        </p>
+        {vs.zdrojeSkupiny.map((skupina) => (
+          <div key={skupina.tema} className="mt-6 max-w-[42em]">
+            <h3 className="m-0 mb-1 text-[13px] font-semibold uppercase tracking-[0.08em]">
+              {skupina.tema}
+            </h3>
+            <ul className="m-0 list-none p-0">
+              {skupina.polozky.map((p) => (
+                <li key={p.url} className="py-2" style={{ borderTop: `1px solid ${RULE}` }}>
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[15.5px] leading-[1.5] hover:underline"
+                    style={{ color: ACCENT }}
+                  >
+                    {p.titulek}
+                  </a>
+                  <p className="m-0 mt-0.5 text-[13px]" style={{ color: MUTED }}>
+                    {p.zdroj}
+                    {'datum' in p && p.datum ? ` · ${p.datum}` : ''}
+                    {'poznamka' in p && p.poznamka ? ` — ${p.poznamka}` : ''}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <section className="mt-16">
         <SectionLabel>{vs.temataLabel}</SectionLabel>
         {vs.temata.map((tema) => (
           <div key={tema.title} className="mt-6 max-w-[40em]">

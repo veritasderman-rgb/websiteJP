@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import HubPage, { Prose, SectionLabel } from '@/components/uvod/HubPage'
 import { oMne, EMAIL } from '@/lib/hub-content'
 import { uvodContent } from '@/lib/uvod-content'
@@ -52,6 +53,22 @@ export default function OMnePage() {
               <p className="mt-3 mb-0 text-[15.5px] leading-[1.65]" style={{ color: MUTED }}>
                 {item.text}
               </p>
+              {'fotky' in item && item.fotky && (
+                <div className="mt-4 grid grid-cols-3 gap-2">
+                  {item.fotky.map((foto) => (
+                    <Image
+                      key={foto.src}
+                      src={foto.src}
+                      alt={foto.alt}
+                      width={1000}
+                      height={750}
+                      sizes="(max-width: 640px) 30vw, 12rem"
+                      className="h-auto w-full"
+                      style={{ border: `1px solid ${RULE}` }}
+                    />
+                  ))}
+                </div>
+              )}
             </article>
           ))}
         </div>

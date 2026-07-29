@@ -20,7 +20,7 @@ export const oMne = {
   bio: [
     'Narodil jsem se v Mariánských Lázních — tenkrát tu ještě byla nemocnice — a žiju tady celý život. Při škole jsem začínal na recepci lázeňských hotelů, potom jsem na obchodním oddělení dělal OTA a konference. Občas mě to na chvíli zaválo jinam, ale vždycky jsem se vrátil. Tohle město miluju.',
     'Ke zdravotnictví mě přivedlo právě rušení naší nemocnice. Chtěl jsem pochopit, proč se to děje a co se s tím dá dělat. Od roku 2017 jsem dělal asistenta poslanci Petru Třešňákovi, který byl tehdy místopředsedou zdravotnického výboru. Postupně jsem vedl resortní tým zdravotnictví u Pirátů a v roce 2021 jsem jim připravoval volební program pro zdravotnictví. Zdravotnický deník ho tehdy v nezávislé analýze vyhodnotil jako nejlepší mezi kandidujícími stranami.',
-    'V letech 2022 až 2024 jsem byl náměstkem ministra zdravotnictví. Měl jsem veřejné zdraví, péči o matku a dítě a část covidové agendy. Ze všeho, co jsem tam dělal, mi nejvíc zůstaly tři věci. Vláda schválila strategii Baby Friendly Hospital. Vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva, a k tomu úprava zákona 372. A do preventivních prohlídek kojenců se dostaly signální výkony ke kojení, což zní jako drobnost, ale znamená to, že se kojení konečně někde eviduje a dá se sledovat.',
+    'V letech 2022 až 2024 jsem byl náměstkem ministra zdravotnictví. Měl jsem na starosti veřejné zdraví, péči o matku a dítě a část covidové agendy. Ze všeho, co jsem tam dělal, mi nejvíc zůstaly tři věci. Vláda schválila strategii Baby Friendly Hospital. Vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva, a k tomu úprava zákona 372. A do preventivních prohlídek kojenců se dostaly signální výkony ke kojení, což zní jako drobnost, ale znamená to, že se kojení konečně někde eviduje a dá se sledovat.',
     'Vedle toho jsem řídil Centrální řídící tým očkovacích kampaní, zahájil reformu krajských hygienických stanic a rozjížděl síť nemocničních ombudsmanů.',
     'Dneska jsem ve Správní radě VZP, v zastupitelstvu Mariánských Lázní a předsedám správní radě zdejšího symfonického orchestru. Živí mě ale marketing. Vedu ho lázeňským hotelům Ensana — vrátil jsem se vlastně tam, kde jsem začínal. Je to práce o obsazenosti, cenách a o tom, proč sem lidi jezdí.',
     'Vystudoval jsem ekonomiku a management na Západočeské univerzitě v Plzni.',
@@ -34,6 +34,11 @@ export const oMne = {
       title: 'Běh',
       meta: 'Od 2013 · RunCzech · ČMK',
       text: 'Půlmaratony, občas maraton a výjimečně něco delšího. Tam už jsem ale na hraně: padesát šest kilometrů a dva tisíce šest set metrů převýšení za patnáct hodin v Krkonoších byl můj strop.',
+      fotky: [
+        { src: '/media/beh/krkonose-1.webp', alt: 'Krkonoše za soumraku' },
+        { src: '/media/beh/krkonose-2.webp', alt: 'Poštovna pod Sněžkou' },
+        { src: '/media/beh/medoc.webp', alt: 'Značka 35. kilometru ve vinicích, Marathon du Médoc' },
+      ],
     },
     {
       title: 'Lipová MTB',
@@ -154,6 +159,116 @@ export const verejnaSluzba = {
   dalsiAgendyLabel: 'Další agendy',
   dalsiAgendy:
     'Zdraví 2030 · strategická skupina personální stabilizace · zastupování v NERV · čerpání z IROP pro hygieny a SZÚ · vyhláška k bankám mateřského mléka · koncepce péče o matku a dítě, role porodních asistentek · Long Covid · debyrokratizace ordinací PLDD · duševní zdraví dětí s MŠMT · dětské skupiny ve zdravotnických zařízeních · komunikace s WHO k primární péči.',
+
+  /**
+   * Odkazník zdrojů k působení na ministerstvu.
+   *
+   * Každá položka byla stažena a ověřeno, že Josefa Pavlovice skutečně cituje
+   * nebo je jejím autorem — ne jen že se v ní objevuje jméno. Vyloučené jsou
+   * agregátory tiskových zpráv typu Parlamentních listů.
+   *
+   * Pozor: část médií jméno píše chybně „Pavlovič". Tady se drží tvar bez háčku
+   * podle editorial pravidel.
+   */
+  zdrojeLabel: 'Kde mě k tomu citují',
+  zdrojeNote:
+    'Odkazy na ministerstvo, veřejnoprávní média a odborný tisk. U každého jsem ověřoval, že tam skutečně mluvím k věci.',
+  zdrojeSkupiny: [
+    {
+      tema: 'Péče o matku a dítě',
+      polozky: [
+        {
+          zdroj: 'Zdravotnický deník',
+          datum: '18. 2. 2023',
+          titulek:
+            'Nová komise se má zasadit o větší podporu kojení a bezpečné užívání mléčné výživy',
+          poznamka: 'O střetu zájmů u odborných společností sponzorovaných výrobci mléčné výživy.',
+          url: 'https://www.zdravotnickydenik.cz/2023/02/komise-pro-vyzivu-kojencu-a-malych-deti-zacala-pracovat/',
+        },
+        {
+          zdroj: 'Deník',
+          datum: '24. 2. 2023',
+          titulek: 'Poplatek za přítomnost otce u porodu? Rozhodně ne, říká náměstek ministra Válka',
+          poznamka: 'Rozhovor o právu na přítomnost blízké osoby u porodu.',
+          url: 'https://www.denik.cz/zdravi/otec-u-porodu-pritomnost-zdravotnictvi-porodnictvi-20230224.html',
+        },
+      ],
+    },
+    {
+      tema: 'Nemocniční ombudsmani',
+      polozky: [
+        {
+          zdroj: 'Ministerstvo zdravotnictví',
+          datum: '19. 6. 2023',
+          titulek: 'Ministerstvo zdravotnictví vydalo Metodiku pro nemocniční ombudsmany',
+          url: 'https://mzd.gov.cz/tiskove-centrum-mz/ministerstvo-zdravotnictvi-vydalo-metodiku-pro-nemocnicni-ombudsmany/',
+        },
+      ],
+    },
+    {
+      tema: 'Elektronizace zdravotnictví',
+      polozky: [
+        {
+          zdroj: 'Zdravotnický deník',
+          datum: '23. 1. 2023',
+          titulek:
+            'Náměstek Pavlovic: Standardy elektronického zdravotnictví vydáme letos, budou vycházet z HL7',
+          url: 'https://www.zdravotnickydenik.cz/2023/01/namestek-pavlovic-standardy-elektronickeho-zdravotnictvi-vydame-letos-budou-vychazet-z-hl7/',
+        },
+        {
+          zdroj: 'Ministerstvo zdravotnictví',
+          datum: '28. 7. 2023',
+          titulek: 'Rozhovor s náměstkem ministra Josefem Pavlovicem',
+          poznamka: 'Hygienické normy ve školách, energetické nápoje, telemedicína, aplikace Tečka.',
+          url: 'https://mzd.gov.cz/rozhovor-s-namestkem-ministra-josefem-pavlovicem/',
+        },
+      ],
+    },
+    {
+      tema: 'Covid a očkování',
+      polozky: [
+        {
+          zdroj: 'Ministerstvo zdravotnictví',
+          datum: '29. 5. 2022',
+          titulek: 'Náměstek Josef Pavlovic: Kampaň zaměříme především na rozočkované',
+          url: 'https://mzd.gov.cz/namestek-josef-pavlovic-kampan-zamerime-predevsim-na-rozockovane/',
+        },
+        {
+          zdroj: 'Česká televize — Máte slovo',
+          datum: '19. 5. 2022',
+          titulek: 'Hostem pořadu Máte slovo byl náměstek ministra Josef Pavlovic',
+          url: 'https://mzd.gov.cz/hostem-poradu-mate-slovo-byl-namestek-ministra-josef-pavlovic/',
+        },
+      ],
+    },
+    {
+      tema: 'Síť nemocnic',
+      polozky: [
+        {
+          zdroj: 'Medical Tribune',
+          datum: '19. 1. 2024',
+          titulek: 'Pavlovic: Péči je třeba stratifikovat. Systematicky',
+          poznamka: 'Vlastní text k transformaci sítě nemocnic akutní péče.',
+          url: 'https://www.tribune.cz/komentare/pavlovic-peci-je-treba-stratifikovat-systematicky/',
+        },
+      ],
+    },
+    {
+      tema: 'Souhrnné přehledy',
+      polozky: [
+        {
+          zdroj: 'Zdravotnický deník',
+          titulek: 'Všechny články se štítkem Josef Pavlovic',
+          url: 'https://www.zdravotnickydenik.cz/tag/josef-pavlovic/',
+        },
+        {
+          zdroj: 'ČT24',
+          titulek: 'Téma Josef Pavlovic',
+          url: 'https://ct24.ceskatelevize.cz/tema/josef-pavlovic-8338',
+        },
+      ],
+    },
+  ],
 
   temataLabel: 'Témata, ke kterým se vracím',
   temata: [
@@ -365,5 +480,22 @@ export const kontakt = {
     'Bio ke zkopírování ve třech délkách — v sekci O mně.',
     'Kontakt pro rozhovory a odborné komentáře.',
     'Správný tvar jména: Josef Pavlovic — bez háčku, nikdy „Pavlovič".',
+  ],
+  fotkyLabel: 'Fotografie ke stažení',
+  fotkyNote: 'Plná licence k redakčnímu užití.',
+  fotky: [
+    {
+      nahled: '/media/tisk/josef-pavlovic-portret-vopat-web.jpg',
+      popis: 'Portrét, 9. 4. 2024',
+      kredit: 'Foto Aleš Vopát',
+      web: '/media/tisk/josef-pavlovic-portret-vopat-web.jpg',
+      tisk: '/media/tisk/josef-pavlovic-portret-vopat-tisk.jpg',
+      tiskPopis: '4976 × 3318',
+    },
+    {
+      nahled: '/media/tisk/josef-pavlovic-portret-2-web.jpg',
+      popis: 'Portrét, 19. 5. 2024',
+      web: '/media/tisk/josef-pavlovic-portret-2-web.jpg',
+    },
   ],
 }
