@@ -34,6 +34,40 @@ export default function TvorbaPage() {
       </section>
 
       <section className="mt-16">
+        <SectionLabel>{tvorba.videoLabel}</SectionLabel>
+        <p className="m-0 mb-5 max-w-[38em] text-[15px] italic" style={{ color: MUTED }}>
+          {tvorba.videoPerex}
+        </p>
+        <div className="grid max-w-[52em] grid-cols-1 gap-6 sm:grid-cols-2">
+          {tvorba.videa.map((video) => (
+            <figure key={video.id} className="m-0">
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ aspectRatio: '16 / 9', border: `1px solid ${RULE}` }}
+              >
+                <iframe
+                  // nocookie doména, ať se návštěvníkovi nesbírají cookies
+                  // dřív, než na video vůbec klikne
+                  src={`https://www.youtube-nocookie.com/embed/${video.id}${
+                    'start' in video && video.start ? `?start=${video.start}` : ''
+                  }`}
+                  title={video.titulek}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                  style={{ border: 0 }}
+                />
+              </div>
+              <figcaption className="mt-2 text-[13.5px]" style={{ color: MUTED }}>
+                {video.titulek} · {video.kanal}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16">
         <SectionLabel>{tvorba.fotografieLabel}</SectionLabel>
         {tvorba.fotografie.map((paragraph) => (
           <p
