@@ -175,7 +175,7 @@ export const verejnaSluzba = {
   mesto: {
     title: 'Mariánské Lázně — co se povedlo',
     mojeRukaLabel: 'Moje ruka',
-    mojeRukaNote: 'Věci, u kterých jsem byl navrhovatel nebo garant.',
+    mojeRukaNote: 'Věci, na které jsem hrdý, že se nám povedly.',
     mojeRuka: [
       'Participativní rozpočet — z 500 tisíc na 1 milion korun ročně',
       'Mobilní rozhlas — přes 500 vyřešených podnětů od občanů',
@@ -206,20 +206,25 @@ export const projekty = {
 
   items: [
     {
-      title: 'HSPA Česko',
+      title: 'HSPA Monitor — skorezdravotnictvi.cz',
       status: 'Běží',
-      url: 'https://hspa-cesko.cz',
-      text: 'Portál, který měří výkonnost českého zdravotnictví podle metodiky health system performance assessment. Automatizované datové pipeline, otevřená metodika, průběžná aktualizace.',
+      url: 'https://www.skorezdravotnictvi.cz',
+      text: 'Nezávislá občanská implementace rámce OECD HSPA pro Českou republiku. Měří, jestli zdravotnictví zlepšuje zdraví, je dostupné, kvalitní a finančně udržitelné. Automatizované datové pipeline, otevřená metodika, průběžná aktualizace.',
+      extra: [
+        'Vedle dashboardu vychází editorial řada — články s daty a zdroji, Barometr politických prohlášení, který převádí závazky z programového prohlášení vlády na měřitelné checkpointy, a přehled indikátorů s metodikou.',
+      ],
     },
     {
       title: 'marienbad.com',
-      status: 'Ve vývoji',
-      text: 'Redakční portál o Mariánských Lázních pro německy mluvící a mezinárodní návštěvníky. Ne katalog ubytování — texty o tom, proč sem jezdit.',
+      status: 'Už běží',
+      // Apex doména; www.marienbad.com nemá platný certifikát.
+      url: 'https://marienbad.com',
+      text: 'Redakční portál o Mariánských Lázních pro německy mluvící a mezinárodní návštěvníky. Nejedná se o katalog ubytování, prostě texty o tom, proč k nám přijet, co tu vidět a zažít.',
     },
     {
       title: 'Ensana Mariánské Lázně',
       status: 'Práce',
-      text: 'Marketing klastru lázeňských hotelů: kampaně, věrnostní program, obsah ve čtyřech jazycích, strategie.',
+      text: 'Marketing clusteru lázeňských hotelů: kampaně, věrnostní program, obsah ve čtyřech jazycích, strategie.',
     },
     {
       title: 'NakedTruth',
@@ -231,6 +236,8 @@ export const projekty = {
 
   hryLabel: 'Hry pro radost',
   hryPerex: 'Tyhle věci nemají žádný účel. To je celé jejich kouzlo.',
+  hryNote:
+    'Neplatí to o všech. Některými vysvětluju, jak funguje české zdravotnictví — například hrou Tři židle.',
   hry: [
     {
       title: 'WallOfBattle',
@@ -242,6 +249,7 @@ export const projekty = {
     {
       title: 'Pirates',
       status: 'Ve vývoji',
+      url: 'https://pirates-alpha.vercel.app',
       text: 'Boj plachetnic, kde vítr není kulisa, ale hlavní mechanika. Loď potřebuje rychlost, aby se dala řídit. Za ostrovem ztratíš vítr. Vesla ti pomůžou tam, kde plachty nestačí. Boční salvu musíš donést na cíl.',
       extra: [
         'Nepřítel, který zmizí za ostrovem, zůstane na mapě na poslední známé pozici — ne tam, kde doopravdy je.',
@@ -255,8 +263,18 @@ export const projekty = {
     },
     {
       title: 'Tři židle',
-      status: 'Ve vývoji · součást HSPA Česko',
+      status: 'Součást HSPA Monitoru',
+      url: 'https://www.skorezdravotnictvi.cz/hra',
       text: 'Jedno rozhodnutí, tři pohledy: ministr, ředitel nemocnice a pacient. Každý sedí na jiné straně stolu, pracuje s jinými informacemi a nese jiné důsledky.',
+      extra: [
+        'Herní kampaň o třech aktech: rozdělíte růst úhrad mezi segmenty péče, přežijete s tím rozpočtem rok v ředitelně okresní nemocnice a nakonec projdete výsledkem jako pacient. Modelová hra na doložených datech, ne predikce.',
+      ],
+    },
+    {
+      title: 'Nedovařený tapír',
+      status: 'Běží',
+      url: 'https://www.nedovarenytapir.cz',
+      text: 'Simulátor šíření nákazy postavený na modelu SEIR.',
     },
   ] satisfies Project[],
 }
@@ -323,8 +341,16 @@ export const tvorba = {
   ] satisfies Project[],
 
   fotografieLabel: 'Fotografie',
-  fotografie:
-    'Svatby, portréty, architektura a volná tvorba. Portfolio má vlastní sekci s galeriemi, nabídkou a kontaktem na focení.',
+  fotografie: [
+    'Fotit jsem začal kvůli Mariánským Lázním. Chtěl jsem ukázat město tak, jak ho vidím — a zůstalo mi to.',
+    'Dneska je focení samostatný koníček, který si na sebe musí vydělat. Proto fotím od svateb přes portréty, reportáž a akt až po architekturu, interiéry a krajinu.',
+    'Portfolio má vlastní sekci s galeriemi, nabídkou a kontaktem na focení.',
+  ],
+  vopat: {
+    text: 'Portrét, který je na tomhle webu, fotil Aleš Vopát.',
+    label: 'alesvopat.com',
+    url: 'https://www.alesvopat.com/',
+  },
   fotografieCta: 'Otevřít fotoportfolio →',
   fotografieHref: '/foto',
 }

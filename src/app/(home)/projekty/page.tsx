@@ -27,6 +27,9 @@ export default function ProjektyPage() {
         <p className="m-0 mb-2 max-w-[38em] text-[15px] italic" style={{ color: MUTED }}>
           {projekty.hryPerex}
         </p>
+        <p className="m-0 mb-2 max-w-[38em] text-[15px]" style={{ color: MUTED }}>
+          {projekty.hryNote}
+        </p>
         {projekty.hry.map((item) => (
           <Card key={item.title} {...item} />
         ))}
