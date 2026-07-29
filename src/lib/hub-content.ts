@@ -217,6 +217,8 @@ export const projekty = {
     {
       title: 'marienbad.com',
       status: 'Už běží',
+      // Apex doména; www.marienbad.com nemá platný certifikát.
+      url: 'https://marienbad.com',
       text: 'Redakční portál o Mariánských Lázních pro německy mluvící a mezinárodní návštěvníky. Nejedná se o katalog ubytování, prostě texty o tom, proč k nám přijet, co tu vidět a zažít.',
     },
     {

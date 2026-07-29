@@ -97,18 +97,29 @@ export function Card({
   text?: string
   extra?: string[]
 }) {
+  const shownUrl = url?.replace(/^https?:\/\//, '').replace(/\/$/, '')
+  // Když se projekt jmenuje po své doméně, nevypisuj ji dvakrát — odkazem
+  // se stane rovnou titulek.
+  const titleIsUrl = shownUrl?.toLowerCase() === title.toLowerCase()
+
   return (
     <article className="py-6" style={{ borderTop: `1px solid ${RULE}` }}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <h3 className="font-[family-name:var(--font-source-serif)] m-0 text-[19px] font-semibold leading-[1.2]">
-          {title}
+          {url && titleIsUrl ? (
+            <a href={url} style={{ color: ACCENT }} target="_blank" rel="noreferrer">
+              {title}
+            </a>
+          ) : (
+            title
+          )}
         </h3>
         {status && (
           <span className="text-[12px] uppercase tracking-[0.1em]" style={{ color: MUTED }}>
             {status}
           </span>
         )}
-        {url && (
+        {url && !titleIsUrl && (
           <a
             href={url}
             className="text-[13.5px] hover:underline"
@@ -116,7 +127,7 @@ export function Card({
             target="_blank"
             rel="noreferrer"
           >
-            {url.replace(/^https?:\/\//, '')}
+            {shownUrl}
           </a>
         )}
       </div>
