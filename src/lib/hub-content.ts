@@ -17,6 +17,11 @@ export const EMAIL = 'josef@josefpavlovic.cz'
 
 export const oMne = {
   title: 'O mně',
+  portret: {
+    src: '/media/o-mne/josef-pavlovic-portret-2024.webp',
+    alt: 'Josef Pavlovic',
+    kredit: 'Foto Aleš Vopát, 2024',
+  },
   bio: [
     'Narodil jsem se v Mariánských Lázních — tenkrát tu ještě byla nemocnice — a žiju tady celý život. Při škole jsem začínal na recepci lázeňských hotelů, potom jsem na obchodním oddělení dělal OTA a konference. Občas mě to na chvíli zaválo jinam, ale vždycky jsem se vrátil. Tohle město miluju.',
     'Ke zdravotnictví mě přivedlo právě rušení naší nemocnice. Chtěl jsem pochopit, proč se to děje a co se s tím dá dělat. Od roku 2017 jsem dělal asistenta poslanci Petru Třešňákovi, který byl tehdy místopředsedou zdravotnického výboru. Postupně jsem vedl resortní tým zdravotnictví u Pirátů a v roce 2021 jsem jim připravoval volební program pro zdravotnictví. Zdravotnický deník ho tehdy v nezávislé analýze vyhodnotil jako nejlepší mezi kandidujícími stranami.',
@@ -35,25 +40,28 @@ export const oMne = {
       meta: 'Od 2013 · RunCzech · ČMK',
       text: 'Půlmaratony, občas maraton a výjimečně něco delšího. Tam už jsem ale na hraně: padesát šest kilometrů a dva tisíce šest set metrů převýšení za patnáct hodin v Krkonoších byl můj strop.',
       fotky: [
-        { src: '/media/beh/krkonose-1.webp', alt: 'Krkonoše za soumraku' },
-        { src: '/media/beh/krkonose-2.webp', alt: 'Poštovna pod Sněžkou' },
-        { src: '/media/beh/medoc.webp', alt: 'Značka 35. kilometru ve vinicích, Marathon du Médoc' },
+        { src: '/media/beh/krkonose-1.webp', w: 1000, h: 750, alt: 'Krkonoše za soumraku' },
+        { src: '/media/beh/krkonose-2.webp', w: 1000, h: 750, alt: 'Poštovna pod Sněžkou' },
+        { src: '/media/beh/medoc.webp', w: 1000, h: 750, alt: 'Značka 35. kilometru ve vinicích, Marathon du Médoc' },
       ],
     },
     {
       title: 'Lipová MTB',
       meta: 'Pořádali jsme',
       text: 'Závod horských kol v Lipové jsem několik let pořádal s tátou. Po jeho smrti proběhl ještě jeden ročník jako Memoriál Josefa Pavlovice a tím to skončilo. Bez něj to nedávalo smysl.',
+      fotky: [{ src: '/media/o-mne/lipova-mtb.webp', w: 1000, h: 750, alt: 'Start závodu horských kol v Lipové' }],
     },
     {
       title: 'Aikidó',
       meta: 'Od 2010 · aikidoml.cz',
       text: 'Členem oddílu Aikidó Mariánské Lázně jsem od roku 2010. Posledních několik let pomáhám našemu senseiovi vést tréninky.',
+      fotky: [{ src: '/media/o-mne/aikido.webp', w: 1000, h: 408, alt: 'Oddíl Aikidó Mariánské Lázně na tatami' }],
     },
     {
       title: 'Zapomenuté říše',
       meta: 'Aktivně',
       text: 'Vedu dlouhodobou kampaň v Dungeons & Dragons. K jednomu z vrcholů příběhu vznikly tři symfonické metalové skladby v češtině.',
+      fotky: [{ src: '/media/o-mne/zapomenute-rise.webp', w: 1000, h: 750, alt: 'Bitevní mapa s terénem a figurkami' }],
     },
     {
       title: 'Whisky',
@@ -454,6 +462,32 @@ export const tvorba = {
       text: 'Rozbor situace kolem IT zakázek VZP a bezpečnostního opatření NÚKIB.',
     },
   ] satisfies Project[],
+
+  /**
+   * Videa. Titulky a kanály jsou převzaté z YouTube oEmbed, ne odhadnuté.
+   * „Dream come true" je na kanálu MLmag, ne na Josefově — proto je uvedený
+   * jako cizí kanál a netvrdí se u něj autorství.
+   */
+  videoLabel: 'Video',
+  videoPerex: 'Časosběry a jedno video o městě.',
+  videa: [
+    {
+      id: 'eacCwogEOTs',
+      titulek: 'Timelapse2',
+      kanal: 'Josef Pavlovic',
+    },
+    {
+      id: 'KFnTn-gmY-Y',
+      titulek: 'Timelapse Podhora 2017',
+      kanal: 'Josef Pavlovic',
+    },
+    {
+      id: '6oDMDRrlIlE',
+      titulek: 'Dream come true Marianske Lazne',
+      kanal: 'MLmag',
+      start: 29,
+    },
+  ],
 
   fotografieLabel: 'Fotografie',
   fotografie: [

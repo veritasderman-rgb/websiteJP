@@ -19,6 +19,22 @@ const ACCENT = '#14606B'
 export default function OMnePage() {
   return (
     <HubPage title={oMne.title} activeHref="/o-mne">
+      <figure className="mt-8 mb-2 max-w-[42em]">
+        <Image
+          src={oMne.portret.src}
+          alt={oMne.portret.alt}
+          width={1400}
+          height={933}
+          priority
+          sizes="(max-width: 768px) 100vw, 42rem"
+          className="h-auto w-full"
+          style={{ border: `1px solid ${RULE}` }}
+        />
+        <figcaption className="mt-2 text-[13px]" style={{ color: MUTED }}>
+          {oMne.portret.kredit}
+        </figcaption>
+      </figure>
+
       <Prose paragraphs={oMne.bio} />
 
       <p className="mt-5 max-w-[38em] text-[17px] leading-[1.7]" style={{ color: '#2A2D33' }}>
@@ -54,14 +70,19 @@ export default function OMnePage() {
                 {item.text}
               </p>
               {'fotky' in item && item.fotky && (
-                <div className="mt-4 grid grid-cols-3 gap-2">
+                <div
+                  className={`mt-4 grid gap-2 ${
+                    // Samotná fotka dostane celou šířku karty, víc jich jde vedle sebe.
+                    item.fotky.length > 1 ? 'grid-cols-3' : 'grid-cols-1'
+                  }`}
+                >
                   {item.fotky.map((foto) => (
                     <Image
                       key={foto.src}
                       src={foto.src}
                       alt={foto.alt}
-                      width={1000}
-                      height={750}
+                      width={foto.w}
+                      height={foto.h}
                       sizes="(max-width: 640px) 30vw, 12rem"
                       className="h-auto w-full"
                       style={{ border: `1px solid ${RULE}` }}
