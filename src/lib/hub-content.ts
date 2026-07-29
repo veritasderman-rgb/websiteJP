@@ -81,7 +81,9 @@ export type Role = {
 
 export const verejnaSluzba = {
   title: 'Kde jsem byl — a co z toho vzniklo',
-  perex: 'Titul je nárok. Níže je u každé funkce to, co se v ní reálně odehrálo.',
+  // Deck měl „Titul je nárok. Níže je…". Autor to nechal přepsat: byl to
+  // aforismus (což editorial pravidla decku zakazují) a šlo číst obojím směrem.
+  perex: 'U každé funkce je to, co se v ní reálně odehrálo.',
 
   roles: [
     {
