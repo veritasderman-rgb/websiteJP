@@ -52,7 +52,7 @@ export const uvodContent = {
     },
     {
       title: 'Marketing a destinace',
-      text: 'Vedu marketing lázeňského klastru Ensana. Vedle toho stavím marienbad.com.',
+      text: 'Vedu marketing lázeňského clusteru Ensana. Vedle toho stavím marienbad.com.',
       cta: 'Podrobně →',
       href: '/projekty',
     },

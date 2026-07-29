@@ -14,6 +14,7 @@ export const revalidate = false
 
 const ACCENT = '#14606B'
 const RULE = '#E4E1DA'
+const MUTED = '#6B6E76'
 
 export default function TvorbaPage() {
   return (
@@ -34,13 +35,22 @@ export default function TvorbaPage() {
 
       <section className="mt-16">
         <SectionLabel>{tvorba.fotografieLabel}</SectionLabel>
-        <p
-          className="mt-0 mb-0 max-w-[38em] text-[17px] leading-[1.7]"
-          style={{ color: '#2A2D33' }}
-        >
-          {tvorba.fotografie}
+        {tvorba.fotografie.map((paragraph) => (
+          <p
+            key={paragraph}
+            className="mt-0 mb-4 max-w-[38em] text-[17px] leading-[1.7]"
+            style={{ color: '#2A2D33' }}
+          >
+            {paragraph}
+          </p>
+        ))}
+        <p className="mt-5 mb-0 max-w-[38em] text-[15px]" style={{ color: MUTED }}>
+          {tvorba.vopat.text}{' '}
+          <a href={tvorba.vopat.url} target="_blank" rel="noreferrer" style={{ color: ACCENT }}>
+            {tvorba.vopat.label}
+          </a>
         </p>
-        <p className="mt-5 mb-0">
+        <p className="mt-6 mb-0">
           <Link
             href={tvorba.fotografieHref}
             className="inline-block px-5 py-2.5 text-[15px] font-medium"
