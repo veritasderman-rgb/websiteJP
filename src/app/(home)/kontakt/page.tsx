@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import HubPage, { SectionLabel } from '@/components/uvod/HubPage'
 import { kontakt, EMAIL } from '@/lib/hub-content'
 
@@ -12,6 +13,7 @@ export const revalidate = false
 
 const ACCENT = '#14606B'
 const MUTED = '#6B6E76'
+const RULE = '#E4E1DA'
 
 export default function KontaktPage() {
   return (
@@ -42,6 +44,45 @@ export default function KontaktPage() {
             </li>
           ))}
         </ul>
+
+        <p className="mt-8 mb-1 text-[13px] font-semibold uppercase tracking-[0.08em]">
+          {kontakt.fotkyLabel}
+        </p>
+        <p className="m-0 mb-4 text-[13px]" style={{ color: MUTED }}>
+          {kontakt.fotkyNote}
+        </p>
+        <div className="grid max-w-[42em] grid-cols-1 gap-6 sm:grid-cols-2">
+          {kontakt.fotky.map((f) => (
+            <figure key={f.popis} className="m-0">
+              <Image
+                src={f.nahled}
+                alt={f.popis}
+                width={1600}
+                height={1067}
+                sizes="(max-width: 640px) 100vw, 20rem"
+                className="h-auto w-full"
+                style={{ border: `1px solid ${RULE}` }}
+              />
+              <figcaption className="mt-2 text-[13px]" style={{ color: MUTED }}>
+                {f.popis}
+                {f.kredit ? ` · ${f.kredit}` : ''}
+                <span className="mt-1 block">
+                  <a href={f.web} download style={{ color: ACCENT }}>
+                    web
+                  </a>
+                  {'tisk' in f && f.tisk ? (
+                    <>
+                      {' · '}
+                      <a href={f.tisk} download style={{ color: ACCENT }}>
+                        tisk ({f.tiskPopis})
+                      </a>
+                    </>
+                  ) : null}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
     </HubPage>
   )
