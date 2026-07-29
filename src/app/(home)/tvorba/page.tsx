@@ -60,7 +60,7 @@ export default function TvorbaPage() {
                 />
               </div>
               <figcaption className="mt-2 text-[13.5px]" style={{ color: MUTED }}>
-                {video.titulek} · {video.kanal}
+                {video.titulek} · {video.kredit}
               </figcaption>
             </figure>
           ))}
