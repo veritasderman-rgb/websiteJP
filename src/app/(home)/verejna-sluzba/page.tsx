@@ -125,6 +125,17 @@ export default function VerejnaSluzbaPage() {
         <p className="mt-2 mb-0 text-[15.5px] leading-[1.7]" style={{ color: '#2A2D33' }}>
           {vs.ocenani.text}
         </p>
+        <p className="mt-3 mb-0 text-[14px]">
+          <a
+            href={vs.ocenani.odkaz.url}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:underline"
+            style={{ color: ACCENT }}
+          >
+            {vs.ocenani.odkaz.label}
+          </a>
+        </p>
       </aside>
 
       <section className="mt-16">

@@ -294,6 +294,10 @@ export const verejnaSluzba = {
   ocenani: {
     title: 'Genderman roku 2024 — třetí místo',
     text: 'V kategorii Osobnost roku, za podíl na iniciativě přátelských porodnic a na propojování nemocnic s komunitními službami. Cenu uděluje Otevřená společnost mužům, kteří odmítají sexismus a podporují genderovou rovnost. Vyhlášeno v lednu 2025.',
+    odkaz: {
+      label: 'Tisková zpráva ze 14. ledna 2025 →',
+      url: 'https://www.pirati.cz/jak-pirati-pracuji/prazsky-radni-za-piraty-adam-zabransky-ziskal-2-misto-v-oceneni-genderman-roku-2024-bodoval-i-pirat-josef-pavlovic/',
+    },
   },
 
   mesto: {
