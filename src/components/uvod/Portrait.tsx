@@ -18,7 +18,7 @@ interface PortraitProps {
 
 /**
  * Portrét v poměru 3:4 — v designu zástupná šrafura s popiskem
- * „portrét · Aleš Vopát", tady skutečná fotka + kredit pod ní.
+ * „portrét · Aleš Vopat", tady skutečná fotka + kredit pod ní.
  */
 export default function Portrait({
   borderColor,

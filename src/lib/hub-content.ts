@@ -20,7 +20,7 @@ export const oMne = {
   portret: {
     src: '/media/o-mne/josef-pavlovic-portret-2024.webp',
     alt: 'Josef Pavlovic',
-    kredit: 'Foto Vopát, 2024',
+    kredit: 'Foto Aleš Vopat, 2024',
   },
   bio: [
     'Narodil jsem se v Mariánských Lázních — tenkrát tu ještě byla nemocnice — a žiju tady celý život. Při škole jsem začínal na recepci lázeňských hotelů, potom jsem na obchodním oddělení dělal OTA a konference. Občas mě to na chvíli zaválo jinam, ale vždycky jsem se vrátil. Tohle město miluju.',
@@ -497,7 +497,7 @@ export const tvorba = {
     'Portfolio má vlastní sekci s galeriemi, nabídkou a kontaktem na focení.',
   ],
   vopat: {
-    text: 'Portrét, který je na tomhle webu, fotil Aleš Vopát.',
+    text: 'Portrét, který je na tomhle webu, fotil Aleš Vopat.',
     label: 'alesvopat.com',
     url: 'https://www.alesvopat.com/',
   },
@@ -522,7 +522,7 @@ export const kontakt = {
     {
       nahled: '/media/tisk/josef-pavlovic-portret-vopat-web.jpg',
       popis: 'Portrét, 9. 4. 2024',
-      kredit: 'Foto Vopát',
+      kredit: 'Foto Aleš Vopat',
       web: '/media/tisk/josef-pavlovic-portret-vopat-web.jpg',
       tisk: '/media/tisk/josef-pavlovic-portret-vopat-tisk.jpg',
       tiskPopis: '4976 × 3318',

@@ -33,9 +33,9 @@ export const uvodContent = {
   lead:
     'Narodil jsem se v Mariánských Lázních, tenkrát tu ještě byla nemocnice. Její rušení mě dovedlo ke zdravotnictví — na chvíli až do sněmovny a na ministerstvo. Jinak žiju tady celý život: při škole jsem začínal na hotelové recepci a dnes týmž hotelům vedu marketing. Tohle město miluju.',
 
-  portraitCaption: 'portrét · Aleš Vopát, album JP',
-  portraitCaptionShort: 'portrét · Aleš Vopát',
-  portraitCredit: 'Foto Aleš Vopát, 2024',
+  portraitCaption: 'portrét · Aleš Vopat, album JP',
+  portraitCaptionShort: 'portrét · Aleš Vopat',
+  portraitCredit: 'Foto Aleš Vopat, 2024',
 
   areas: [
     {
