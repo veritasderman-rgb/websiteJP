@@ -58,7 +58,7 @@ export const uvodContent = {
     },
     {
       title: 'Co stavím',
-      text: 'HSPA Česko, datové pipeline, aplikace. Většinou proto, že to nikdo jiný neudělal.',
+      text: 'SkoreZdravotnictvi.cz, datové pipeline, aplikace. Většinou proto, že to nikdo jiný neudělal.',
       cta: 'Projekty →',
       href: '/projekty',
     },
@@ -84,7 +84,7 @@ export const uvodContent = {
 
   nowLabel: 'Právě teď — červenec 2026',
   now: [
-    'Dokončuju sociální publikační vrstvu pro HSPA Česko',
+    'Dokončuju sociální publikační vrstvu pro SkoreZdravotnictvi.cz',
     'Chystám kandidátku pro komunální volby v Mariánských Lázních',
     'Dodělávám kampaň pirátské námořní hry, mise 7–11',
   ],

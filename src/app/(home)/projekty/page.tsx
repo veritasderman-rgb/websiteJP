@@ -5,7 +5,7 @@ import { projekty } from '@/lib/hub-content'
 export const metadata: Metadata = {
   title: 'Projekty',
   description:
-    'HSPA Česko, marienbad.com, marketing lázeňských hotelů Ensana a hry pro radost. Většina z toho vznikla proto, že to nikdo jiný neudělal.',
+    'SkoreZdravotnictvi.cz, marienbad.com, marketing lázeňských hotelů Ensana a hry pro radost. Většina z toho vznikla proto, že to nikdo jiný neudělal.',
   alternates: { canonical: '/projekty' },
 }
 

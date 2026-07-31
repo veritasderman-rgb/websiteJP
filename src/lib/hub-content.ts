@@ -29,7 +29,7 @@ export const oMne = {
     'Vedle toho jsem řídil Centrální řídící tým očkovacích kampaní, zahájil reformu krajských hygienických stanic a rozjížděl síť nemocničních ombudsmanů.',
     'Dneska jsem ve Správní radě VZP, v zastupitelstvu Mariánských Lázní a předsedám správní radě zdejšího symfonického orchestru. Živí mě ale marketing. Vedu ho lázeňským hotelům Ensana — vrátil jsem se vlastně tam, kde jsem začínal. Je to práce o obsazenosti, cenách a o tom, proč sem lidi jezdí.',
     'Vystudoval jsem ekonomiku a management na Západočeské univerzitě v Plzni.',
-    'Ve volném čase stavím weby a datové věci. Největší je HSPA Česko, kde měřím výkonnost českého zdravotnictví. Čísla o něm existují, jen je nikdo nedával dohromady. Druhý je marienbad.com, portál o Mariánských Lázních pro cizince. Kromě toho školím time management a napsal jsem k tomu příručku.',
+    'Ve volném čase stavím weby a datové věci. Největší je SkoreZdravotnictvi.cz, kde měřím výkonnost českého zdravotnictví. Čísla o něm existují, jen je nikdo nedával dohromady. Druhý je marienbad.com, portál o Mariánských Lázních pro cizince. Kromě toho školím time management a napsal jsem k tomu příručku.',
     'Píšu městskou fantasy, cyklus se jmenuje Česká hlídka. Fotím. Dělám dvě hry, vesmírnou strategii a taktiku plachetnic. Cvičím aikidó, běhám, vedu roky stejnou kampaň v Zapomenutých říších a rád testuju dobrou whisky.',
   ],
 
@@ -74,11 +74,11 @@ export const oMne = {
   bios: [
     {
       label: 'Krátká (55 slov)',
-      text: 'Josef Pavlovic byl v letech 2022–2024 náměstkem ministra zdravotnictví. Dnes je členem Správní rady VZP ČR, zastupitelem v Mariánských Lázních a předsedou správní rady tamního symfonického orchestru. Živí ho marketing lázeňských hotelů Ensana. Ve volném čase staví HSPA Česko, portál o výkonnosti českého zdravotnictví, a školí time management.',
+      text: 'Josef Pavlovic byl v letech 2022–2024 náměstkem ministra zdravotnictví. Dnes je členem Správní rady VZP ČR, zastupitelem v Mariánských Lázních a předsedou správní rady tamního symfonického orchestru. Živí ho marketing lázeňských hotelů Ensana. Ve volném čase staví SkoreZdravotnictvi.cz, portál o výkonnosti českého zdravotnictví, a školí time management.',
     },
     {
       label: 'Střední (160 slov)',
-      text: 'Josef Pavlovic dělá zdravotní politiku od roku 2017. Začínal jako asistent poslance Petra Třešňáka, tehdy místopředsedy zdravotnického výboru. Potom vedl resortní tým zdravotnictví u Pirátů a připravoval jejich volební program pro zdravotnictví; analýza Zdravotnického deníku ho v roce 2021 vyhodnotila jako nejlepší mezi kandidujícími stranami.\n\nV letech 2022 až 2024 byl náměstkem ministra zdravotnictví. Měl na starosti veřejné zdraví, péči o matku a dítě a část covidové agendy. Za jeho působení vláda schválila strategii Baby Friendly Hospital a vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva.\n\nDnes je ve Správní radě VZP ČR, v zastupitelstvu Mariánských Lázní a předsedá správní radě Západočeského symfonického orchestru. Živí ho marketing, vede ho lázeňským hotelům Ensana. Mimo práci staví HSPA Česko a marienbad.com, školí time management, píše a fotí.',
+      text: 'Josef Pavlovic dělá zdravotní politiku od roku 2017. Začínal jako asistent poslance Petra Třešňáka, tehdy místopředsedy zdravotnického výboru. Potom vedl resortní tým zdravotnictví u Pirátů a připravoval jejich volební program pro zdravotnictví; analýza Zdravotnického deníku ho v roce 2021 vyhodnotila jako nejlepší mezi kandidujícími stranami.\n\nV letech 2022 až 2024 byl náměstkem ministra zdravotnictví. Měl na starosti veřejné zdraví, péči o matku a dítě a část covidové agendy. Za jeho působení vláda schválila strategii Baby Friendly Hospital a vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva.\n\nDnes je ve Správní radě VZP ČR, v zastupitelstvu Mariánských Lázní a předsedá správní radě Západočeského symfonického orchestru. Živí ho marketing, vede ho lázeňským hotelům Ensana. Mimo práci staví SkoreZdravotnictvi.cz a marienbad.com, školí time management, píše a fotí.',
     },
   ],
 }
@@ -292,7 +292,7 @@ export const verejnaSluzba = {
   temata: [
     {
       title: 'Péče o matku a dítě',
-      text: 'Táhne se mi to napříč vším, co dělám. Na ministerstvu iniciativa přátelských porodnic, signální výkony ke kojení, vyhláška k bankám mateřského mléka a propojování nemocnic s komunitními službami. Ve sněmovně interpelace ke kontaminaci kojenecké výživy. Na HSPA Česko data o kojení po jednotlivých porodnicích.',
+      text: 'Táhne se mi to napříč vším, co dělám. Na ministerstvu iniciativa přátelských porodnic, signální výkony ke kojení, vyhláška k bankám mateřského mléka a propojování nemocnic s komunitními službami. Ve sněmovně interpelace ke kontaminaci kojenecké výživy. Na SkoreZdravotnictvi.cz data o kojení po jednotlivých porodnicích.',
     },
     {
       title: 'Střety zájmů',
@@ -345,9 +345,9 @@ export const projekty = {
 
   items: [
     {
-      title: 'HSPA Monitor — skorezdravotnictvi.cz',
+      title: 'SkoreZdravotnictvi.cz',
       status: 'Běží',
-      url: 'https://www.skorezdravotnictvi.cz',
+      url: 'https://skorezdravotnictvi.cz',
       text: 'Nezávislá občanská implementace rámce OECD HSPA pro Českou republiku. Měří, jestli zdravotnictví zlepšuje zdraví, je dostupné, kvalitní a finančně udržitelné. Automatizované datové pipeline, otevřená metodika, průběžná aktualizace.',
       extra: [
         'Vedle dashboardu vychází editorial řada — články s daty a zdroji, Barometr politických prohlášení, který převádí závazky z programového prohlášení vlády na měřitelné checkpointy, a přehled indikátorů s metodikou.',
@@ -402,7 +402,7 @@ export const projekty = {
     },
     {
       title: 'Tři židle',
-      status: 'Součást HSPA Monitoru',
+      status: 'Součást SkoreZdravotnictvi.cz',
       url: 'https://www.skorezdravotnictvi.cz/hra',
       text: 'Jedno rozhodnutí, tři pohledy: ministr, ředitel nemocnice a pacient. Každý sedí na jiné straně stolu, pracuje s jinými informacemi a nese jiné důsledky.',
       extra: [
