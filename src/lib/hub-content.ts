@@ -85,11 +85,14 @@ export const oMne = {
 
 /* --------------------------------------------------------- Veřejná služba */
 
+/** Výstup funkce; s odkazem, pokud k němu existuje doložitelný zdroj. */
+export type Outcome = string | { text: string; odkaz: { label: string; url: string } }
+
 export type Role = {
   title: string
   period?: string
   intro?: string
-  outcomes: string[]
+  outcomes: Outcome[]
 }
 
 export const verejnaSluzba = {
@@ -105,7 +108,13 @@ export const verejnaSluzba = {
       intro:
         'Nominován Pirátskou stranou, spolupráce s ministrem Válkem. Agenda: veřejné zdraví, péče o matku a dítě, část covidové agendy, elektronizace a otevřená data.',
       outcomes: [
-        'Vláda schválila strategii Baby Friendly Hospital.',
+        {
+          text: 'Vláda schválila strategii Baby Friendly Hospital.',
+          odkaz: {
+            label: 'Tisková zpráva MZ ČR, 12. 9. 2024',
+            url: 'https://mzd.gov.cz/tiskove-centrum-mz/vlada-schvalila-komplexni-strategii-baby-friendly-hospital-initiative-ceskym-zenam-a-novorozencum-se-dostane-lepsi-pece/',
+          },
+        },
         'Metodika pro přítomnost zákonného zástupce u hospitalizovaného dítěte a úprava zákona č. 372 — rodič není návštěva.',
         'Signální výkony ke kojení v preventivních prohlídkách dětí do jednoho roku.',
         'Řízení Centrálního řídícího týmu očkovacích kampaní proti covidu a chřipce; vznik Národního institutu pro zvládání pandemie pod SZÚ.',
@@ -313,8 +322,10 @@ export const verejnaSluzba = {
     koalice:
       'Chopin 85 mil. (dotace 41,4) · zimní stadion 38 mil. (dotace 19,6) · dílny ZŠ Úšovice 16 mil. (dotace 13) · trolejbusy a měnírna, dotace přes 100 mil. · sídliště Plzeňská 5 mil. · 60 mil. do silnic a chodníků · opravy zastávek MHD · discgolf a parkour z participativního rozpočtu · pět tůní, sad, rybníky · návrat múz Olbrama Zoubka, odkup hudebního divadla · UNESCO · fond kultury a fond sportu.',
     opozice: 'Od roku 2022 jsem v opozici.',
-    zaver:
-      'V komunálních volbách 2026 kandiduju v Mariánských Lázních. Volební program a kampaň mají vlastní web: Pro lepší Mariánské Lázně.',
+    zaver: 'V komunálních volbách 2026 kandiduju v Mariánských Lázních. Volební program a kampaň mají vlastní web:',
+    // Deck mluvil o webu „Pro lepší Mariánské Lázně", sám web se ale
+    // jmenuje „Za lepší" — držíme se jeho vlastního názvu.
+    zaverOdkaz: { label: 'Za lepší Mariánské Lázně →', url: 'https://lepsiml.cz' },
   },
 }
 
@@ -402,7 +413,7 @@ export const projekty = {
       title: 'Nedovařený tapír',
       status: 'Běží',
       url: 'https://www.nedovarenytapir.cz',
-      text: 'Simulátor šíření nákazy postavený na modelu SEIR.',
+      text: 'Simulátor šíření nákazy postavený na modelu SEIR. Pro zábavu i pro výuku.',
     },
   ] satisfies Project[],
 }

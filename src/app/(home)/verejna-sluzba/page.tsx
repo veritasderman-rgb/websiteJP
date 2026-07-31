@@ -42,17 +42,35 @@ export default function VerejnaSluzbaPage() {
             )}
 
             <ul className="mt-4 mb-0 list-none p-0">
-              {role.outcomes.map((outcome) => (
-                <li
-                  key={outcome}
-                  className="relative max-w-[40em] py-1.5 pl-6 text-[15.5px] leading-[1.65]"
-                >
-                  <span className="absolute left-0" style={{ color: ACCENT }}>
-                    →
-                  </span>
-                  {outcome}
-                </li>
-              ))}
+              {role.outcomes.map((outcome) => {
+                const text = typeof outcome === 'string' ? outcome : outcome.text
+                const odkaz = typeof outcome === 'string' ? null : outcome.odkaz
+                return (
+                  <li
+                    key={text}
+                    className="relative max-w-[40em] py-1.5 pl-6 text-[15.5px] leading-[1.65]"
+                  >
+                    <span className="absolute left-0" style={{ color: ACCENT }}>
+                      →
+                    </span>
+                    {text}
+                    {odkaz && (
+                      <>
+                        {' '}
+                        <a
+                          href={odkaz.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:underline"
+                          style={{ color: ACCENT }}
+                        >
+                          {odkaz.label}
+                        </a>
+                      </>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
           </article>
         ))}
@@ -175,7 +193,16 @@ export default function VerejnaSluzbaPage() {
         <p className="mt-7 mb-0 text-[17px] font-medium">{vs.mesto.opozice}</p>
 
         <p className="mt-10 mb-0 max-w-[40em] text-[17px] leading-[1.7]" style={{ color: '#2A2D33' }}>
-          {vs.mesto.zaver}
+          {vs.mesto.zaver}{' '}
+          <a
+            href={vs.mesto.zaverOdkaz.url}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:underline"
+            style={{ color: ACCENT }}
+          >
+            {vs.mesto.zaverOdkaz.label}
+          </a>
         </p>
       </section>
     </HubPage>
