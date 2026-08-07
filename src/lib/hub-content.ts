@@ -30,7 +30,7 @@ export const oMne = {
     'Dneska jsem ve Správní radě VZP, v zastupitelstvu Mariánských Lázní a předsedám správní radě zdejšího symfonického orchestru. Živí mě ale marketing. Vedu ho lázeňským hotelům Ensana — vrátil jsem se vlastně tam, kde jsem začínal. Je to práce o obsazenosti, cenách a o tom, proč sem lidi jezdí.',
     'Vystudoval jsem ekonomiku a management na Západočeské univerzitě v Plzni.',
     'Ve volném čase stavím weby a datové věci. Největší je SkoreZdravotnictvi.cz, kde měřím výkonnost českého zdravotnictví. Čísla o něm existují, jen je nikdo nedával dohromady. Druhý je marienbad.com, portál o Mariánských Lázních pro cizince. Kromě toho školím time management a napsal jsem k tomu příručku.',
-    'Píšu městskou fantasy, cyklus se jmenuje Česká hlídka. Fotím. Dělám dvě hry, vesmírnou strategii a taktiku plachetnic. Cvičím aikidó, běhám, vedu roky stejnou kampaň v Zapomenutých říších a rád testuju dobrou whisky.',
+    'Píšu městskou fantasy, cyklus se jmenuje Česká hlídka. Fotím. Dělám dvě hry, vesmírnou strategii a taktiku plachetnic. Cvičím aikidó, běhám, hraju roky stejnou kampaň v Zapomenutých říších a rád testuju dobrou whisky.',
   ],
 
   mimoPraciLabel: 'Mimo práci',
@@ -60,7 +60,7 @@ export const oMne = {
     {
       title: 'Zapomenuté říše',
       meta: 'Aktivně',
-      text: 'Vedu dlouhodobou kampaň v Dungeons & Dragons. K jednomu z vrcholů příběhu vznikly tři symfonické metalové skladby v češtině.',
+      text: 'Hraju dlouhodobou kampaň v Dungeons & Dragons. K jednomu z vrcholů příběhu vznikly tři symfonické metalové skladby v češtině.',
       fotky: [{ src: '/media/o-mne/zapomenute-rise.webp', w: 1240, h: 301, alt: 'Bitevní mapa s terénem a figurkami' }],
     },
     {
