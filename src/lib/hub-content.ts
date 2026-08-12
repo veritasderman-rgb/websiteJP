@@ -426,9 +426,17 @@ export const produktivita = {
     'Vycházím z metody Getting Things Done, ale bez její sektářské verze. Cílem není mít dokonalý systém, ale mít volnou hlavu.',
     'Ke kurzu patří návody na konkrétní nástroje: Todoist, OneNote, Google Workspace, Notion. Vybírám podle toho, v čem lidi už pracují, ne podle toho, co je zrovna v módě.',
     'Napsal jsem k tomu příručku produktivity, kterou dostane každý účastník.',
+    'Všechno k tématu shrnuju na Produktivní.cz — příručka, tipy i to, jak do toho zapadá AI.',
     'Školím týmy i jednotlivce. Pokud vás to zajímá, napište mi.',
   ],
   items: [
+    {
+      // Popis je převzatý z toho, jak se web sám prezentuje, ne domyšlený.
+      title: 'Produktivní.cz',
+      status: 'Běží',
+      url: 'https://produktivni.cz',
+      text: 'Web, kde mám všechno pohromadě: příručka přes GTD, Inbox Zero, Pomodoro a práci s pozorností, přes dvě stě tipů a triků, sekce o AI a týdenní newsletter.',
+    },
     {
       title: 'Příručka produktivity',
       status: 'Hotové',
