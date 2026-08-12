@@ -97,10 +97,16 @@ export function Card({
   text?: string
   extra?: string[]
 }) {
-  const shownUrl = url?.replace(/^https?:\/\//, '').replace(/\/$/, '')
+  const shownUrl = url?.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '')
   // Když se projekt jmenuje po své doméně, nevypisuj ji dvakrát — odkazem
-  // se stane rovnou titulek.
-  const titleIsUrl = shownUrl?.toLowerCase() === title.toLowerCase()
+  // se stane rovnou titulek. Diakritiku je nutné srovnat: „Produktivní.cz"
+  // je totéž jako produktivni.cz.
+  const bezDiakritiky = (s: string) =>
+    s
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLowerCase()
+  const titleIsUrl = shownUrl !== undefined && bezDiakritiky(shownUrl) === bezDiakritiky(title)
 
   return (
     <article className="py-6" style={{ borderTop: `1px solid ${RULE}` }}>
