@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { trackEvent } from '@/lib/analytics'
+import { CookieSettingsLink } from '@/components/CookieConsent'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -35,9 +36,12 @@ export default function Footer() {
             mail@josefpavlovic.cz
           </Link>
         </div>
-        <p className="text-secondary text-xs">
-          Mariánské Lázně, Česká republika
-        </p>
+        <div className="flex items-center gap-4">
+          <p className="text-secondary text-xs">
+            Mariánské Lázně, Česká republika
+          </p>
+          <CookieSettingsLink className="text-secondary hover:text-accent transition-colors text-xs" />
+        </div>
       </div>
     </footer>
   )

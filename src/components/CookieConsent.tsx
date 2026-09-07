@@ -1,47 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 import Link from 'next/link'
-import { CONSENT_KEY } from '@/lib/consent'
-
-// Aktualizuje Google Consent Mode v2 po volbě uživatele. Pokud GA ještě
-// není načtená (dev / GA vypnutá), funkce se tiše neprovede.
-function updateGtagConsent(granted: boolean) {
-  if (typeof window === 'undefined') return
-  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
-  if (typeof gtag !== 'function') return
-  const value = granted ? 'granted' : 'denied'
-  gtag('consent', 'update', {
-    ad_storage: value,
-    ad_user_data: value,
-    ad_personalization: value,
-    analytics_storage: value,
-  })
-}
+import {
+  isConsentOpen,
+  isConsentOpenOnServer,
+  reopenConsent,
+  subscribeConsent,
+  writeConsent,
+} from '@/lib/consent'
 
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false)
+  // localStorage je externí úložiště mimo React — čteme ho přes
+  // useSyncExternalStore, ať se banner překreslí po volbě i po znovuotevření
+  // z patičky. Serverový snapshot banner skrývá, aby při hydrataci neblikl.
+  const open = useSyncExternalStore(subscribeConsent, isConsentOpen, isConsentOpenOnServer)
 
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(CONSENT_KEY)
-      if (stored !== 'granted' && stored !== 'denied') setVisible(true)
-    } catch {
-      setVisible(true)
-    }
-  }, [])
-
-  const choose = (granted: boolean) => {
-    try {
-      window.localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied')
-    } catch {
-      // localStorage nedostupné (např. private mode) – volbu jen aplikujeme
-    }
-    updateGtagConsent(granted)
-    setVisible(false)
-  }
-
-  if (!visible) return null
+  if (!open) return null
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[60] px-4 pb-4 sm:px-6 sm:pb-6">
@@ -58,14 +33,14 @@ export default function CookieConsent() {
           <div className="flex shrink-0 gap-3">
             <button
               type="button"
-              onClick={() => choose(false)}
+              onClick={() => writeConsent('denied')}
               className="border border-primary text-primary text-xs tracking-[0.15em] uppercase px-5 py-3 hover:bg-primary hover:text-white transition-colors font-sans whitespace-nowrap"
             >
               Odmítnout
             </button>
             <button
               type="button"
-              onClick={() => choose(true)}
+              onClick={() => writeConsent('granted')}
               className="bg-primary text-white text-xs tracking-[0.15em] uppercase px-5 py-3 hover:bg-accent transition-colors font-sans whitespace-nowrap"
             >
               Souhlasím
@@ -74,5 +49,14 @@ export default function CookieConsent() {
         </div>
       </div>
     </div>
+  )
+}
+
+/** Odkaz do patičky, kterým jde souhlas kdykoli znovu otevřít a odvolat. */
+export function CookieSettingsLink({ className }: { className?: string }) {
+  return (
+    <button type="button" onClick={reopenConsent} className={className}>
+      Nastavení cookies
+    </button>
   )
 }
