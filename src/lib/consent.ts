@@ -26,14 +26,19 @@ export function subscribeConsent(onChange: () => void): () => void {
   }
 }
 
+/** Volba pro případ, že localStorage zápis odmítne (privátní režim,
+ *  sandbox). Bez ní by se banner po kliknutí nezavřel — přečetl by si
+ *  prázdné úložiště a otevřel se znovu. */
+let fallbackChoice: ConsentChoice | null = null
+
 function readStored(): ConsentChoice | null {
   try {
     const stored = window.localStorage.getItem(CONSENT_KEY)
-    return stored === 'granted' || stored === 'denied' ? stored : null
+    if (stored === 'granted' || stored === 'denied') return stored
   } catch {
-    // Privátní režim — chováme se, jako by volba nepadla.
-    return null
+    // Privátní režim — spolehneme se na volbu drženou v paměti.
   }
+  return fallbackChoice
 }
 
 /** Má se banner vykreslit? */
@@ -54,10 +59,12 @@ export function reopenConsent(): void {
 }
 
 export function writeConsent(choice: ConsentChoice): void {
+  // Nejdřív do paměti: platí i tehdy, když zápis do localStorage selže.
+  fallbackChoice = choice
   try {
     window.localStorage.setItem(CONSENT_KEY, choice)
   } catch {
-    // localStorage nedostupné (např. private mode) – volbu jen aplikujeme
+    // localStorage nedostupné (např. private mode) – volba platí pro tuto návštěvu
   }
   reopened = false
   updateGtagConsent(choice)
