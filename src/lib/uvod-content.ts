@@ -23,6 +23,7 @@ export const uvodNav: UvodNavItem[] = [
   { label: 'Projekty', href: '/projekty' },
   { label: 'Produktivita', href: '/produktivita' },
   { label: 'Tvorba', href: '/tvorba' },
+  { label: 'Foto', href: '/foto' },
   { label: 'Kontakt', href: '/kontakt' },
 ]
 
@@ -36,6 +37,20 @@ export const uvodContent = {
   portraitCaption: 'portrét · Aleš Vopat, album JP',
   portraitCaptionShort: 'portrét · Aleš Vopat',
   portraitCredit: 'Foto Aleš Vopat, 2024',
+
+  /**
+   * Foto teaser v hero — třetí sloupec vedle portrétu, odkazuje do fotosekce.
+   * Fotka je z portfolia (Ferdinandova kolonáda), aby hero zůstalo u Mariánek.
+   */
+  fotoTeaser: {
+    label: 'Fotografie',
+    title: 'Svatby, portréty, architektura',
+    text: 'Fotit jsem začal kvůli Mariánským Lázním. Dneska je z toho samostatná sekce s galeriemi, nabídkou a kontaktem.',
+    cta: 'Otevřít fotoportfolio →',
+    href: '/foto',
+    image: '/media/portfolio/images/architektura/169-ferdinandova-kolonada-den-s-kvetinami.webp',
+    alt: 'Ferdinandova kolonáda v Mariánských Lázních, den s květinami',
+  },
 
   areas: [
     {
