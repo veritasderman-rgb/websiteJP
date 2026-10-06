@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { uvodContent } from '@/lib/uvod-content'
 import Portrait from './Portrait'
+import FotoTeaser from './FotoTeaser'
 import { HubFooter, HubHeader, ACCENT, MUTED, PAPER, RULE } from './HubChrome'
 
 /**
@@ -28,12 +29,12 @@ export default function VariantA() {
       {/* Hlavička */}
       <HubHeader activeLabel="Úvod" />
 
-      {/* Hero */}
+      {/* Hero: text · portrét · foto teaser */}
       <section
-        className="grid grid-cols-1 items-end gap-14 px-6 pt-16 pb-14 md:grid-cols-[1fr_300px] md:px-10 md:pt-[84px]"
+        className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_300px] lg:grid-cols-[minmax(0,1fr)_300px_minmax(300px,32%)]"
         style={{ borderBottom: `1px solid ${RULE}` }}
       >
-        <div>
+        <div className="self-end px-6 pt-16 md:pb-14 md:pl-10 md:pr-0 md:pt-[84px]">
           <h1 className="font-[family-name:var(--font-source-serif)] m-0 text-[clamp(44px,7vw,72px)] font-semibold leading-[1.1] tracking-[-0.015em]">
             {uvodContent.name}
           </h1>
@@ -50,7 +51,19 @@ export default function VariantA() {
             {uvodContent.place}
           </p>
         </div>
-        <Portrait borderColor={RULE} priority />
+
+        <div className="self-end px-6 pt-14 pb-14 md:pl-14 md:pr-10 md:pt-[84px]">
+          <Portrait borderColor={RULE} priority />
+        </div>
+
+        {/*
+          Pod `lg` není na třetí sloupec místo — teaser jde jako pás pod
+          portrét přes oba sloupce. Od `lg` vyplní celou výšku hero až k okraji.
+        */}
+        <FotoTeaser
+          priority
+          className="min-h-[360px] md:col-span-2 md:min-h-[400px] lg:col-span-1 lg:min-h-0 lg:border-l lg:border-[#E4E1DA]"
+        />
       </section>
 
       {/* Oblasti */}
