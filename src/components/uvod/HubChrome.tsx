@@ -14,12 +14,15 @@ export const MUTED = '#6B6E76'
 export function HubHeader({ activeLabel }: { activeLabel?: string }) {
   return (
     <header
-      className="flex flex-wrap items-center justify-between gap-y-3 px-6 py-4 md:h-16 md:flex-nowrap md:px-10 md:py-0"
+      // Od `md` má hlavička minimální, ne pevnou výšku: těsně nad zlomem se
+      // menu ještě zalamuje na dva řádky a s pevnými 64 px odkazy přetékaly
+      // přes linku do hero.
+      className="flex flex-wrap items-center justify-between gap-y-3 px-6 py-4 md:min-h-16 md:flex-nowrap md:px-10 md:py-2"
       style={{ borderBottom: `1px solid ${RULE}` }}
     >
       <Link
         href="/"
-        className="font-[family-name:var(--font-source-serif)] text-[19px] font-semibold tracking-[-0.01em]"
+        className="font-[family-name:var(--font-source-serif)] text-[19px] font-semibold tracking-[-0.01em] whitespace-nowrap"
       >
         {uvodContent.name}
       </Link>
