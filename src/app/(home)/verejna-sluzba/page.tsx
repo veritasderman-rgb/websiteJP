@@ -5,7 +5,7 @@ import { verejnaSluzba as vs } from '@/lib/hub-content'
 export const metadata: Metadata = {
   title: 'Veřejná služba',
   description:
-    'Náměstek ministra zdravotnictví 2022–2024, Správní rada VZP, resortní tým Pirátů, zastupitel Mariánských Lázní. U každé funkce to, co se v ní odehrálo.',
+    'Náměstek ministra zdravotnictví 2022–2024, Správní rada VZP, resortní tým Pirátů, zastupitel Mariánských Lázní 2018–2026. U každé funkce to, co se v ní odehrálo.',
   alternates: { canonical: '/verejna-sluzba' },
 }
 

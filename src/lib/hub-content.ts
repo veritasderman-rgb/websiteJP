@@ -27,7 +27,7 @@ export const oMne = {
     'Ke zdravotnictví mě přivedlo právě rušení naší nemocnice. Chtěl jsem pochopit, proč se to děje a co se s tím dá dělat. Od roku 2017 jsem dělal asistenta poslanci Petru Třešňákovi, který byl tehdy místopředsedou zdravotnického výboru. Postupně jsem vedl resortní tým zdravotnictví u Pirátů a v roce 2021 jsem jim připravoval volební program pro zdravotnictví. Zdravotnický deník ho tehdy v nezávislé analýze vyhodnotil jako nejlepší mezi kandidujícími stranami.',
     'V letech 2022 až 2024 jsem byl náměstkem ministra zdravotnictví. Měl jsem na starosti veřejné zdraví, péči o matku a dítě a část covidové agendy. Ze všeho, co jsem tam dělal, mi nejvíc zůstaly tři věci. Vláda schválila strategii Baby Friendly Hospital. Vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva, a k tomu úprava zákona 372. A do preventivních prohlídek kojenců se dostaly signální výkony ke kojení, což zní jako drobnost, ale znamená to, že se kojení konečně někde eviduje a dá se sledovat.',
     'Vedle toho jsem řídil Centrální řídící tým očkovacích kampaní, zahájil reformu krajských hygienických stanic a rozjížděl síť nemocničních ombudsmanů.',
-    'Dneska jsem ve Správní radě VZP, v zastupitelstvu Mariánských Lázní a předsedám správní radě zdejšího symfonického orchestru. Živí mě ale marketing. Vedu ho lázeňským hotelům Ensana — vrátil jsem se vlastně tam, kde jsem začínal. Je to práce o obsazenosti, cenách a o tom, proč sem lidi jezdí.',
+    'Dneska jsem ve Správní radě VZP a předsedám správní radě zdejšího symfonického orchestru. V letech 2018 až 2026 jsem byl zastupitelem Mariánských Lázní. Živí mě ale marketing. Vedu ho lázeňským hotelům Ensana — vrátil jsem se vlastně tam, kde jsem začínal. Je to práce o obsazenosti, cenách a o tom, proč sem lidi jezdí.',
     'Vystudoval jsem ekonomiku a management na Západočeské univerzitě v Plzni.',
     'Ve volném čase stavím weby a datové věci. Největší je SkoreZdravotnictvi.cz, kde měřím výkonnost českého zdravotnictví. Čísla o něm existují, jen je nikdo nedával dohromady. Druhý je marienbad.com, portál o Mariánských Lázních pro cizince. Kromě toho školím time management a napsal jsem k tomu příručku.',
     'Píšu městskou fantasy, cyklus se jmenuje Česká hlídka. Fotím. Dělám dvě hry, vesmírnou strategii a taktiku plachetnic. Cvičím aikidó, běhám, hraju roky stejnou kampaň v Zapomenutých říších a rád testuju dobrou whisky.',
@@ -74,11 +74,11 @@ export const oMne = {
   bios: [
     {
       label: 'Krátká (55 slov)',
-      text: 'Josef Pavlovic byl v letech 2022–2024 náměstkem ministra zdravotnictví. Dnes je členem Správní rady VZP ČR, zastupitelem v Mariánských Lázních a předsedou správní rady tamního symfonického orchestru. Živí ho marketing lázeňských hotelů Ensana. Ve volném čase staví SkoreZdravotnictvi.cz, portál o výkonnosti českého zdravotnictví, a školí time management.',
+      text: 'Josef Pavlovic byl v letech 2022–2024 náměstkem ministra zdravotnictví. Dnes je členem Správní rady VZP ČR a předsedou správní rady symfonického orchestru v Mariánských Lázních, kde byl v letech 2018–2026 zastupitelem. Živí ho marketing lázeňských hotelů Ensana. Ve volném čase staví SkoreZdravotnictvi.cz, portál o výkonnosti českého zdravotnictví, a školí time management.',
     },
     {
       label: 'Střední (160 slov)',
-      text: 'Josef Pavlovic dělá zdravotní politiku od roku 2017. Začínal jako asistent poslance Petra Třešňáka, tehdy místopředsedy zdravotnického výboru. Potom vedl resortní tým zdravotnictví u Pirátů a připravoval jejich volební program pro zdravotnictví; analýza Zdravotnického deníku ho v roce 2021 vyhodnotila jako nejlepší mezi kandidujícími stranami.\n\nV letech 2022 až 2024 byl náměstkem ministra zdravotnictví. Měl na starosti veřejné zdraví, péči o matku a dítě a část covidové agendy. Za jeho působení vláda schválila strategii Baby Friendly Hospital a vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva.\n\nDnes je ve Správní radě VZP ČR, v zastupitelstvu Mariánských Lázní a předsedá správní radě Západočeského symfonického orchestru. Živí ho marketing, vede ho lázeňským hotelům Ensana. Mimo práci staví SkoreZdravotnictvi.cz a marienbad.com, školí time management, píše a fotí.',
+      text: 'Josef Pavlovic dělá zdravotní politiku od roku 2017. Začínal jako asistent poslance Petra Třešňáka, tehdy místopředsedy zdravotnického výboru. Potom vedl resortní tým zdravotnictví u Pirátů a připravoval jejich volební program pro zdravotnictví; analýza Zdravotnického deníku ho v roce 2021 vyhodnotila jako nejlepší mezi kandidujícími stranami.\n\nV letech 2022 až 2024 byl náměstkem ministra zdravotnictví. Měl na starosti veřejné zdraví, péči o matku a dítě a část covidové agendy. Za jeho působení vláda schválila strategii Baby Friendly Hospital a vznikla metodika, podle které rodič u hospitalizovaného dítěte není návštěva.\n\nDnes je ve Správní radě VZP ČR a předsedá správní radě Západočeského symfonického orchestru. V letech 2018–2026 byl zastupitelem Mariánských Lázní. Živí ho marketing, vede ho lázeňským hotelům Ensana. Mimo práci staví SkoreZdravotnictvi.cz a marienbad.com, školí time management, píše a fotí.',
     },
   ],
 }
@@ -148,9 +148,9 @@ export const verejnaSluzba = {
     },
     {
       title: 'Zastupitel města Mariánské Lázně',
-      period: 'od 2018',
+      period: '2018–2026',
       intro:
-        'Zvolen v letech 2018 a 2022. Zastupitelstvo rozhoduje o rozpočtu města, nakládání s majetkem a územním plánu.',
+        'Zvolen v letech 2018 a 2022, mandát skončil komunálními volbami 2026. Zastupitelstvo rozhoduje o rozpočtu města, nakládání s majetkem a územním plánu.',
       outcomes: [
         'Žádost o informace ve věci autorských práv k logu města (2026).',
         'Prosazení aktualizace zakladatelské listiny ZSO tak, aby odpovídala zákonu.',
@@ -321,8 +321,8 @@ export const verejnaSluzba = {
     koaliceLabel: 'Za koalice, ve které jsem v letech 2018–2022 působil, město dotáhlo',
     koalice:
       'Chopin 85 mil. (dotace 41,4) · zimní stadion 38 mil. (dotace 19,6) · dílny ZŠ Úšovice 16 mil. (dotace 13) · trolejbusy a měnírna, dotace přes 100 mil. · sídliště Plzeňská 5 mil. · 60 mil. do silnic a chodníků · opravy zastávek MHD · discgolf a parkour z participativního rozpočtu · pět tůní, sad, rybníky · návrat múz Olbrama Zoubka, odkup hudebního divadla · UNESCO · fond kultury a fond sportu.',
-    opozice: 'Od roku 2022 jsem v opozici.',
-    zaver: 'V komunálních volbách 2026 kandiduju v Mariánských Lázních. Volební program a kampaň mají vlastní web:',
+    opozice: 'V letech 2022–2026 jsem byl v opozici.',
+    zaver: 'Volební program z komunálních voleb 2026 má vlastní web:',
     // Deck mluvil o webu „Pro lepší Mariánské Lázně", sám web se ale
     // jmenuje „Za lepší" — držíme se jeho vlastního názvu.
     zaverOdkaz: { label: 'Za lepší Mariánské Lázně →', url: 'https://lepsiml.cz' },
