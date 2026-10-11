@@ -61,7 +61,7 @@ export const uvodContent = {
     },
     {
       title: 'Mariánské Lázně',
-      text: 'Zastupitel od roku 2018, předseda správní rady symfonického orchestru. Co se ve městě povedlo a co ne.',
+      text: 'Zastupitel v letech 2018–2026, předseda správní rady symfonického orchestru. Co se ve městě povedlo a co ne.',
       cta: 'Podrobně →',
       href: '/verejna-sluzba',
     },
@@ -100,7 +100,6 @@ export const uvodContent = {
   nowLabel: 'Právě teď — červenec 2026',
   now: [
     'Dokončuju sociální publikační vrstvu pro SkoreZdravotnictvi.cz',
-    'Chystám kandidátku pro komunální volby v Mariánských Lázních',
     'Dodělávám kampaň pirátské námořní hry, mise 7–11',
   ],
 
