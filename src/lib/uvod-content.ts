@@ -100,7 +100,6 @@ export const uvodContent = {
   nowLabel: 'Právě teď — červenec 2026',
   now: [
     'Dokončuju sociální publikační vrstvu pro SkoreZdravotnictvi.cz',
-    'Chystám kandidátku pro komunální volby v Mariánských Lázních',
     'Dodělávám kampaň pirátské námořní hry, mise 7–11',
   ],
 
