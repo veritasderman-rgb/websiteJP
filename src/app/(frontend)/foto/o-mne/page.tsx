@@ -1,6 +1,7 @@
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../../../../../keystatic.config'
 import type { Metadata } from 'next'
+import { EMAIL } from '@/lib/hub-content'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -18,7 +19,7 @@ export default async function OmnePage() {
 
   const aboutImage = settings?.aboutImage || null
   const aboutText = settings?.aboutText || null
-  const email = settings?.email || 'mail@josefpavlovic.cz'
+  const email = settings?.email || EMAIL
   const location = settings?.location || 'Mariánské Lázně, Karlovarský kraj'
 
   return (

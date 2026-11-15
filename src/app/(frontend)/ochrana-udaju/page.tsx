@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { EMAIL } from '@/lib/hub-content'
 
 export const metadata: Metadata = {
   title: 'Ochrana osobních údajů',
@@ -64,7 +65,7 @@ export default function OchranaUdajuPage() {
             <h2 className="font-display text-2xl text-primary font-light mb-3">Vaše práva</h2>
             <p>
               Máte právo požádat o přístup ke svým údajům, opravu, výmaz, omezení zpracování a podat námitku.
-              Pro uplatnění práv mě kontaktujte na e-mailu <a className="underline" href="mailto:mail@josefpavlovic.cz">mail@josefpavlovic.cz</a>.
+              Pro uplatnění práv mě kontaktujte na e-mailu <a className="underline" href={`mailto:${EMAIL}`}>{EMAIL}</a>.
             </p>
           </section>
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { EMAIL } from '@/lib/hub-content'
 import ContactForm from '@/components/ContactForm'
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../../../../../keystatic.config'
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default async function KontaktPage() {
   const reader = createReader(process.cwd(), keystaticConfig)
   const settings = await reader.singletons.siteSettings.read()
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || process.env.CONTACT_TO_EMAIL || settings?.email || 'mail@josefpavlovic.cz'
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || process.env.CONTACT_TO_EMAIL || settings?.email || EMAIL
   const instagram = settings?.instagram || 'josefpavlovic'
   const location = settings?.location || 'Mariánské Lázně, Česká republika'
   const phone = settings?.phone || ''
