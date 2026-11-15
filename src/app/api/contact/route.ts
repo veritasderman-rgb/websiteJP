@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { z } from 'zod'
+import { EMAIL } from '@/lib/hub-content'
 
 export const maxDuration = 30
 
@@ -15,7 +16,7 @@ const typeLabels: Record<string, string> = {
   jine: 'Jiné',
 }
 
-const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'mail@josefpavlovic.cz'
+const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || EMAIL
 const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'web@josefpavlovic.cz'
 
 const requestSchema = z.object({

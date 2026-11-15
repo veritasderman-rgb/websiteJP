@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { trackEvent } from '@/lib/analytics'
 import { CookieSettingsLink } from '@/components/CookieConsent'
+import { EMAIL } from '@/lib/hub-content'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -29,11 +30,11 @@ export default function Footer() {
             </svg>
           </Link>
           <Link
-            href="mailto:mail@josefpavlovic.cz"
+            href={`mailto:${EMAIL}`}
             aria-label="E-mail"
             className="text-secondary hover:text-accent transition-colors text-xs tracking-wider uppercase"
           >
-            mail@josefpavlovic.cz
+            {EMAIL}
           </Link>
         </div>
         <div className="flex items-center gap-4">
