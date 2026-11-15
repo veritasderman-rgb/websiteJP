@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Ochrana osobních údajů',
   description: 'Informace o zpracování osobních údajů pro kontaktní formulář.',
+  alternates: { canonical: '/ochrana-udaju' },
 }
 
 export default function OchranaUdajuPage() {

@@ -1,12 +1,22 @@
 import { config, collection, fields, singleton } from '@keystatic/core'
 
+/**
+ * Tenhle soubor se načítá na serveru i v prohlížeči (administrace /keystatic),
+ * takže se úložiště nesmí rozhodovat přímo podle KEYSTATIC_GITHUB_CLIENT_ID —
+ * ta v klientském bundlu není a prohlížeč by zvolil `local`, zatímco server
+ * `github`.
+ *
+ * NEXT_PUBLIC_KEYSTATIC_STORAGE dopočítá next.config.ts při buildu (`github`,
+ * pokud je nastavené KEYSTATIC_GITHUB_CLIENT_ID, jinak `local`) a vloží ho do
+ * serverového i klientského kódu, takže obě strany dojdou ke stejnému výsledku.
+ * Do prohlížeče se dostane jen tahle jedna hodnota, žádný klíč.
+ */
+const useGithub = process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === 'github'
+
 export default config({
-  storage: {
-    kind: process.env.KEYSTATIC_GITHUB_CLIENT_ID ? 'github' : 'local',
-    ...(process.env.KEYSTATIC_GITHUB_CLIENT_ID
-      ? { repo: 'veritasderman-rgb/websiteJP' }
-      : {}),
-  } as Parameters<typeof config>[0]['storage'],
+  storage: useGithub
+    ? { kind: 'github', repo: 'veritasderman-rgb/websiteJP' }
+    : { kind: 'local' },
 
   ui: {
     brand: { name: 'Josef Pavlovic' },

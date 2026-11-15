@@ -52,13 +52,14 @@ export default function KontaktPage() {
           {kontakt.fotkyNote}
         </p>
         <div className="grid max-w-[42em] grid-cols-1 gap-6 sm:grid-cols-2">
-          {kontakt.fotky.map((f) => (
+          {kontakt.fotky.map((f, i) => (
             <figure key={f.popis} className="m-0">
               <Image
                 src={f.nahled}
                 alt={f.popis}
                 width={1600}
                 height={1067}
+                priority={i === 0}
                 sizes="(max-width: 640px) 100vw, 20rem"
                 className="h-auto w-full"
                 style={{ border: `1px solid ${RULE}` }}

@@ -22,10 +22,11 @@ export async function generateMetadata(
   const { slug } = await params
   const reader = createReader(process.cwd(), keystaticConfig)
   const gallery = await reader.collections.galleries.read(slug)
-  if (!gallery) return {}
+  if (!gallery) return { title: 'Stránka nenalezena', robots: { index: false } }
   return {
     title: gallery.title,
     description: gallery.description || '',
+    alternates: { canonical: `/foto/portfolio/${slug}` },
   }
 }
 

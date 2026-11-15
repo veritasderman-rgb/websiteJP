@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { varianta } = await params
   const variant = getUvodVariant(varianta)
-  if (!variant) return {}
+  if (!variant) return { title: 'Stránka nenalezena', robots: { index: false } }
   return {
     title: `Homepage ${variant.id} — ${variant.name}`,
     description: variant.note,

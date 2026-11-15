@@ -6,6 +6,7 @@ import { thumbFor } from '@/lib/portfolio'
 export const metadata: Metadata = {
   title: 'Nabídka',
   description: 'Nabídka fotografických služeb — svatební fotografie, boudoir & akt, portréty. Profesionální přístup, individuální péče.',
+  alternates: { canonical: '/foto/nabidka' },
 }
 
 const services = [
@@ -131,6 +132,7 @@ export default function NabidkaPage() {
                         src={thumbFor(service.gallery.images[0]) || service.gallery.images[0]}
                         alt={`${service.label} - hlavní náhled galerie`}
                         fill
+                        priority={i === 0}
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                         sizes="(max-width: 768px) 60vw, 36vw"
                       />
