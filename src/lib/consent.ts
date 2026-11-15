@@ -105,3 +105,59 @@ function updateGtagConsent(choice: ConsentChoice): void {
   if (typeof gtag !== 'function') return
   gtag('consent', 'update', { analytics_storage: choice })
 }
+
+// ── Výchozí stav souhlasu ────────────────────────────────────────────────────
+//
+// Google Consent Mode v2: výchozí stav (denied) se musí do dataLayer dostat
+// dřív, než se GA inicializuje. Pokud už návštěvník dříve souhlasil, vezme se
+// volba z localStorage. Reklamní souhlas (ad_*) zůstává vždycky denied — banner
+// se na reklamní účely neptá.
+//
+// Stejný kód běží na dvou místech a je idempotentní (window.__jpConsentDefault):
+//   1. jako inline <script> v <head> (root layout) — pokryje běžné stránky hned
+//      při parsování HTML;
+//   2. z komponenty GoogleAnalyticsConsent těsně před spuštěním GA — pokryje
+//      stránky, které Next vykreslí až v prohlížeči (např. notFound()
+//      z dynamické routy). Tam se <script> z layoutu neprovede vůbec a GA by
+//      jinak nastavila cookies bez volby návštěvníka.
+export const CONSENT_DEFAULT_SCRIPT = `(function(){
+if (window.__jpConsentDefault) return;
+window.__jpConsentDefault = true;
+window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+window.gtag = window.gtag || gtag;
+var granted = false;
+try { granted = localStorage.getItem('${CONSENT_KEY}') === 'granted'; } catch (e) {}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: granted ? 'granted' : 'denied',
+  wait_for_update: 500
+});
+})();`
+
+/** Klientská obdoba CONSENT_DEFAULT_SCRIPT — viz komentář výše. */
+export function ensureConsentDefault(): void {
+  const w = window as unknown as {
+    __jpConsentDefault?: boolean
+    dataLayer?: unknown[]
+    gtag?: (...args: unknown[]) => void
+  }
+  if (w.__jpConsentDefault) return
+  w.__jpConsentDefault = true
+  const dataLayer = (w.dataLayer = w.dataLayer || [])
+  // gtag musí do dataLayer vkládat objekt `arguments`, ne pole.
+  function gtag(..._args: unknown[]) {
+    // eslint-disable-next-line prefer-rest-params
+    dataLayer.push(arguments)
+  }
+  w.gtag = w.gtag || gtag
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: readStored() === 'granted' ? 'granted' : 'denied',
+    wait_for_update: 500,
+  })
+}

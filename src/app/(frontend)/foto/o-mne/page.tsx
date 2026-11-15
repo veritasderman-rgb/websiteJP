@@ -7,6 +7,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'O mně',
   description: 'Jsem Josef Pavlovic, fotograf z Mariánských Lázní. Zachycuji příběhy, emoce a krásu — od svatebních ceremonií po fine art portréty.',
+  alternates: { canonical: '/foto/o-mne' },
 }
 
 export const revalidate = false
@@ -31,14 +32,19 @@ export default async function OmnePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           {aboutImage && (
-            <div className="relative aspect-[3/4] overflow-hidden sticky top-24">
-              <Image
-                src={aboutImage}
-                alt="Josef Pavlovic — Fotograf"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="sticky top-24">
+              {/* `fill` potřebuje rodiče s position relative/absolute/fixed;
+                  sticky proto drží vnější obal. */}
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src={aboutImage}
+                  alt="Josef Pavlovic — Fotograf"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
           )}
 

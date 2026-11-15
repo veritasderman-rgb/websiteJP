@@ -6,6 +6,7 @@ import keystaticConfig from '../../../../../keystatic.config'
 export const metadata: Metadata = {
   title: 'Kontakt',
   description: 'Kontaktujte Josefa Pavlovice — fotografa z Mariánských Lázní. Poptejte svatbu, boudoir focení nebo portrét.',
+  alternates: { canonical: '/foto/kontakt' },
 }
 
 export default async function KontaktPage() {

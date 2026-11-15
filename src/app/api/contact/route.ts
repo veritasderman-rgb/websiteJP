@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
       console.warn('Contact form submission without RESEND_API_KEY:', { jmeno, email, typPoptavky })
       if (process.env.NODE_ENV === 'production') {
         return NextResponse.json(
-          { error: `Formulář není nakonfigurovaný pro odesílání. Napište prosím na ${CONTACT_TO_EMAIL}.` },
+          { error: 'Formulář není nakonfigurovaný pro odesílání.' },
           { status: 503 },
         )
       }
@@ -91,7 +91,10 @@ export async function POST(req: NextRequest) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY)
-    await resend.emails.send({
+    // Resend při chybě API (neplatný klíč, neověřená doména…) nevyhazuje
+    // výjimku, vrací ji v `error`. Bez téhle kontroly by formulář hlásil úspěch,
+    // i když se e-mail neodeslal.
+    const { error: sendError } = await resend.emails.send({
       from: CONTACT_FROM_EMAIL,
       to: CONTACT_TO_EMAIL,
       replyTo: email,
@@ -108,6 +111,11 @@ export async function POST(req: NextRequest) {
         <p>${escapeHtml(zprava).replace(/\n/g, '<br>')}</p>
       `,
     })
+
+    if (sendError) {
+      console.error('Email send error:', sendError)
+      return NextResponse.json({ error: 'Chyba při odesílání' }, { status: 500 })
+    }
 
     return NextResponse.json({ ok: true })
   } catch (err) {

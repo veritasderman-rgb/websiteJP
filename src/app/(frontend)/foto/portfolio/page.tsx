@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Portfolio',
   description: 'Galerie fotografií — svatby, akt, portréty, architektura, interiéry, krajina a reportáž.',
+  alternates: { canonical: '/foto/portfolio' },
 }
 
 export const revalidate = false
@@ -57,7 +58,7 @@ export default async function PortfolioPage() {
           </p>
         ) : (
           <div className="columns-2 md:columns-3 gap-4">
-            {sorted.map(({ slug, entry }) => {
+            {sorted.map(({ slug, entry }, i) => {
               if (!entry.coverImage) return null
               const meta = getPhotoMeta(entry.coverImage)
               const coverSrc = meta?.thumb || entry.coverImage
@@ -79,6 +80,7 @@ export default async function PortfolioPage() {
                       alt={entry.title}
                       width={w}
                       height={h}
+                      priority={i === 0}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                       sizes="(max-width: 768px) 50vw, 33vw"
                     />

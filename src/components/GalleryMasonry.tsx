@@ -48,6 +48,7 @@ export default function GalleryMasonry({ images }: GalleryMasonryProps) {
               caption={img.caption}
               width={img.width}
               height={img.height}
+              priority={idx === 0}
               onClick={() => {
                 trackEvent('gallery_open', { typ: 'masonry', index: idx })
                 setLightboxIndex(idx)

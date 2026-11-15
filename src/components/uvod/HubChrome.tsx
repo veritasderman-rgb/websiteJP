@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { uvodContent, uvodNav } from '@/lib/uvod-content'
+import { CookieSettingsLink } from '@/components/CookieConsent'
 
 /**
  * Hlavička a patička rozcestníku ve stylu varianty 1a („Lázeňský deník").
@@ -64,9 +65,15 @@ export function HubFooter() {
       style={{ borderTop: `1px solid ${RULE}`, color: MUTED }}
     >
       <span>{uvodContent.copyright}</span>
-      <a href={`mailto:${uvodContent.email}`} className="hover:text-[#14606B]">
-        {uvodContent.email}
-      </a>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <Link href="/ochrana-udaju" className="hover:text-[#14606B]">
+          Ochrana údajů
+        </Link>
+        <CookieSettingsLink className="cursor-pointer hover:text-[#14606B]" />
+        <a href={`mailto:${uvodContent.email}`} className="hover:text-[#14606B]">
+          {uvodContent.email}
+        </a>
+      </div>
     </footer>
   )
 }

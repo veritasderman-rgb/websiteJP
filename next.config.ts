@@ -1,6 +1,17 @@
 import type { NextConfig } from 'next'
 
+/**
+ * Režim úložiště Keystaticu pro server i prohlížeč (viz keystatic.config.ts).
+ * Lze ho vynutit ručně; jinak se odvodí z toho, jestli je nastavená GitHub App.
+ */
+const keystaticStorage =
+  process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE ||
+  (process.env.KEYSTATIC_GITHUB_CLIENT_ID ? 'github' : 'local')
+
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_KEYSTATIC_STORAGE: keystaticStorage,
+  },
   outputFileTracingRoot: process.cwd(),
   /**
    * Fotosekce se přestěhovala pod /foto, aby hub mohl převzít kanonické adresy.
@@ -17,6 +28,9 @@ const nextConfig: NextConfig = {
     ]
   },
   images: {
+    // Hero fotka se servíruje v kvalitě 90; od Next 16 musí být každá použitá
+    // hodnota `quality` vyjmenovaná tady.
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: 'https',

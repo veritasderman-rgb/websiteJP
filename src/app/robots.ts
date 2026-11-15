@@ -4,7 +4,7 @@ export default function robots(): MetadataRoute.Robots {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://josefpavlovic.cz'
   return {
     rules: [
-      { userAgent: '*', allow: '/', disallow: ['/admin', '/api'] },
+      { userAgent: '*', allow: '/', disallow: ['/keystatic', '/api'] },
     ],
     sitemap: `${base}/sitemap.xml`,
   }
